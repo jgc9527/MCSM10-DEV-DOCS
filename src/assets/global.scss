@@ -56,7 +56,7 @@ html {
 
 .global-action-float-enter-active,
 .global-action-float-leave-active {
-  transition: all 0.8s ease;
+  transition: all 0.6s ease;
   opacity: 1 !important;
   transform: scale(1);
 }
@@ -65,4 +65,10 @@ html {
 .global-action-float-leave-to {
   opacity: 0 !important;
   transform: scale(0.96);
+}
+
+
+.app-max-width{
+  max-width: $app-max-width;
+  margin: auto;
 }

@@ -14,6 +14,8 @@ const toPage = (url: string) => {
   router.push(url);
 };
 
+const route = useRoute();
+
 const menus = router.getRoutes().map((r) => {
   return {
     name: r.name,
@@ -28,18 +30,19 @@ const menus = router.getRoutes().map((r) => {
     <div class="app-header-content">
       <div class="d-flex flex-row align-center">
         <a href="/">
-          <div class="d-flex flex-row align-center mr-4 logo">
+          <div class="d-flex flex-row align-center mr-6 logo">
             <img :src="logo" style="height: 18px" />
           </div>
         </a>
+
         <v-btn
           v-for="item in menus"
           :key="item.path"
-          variant="text"
-          class="ml-1"
+          :variant="route.path === item.path ? 'tonal' : 'text'"
           @click="toPage(item.path)"
         >
-          {{ item.name }}
+          <v-icon class="mr-1" :icon="String(item.meta.icon)"></v-icon>
+          <span>{{ item.name }}</span>
         </v-btn>
       </div>
       <div>
@@ -72,11 +75,28 @@ const menus = router.getRoutes().map((r) => {
       </div>
     </div>
   </header>
-  <div style="height: 80px"></div>
+  <div style="height: 60px"></div>
+  <div class="breadcrumbs">
+    <v-breadcrumbs
+      size="small"
+      :items="['应用实例', '控制台', '文件管理']"
+      style="padding-left: 0"
+    ></v-breadcrumbs>
+    <div></div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-@import "@/assets/variables.scss";
+@import "@/assets/global.scss";
+
+.breadcrumbs {
+  @extend .app-max-width;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .app-header-wrapper {
   // backdrop-filter: saturate(100%) blur(12px);
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16);
@@ -96,10 +116,11 @@ const menus = router.getRoutes().map((r) => {
 
   z-index: 20;
   .app-header-content {
+    @extend .app-max-width;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: $app-max-width;
     width: 100%;
     height: 60px;
   }

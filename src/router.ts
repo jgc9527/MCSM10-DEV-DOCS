@@ -9,15 +9,33 @@ const router = createRouter({
       name: "仪表盘",
       component: LayoutContainer,
       meta: {
-        icon: "dashboard",
+        icon: "mdi-view-dashboard",
+        iconHeight: "30px",
       },
     },
     {
       path: "/instance",
-      name: "应用实例",
+      name: "应用程序",
       component: LayoutContainer,
       meta: {
-        icon: "dashboard",
+        icon: "mdi-application-brackets",
+        iconHeight: "30px",
+      },
+    },
+    {
+      path: "/node",
+      name: "节点",
+      component: LayoutContainer,
+      meta: {
+        icon: "mdi-server-network",
+      },
+    },
+    {
+      path: "/settings",
+      name: "设置",
+      component: LayoutContainer,
+      meta: {
+        icon: "mdi-cog",
       },
     },
   ],
