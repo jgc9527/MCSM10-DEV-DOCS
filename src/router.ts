@@ -1,28 +1,26 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import LayoutContainer from './views/LayoutContainer.vue'
+import { createRouter, createWebHashHistory } from "vue-router";
+import LayoutContainer from "./views/LayoutContainer.vue";
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: () => import('./views/LayoutContainer.vue')
+      path: "/",
+      name: "仪表盘",
+      component: LayoutContainer,
+      meta: {
+        icon: "dashboard",
+      },
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import('./views/LayoutContainer.vue')
-    }
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (About.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import('../views/AboutView.vue')
-    // }
-  ]
-})
+      path: "/instance",
+      name: "应用实例",
+      component: LayoutContainer,
+      meta: {
+        icon: "dashboard",
+      },
+    },
+  ],
+});
 
-export default router
+export default router;
