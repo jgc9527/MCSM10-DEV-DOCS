@@ -1,0 +1,68 @@
+@import './variables.scss';
+
+body,
+html {
+  min-height: 100%;
+  margin: 0px;
+  padding: 0px;
+  background-color: $background-color;
+}
+
+.global-layout-card-dragover {
+  opacity: 0.5;
+  border: 1px solid $drag-background-color;
+  transform: scale(1.02);
+}
+
+.global-placeholder-card-dragover {
+  opacity: 0.5;
+  border: 1px dashed #5f5f5f;
+  transform: scale(1.02);
+  border-radius: 4px;
+  background-color: $drag-background-color;
+}
+
+.global-drag-animation {
+  transition: all 0.4s ease;
+}
+
+.color-danger {
+  color: $color-danger;
+}
+
+.color-primary {
+  color: $color-primary;
+}
+
+.color-warning {
+  color: $color-warning;
+}
+
+.color-success {
+  color: $color-success;
+}
+
+.color-info {
+  color: $color-info;
+}
+
+.transition-all-6 {
+  transition: all 0.6s;
+}
+
+.transition-all-4 {
+  transition: all 0.4s;
+}
+
+.global-action-float-enter-active,
+.global-action-float-leave-active {
+  transition: all 0.8s ease;
+  opacity: 1 !important;
+  transform: scale(1);
+}
+
+.global-action-float-enter-from,
+.global-action-float-leave-to {
+  opacity: 0 !important;
+  transform: scale(0.96);
+}
