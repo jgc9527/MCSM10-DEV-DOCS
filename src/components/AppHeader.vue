@@ -1,28 +1,86 @@
 <script setup lang="ts">
-import router from "@/router";
+import { router } from "@/router";
 import logo from "@/assets/logo.png";
 import { useLayoutContainerStore } from "@/stores/useLayoutContainerStore";
 import { useRoute } from "vue-router";
+import { computed, reactive } from "vue";
+import { useAppRouters } from "@/hooks/useAppRouters";
 
 const { containerState, changeDesignMode } = useLayoutContainerStore();
+const { getRouteParamsUrl, toPage } = useAppRouters();
 
+// const breadcrumbs = reactive<any[]>([]);
 const openNewCardDialog = (params: any) => {
   containerState.showNewCardDialog = true;
 };
 
-const toPage = (url: string) => {
-  router.push(url);
+const handleToPage = (url: string) => {
+  toPage({
+    path: url,
+  });
 };
 
 const route = useRoute();
 
-const menus = router.getRoutes().map((r) => {
-  return {
-    name: r.name,
-    path: r.path,
-    meta: r.meta,
-  };
+const menus = router
+  .getRoutes()
+  .filter((v) => v.meta.mainMenu)
+  .map((r) => {
+    return {
+      name: r.name,
+      path: r.path,
+      meta: r.meta,
+    };
+  });
+
+router.beforeEach((to, from) => {
+  console.log("Router:", from, "->", to);
+  return true;
 });
+
+const breadcrumbs = computed(() => {
+  const arr = [
+    {
+      title: "管理面板",
+      disabled: false,
+      href: "/",
+    },
+  ];
+
+  const queryUrl = getRouteParamsUrl();
+
+  const routePaths = route.path.split("/");
+  for (const node of routePaths) {
+    router.getRoutes().forEach((v) => {
+      const curPath = `/${node}`;
+      if (node === "" || curPath === route.path) return;
+      if (v.path === curPath) {
+        arr.push({
+          title: String(v.name),
+          disabled: false,
+          href: `/#${v.path}` + (queryUrl ? `?${queryUrl}` : ""),
+        });
+      }
+    });
+  }
+  arr.push({
+    title: String(route.name),
+    disabled: true,
+    href: `/#${route.fullPath}`,
+  });
+  return arr;
+});
+
+setTimeout(() => {
+  toPage({
+    path: "/instances/terminal",
+    query: {
+      uuid: "as;lcmxz;cl;zcm;ls",
+      instance_type: "sdknlk",
+      saldmop: "s",
+    },
+  });
+}, 1000 * 4);
 </script>
 
 <template>
@@ -39,7 +97,7 @@ const menus = router.getRoutes().map((r) => {
           v-for="item in menus"
           :key="item.path"
           :variant="route.path === item.path ? 'tonal' : 'text'"
-          @click="toPage(item.path)"
+          @click="handleToPage(item.path)"
         >
           <v-icon class="mr-1" :icon="String(item.meta.icon)"></v-icon>
           <span>{{ item.name }}</span>
@@ -79,10 +137,9 @@ const menus = router.getRoutes().map((r) => {
   <div class="breadcrumbs">
     <v-breadcrumbs
       size="small"
-      :items="['应用实例', '控制台', '文件管理']"
+      :items="breadcrumbs"
       style="padding-left: 0"
     ></v-breadcrumbs>
-    <div></div>
   </div>
 </template>
 

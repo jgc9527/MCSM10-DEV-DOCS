@@ -90,7 +90,7 @@ export const useLayoutConfigStore = defineStore("layoutConfigStore", () => {
       ],
     },
     {
-      page: "/instance",
+      page: "/instances",
       items: [
         {
           id: "AAAAA",
