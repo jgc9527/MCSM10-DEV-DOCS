@@ -108,6 +108,25 @@ export const useLayoutConfigStore = defineStore("layoutConfigStore", () => {
         },
       ],
     },
+    {
+      page: "/instances/terminal",
+      items: [
+        {
+          id: "BBBBB",
+          type: "ExampleCard",
+          title: "我的ABOUT卡片2",
+          width: 4,
+          height: LayoutCardHeight.MEDIUM,
+        },
+        {
+          id: "BBBBB",
+          type: "ExampleCard",
+          title: "我的ABOUT卡片2",
+          width: 4,
+          height: LayoutCardHeight.MEDIUM,
+        },
+      ],
+    },
   ]);
 
   const getPageLayoutConfig = (pageName: string) => {

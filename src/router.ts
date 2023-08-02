@@ -5,15 +5,22 @@ import {
 } from "vue-router";
 import LayoutContainer from "./views/LayoutContainer.vue";
 
-interface RouterConfig {
+export interface RouterMetaInfo {
+  icon?: string;
+  mainMenu?: boolean;
+  breadcrumbs?: Array<{
+    name: string;
+    path: string;
+    mainMenu?: boolean;
+  }>;
+}
+
+export interface RouterConfig {
   path: string;
   name: string;
   component?: any;
   children?: RouterConfig[];
-  meta: {
-    icon?: string;
-    mainMenu?: boolean;
-  };
+  meta: RouterMetaInfo;
 }
 
 let originRouterConfig = [
@@ -72,27 +79,23 @@ let originRouterConfig = [
 ];
 
 function routersConfigOptimize(
-  originRouterConfig: any[],
-  parent: string[] = []
+  config: RouterConfig[],
+  list: Array<{ name: string; path: string }> = []
 ) {
-  for (const r of originRouterConfig) {
+  for (const r of config) {
+    r.meta.breadcrumbs = list;
     if (r.children && r.children instanceof Array) {
-      parent.push(r);
-      routersConfigOptimize(r.children, JSON.parse(JSON.stringify(parent)));
+      const newList = JSON.parse(JSON.stringify(list));
+      newList.push({ name: r.name, path: r.path, mainMenu: r.meta.mainMenu });
+      routersConfigOptimize(r.children, newList);
     }
-    r.meta.parents = parent;
   }
-  return originRouterConfig;
+  return config;
 }
-
-console.log(
-  "routersConfigOptimize:",
-  routersConfigOptimize(originRouterConfig)
-);
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes: originRouterConfig,
+  routes: routersConfigOptimize(originRouterConfig) as RouteRecordRaw[],
 });
 
 export { router, originRouterConfig };

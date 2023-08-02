@@ -1,26 +1,25 @@
 <script setup lang="ts">
-import { useCardPool } from '@/stores/useCardPool'
-import LayoutCardComponent from '@/components/cards/LayoutCard.vue'
-import { ref, computed } from 'vue'
-import type { LayoutCard } from '@/types'
-import { useLayoutConfigStore } from '@/stores/useLayoutConfig'
-import { useLayoutContainerStore } from '@/stores/useLayoutContainerStore'
+import { useCardPool } from "@/stores/useCardPool";
+import LayoutCardComponent from "@/components/cards/LayoutCard.vue";
+import { ref, computed } from "vue";
+import type { LayoutCard } from "@/types";
+import { useLayoutConfigStore } from "@/stores/useLayoutConfig";
+import { useLayoutContainerStore } from "@/stores/useLayoutContainerStore";
 
-const { getCardPool } = useCardPool()
-const { insertLayoutItem } = useLayoutConfigStore()
-const { containerState } = useLayoutContainerStore()
+const { getCardPool } = useCardPool();
+const { insertLayoutItem } = useLayoutConfigStore();
+const { containerState } = useLayoutContainerStore();
 const display = computed(() => {
-  console.log('const display = computed(() => { 执行')
-  cardPool = getCardPool()
-  return containerState.showNewCardDialog
-})
-let cardPool = getCardPool()
+  cardPool = getCardPool();
+  return containerState.showNewCardDialog;
+});
+let cardPool = getCardPool();
 
 const insertCardToLayout = (card: LayoutCard) => {
-  const newCard = JSON.parse(JSON.stringify(card))
-  insertLayoutItem('', newCard)
-  containerState.showNewCardDialog = false
-}
+  const newCard = JSON.parse(JSON.stringify(card));
+  insertLayoutItem("", newCard);
+  containerState.showNewCardDialog = false;
+};
 </script>
 
 <template>
@@ -31,7 +30,12 @@ const insertCardToLayout = (card: LayoutCard) => {
       @click="containerState.showNewCardDialog = false"
     >
       <div class="new-card-list">
-        <v-row v-for="card in cardPool" :key="card.id" style="margin-bottom: 20px" align="center">
+        <v-row
+          v-for="card in cardPool"
+          :key="card.id"
+          style="margin-bottom: 20px"
+          align="center"
+        >
           <v-col cols="12">
             <div class="text-h6">
               {{ card.title }}
@@ -60,7 +64,7 @@ const insertCardToLayout = (card: LayoutCard) => {
 </template>
 
 <style lang="scss" scoped>
-@import '@/assets/global.scss';
+@import "@/assets/global.scss";
 
 .card-container-wrapper {
   border: 1px dashed $gray-border-color;

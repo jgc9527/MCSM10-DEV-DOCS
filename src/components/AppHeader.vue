@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { router } from "@/router";
+import { router, type RouterMetaInfo } from "@/router";
 import logo from "@/assets/logo.png";
 import { useLayoutContainerStore } from "@/stores/useLayoutContainerStore";
 import { useRoute } from "vue-router";
@@ -24,7 +24,7 @@ const route = useRoute();
 
 const menus = router
   .getRoutes()
-  .filter((v) => v.meta.mainMenu)
+  // .filter((v) => v.meta.mainMenu)
   .map((r) => {
     return {
       name: r.name,
@@ -49,38 +49,26 @@ const breadcrumbs = computed(() => {
 
   const queryUrl = getRouteParamsUrl();
 
-  const routePaths = route.path.split("/");
-  for (const node of routePaths) {
-    router.getRoutes().forEach((v) => {
-      const curPath = `/${node}`;
-      if (node === "" || curPath === route.path) return;
-      if (v.path === curPath) {
-        arr.push({
-          title: String(v.name),
-          disabled: false,
-          href: `/#${v.path}` + (queryUrl ? `?${queryUrl}` : ""),
-        });
-      }
+  if (route.meta.breadcrumbs instanceof Array) {
+    const meta = route.meta as RouterMetaInfo;
+    meta.breadcrumbs?.forEach((v) => {
+      const params = queryUrl && !v.mainMenu ? `?${queryUrl}` : "";
+      arr.push({
+        title: v.name,
+        disabled: false,
+        href: `/#${v.path}${params}`,
+      });
     });
   }
+
   arr.push({
     title: String(route.name),
     disabled: true,
     href: `/#${route.fullPath}`,
   });
+
   return arr;
 });
-
-setTimeout(() => {
-  toPage({
-    path: "/instances/terminal",
-    query: {
-      uuid: "as;lcmxz;cl;zcm;ls",
-      instance_type: "sdknlk",
-      saldmop: "s",
-    },
-  });
-}, 1000 * 4);
 </script>
 
 <template>
