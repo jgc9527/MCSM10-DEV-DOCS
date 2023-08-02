@@ -1,24 +1,60 @@
 <script setup lang="ts">
-import { useCardOperation } from '@/hooks/useCardOperation'
-import type { LayoutCard } from '@/types'
+import { useCardOperation } from "@/hooks/useCardOperation";
+import type { LayoutCard } from "@/types";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps<{
-  card: LayoutCard
-}>()
+  card: LayoutCard;
+}>();
 
-const { addCardHeight, reduceCardHeight, addCardWidth, reduceCardWidth, deleteCard } =
-  useCardOperation()
+const {
+  addCardHeight,
+  reduceCardHeight,
+  addCardWidth,
+  reduceCardWidth,
+  deleteCard,
+} = useCardOperation();
+
+const btns = [
+  {
+    tipText: "删除卡片",
+    icon: "mdi-close",
+    click: deleteCard,
+  },
+  {
+    tipText: "收缩高度",
+    icon: "mdi-format-vertical-align-top",
+    click: reduceCardHeight,
+  },
+  {
+    tipText: "扩展高度",
+    icon: "mdi-format-vertical-align-bottom",
+    click: addCardHeight,
+  },
+  {
+    tipText: "收缩宽度",
+    icon: "mdi-format-horizontal-align-left",
+    click: reduceCardWidth,
+  },
+  {
+    tipText: "扩展宽度",
+    icon: "mdi-format-horizontal-align-right",
+    click: addCardWidth,
+  },
+];
 </script>
 
 <template>
   <div class="layout-card-design-btn">
-    <v-icon icon="mdi-close" @click="() => deleteCard(card.id)" />
-    <v-icon icon="mdi-format-vertical-align-top" @click="() => reduceCardHeight(card.id)" />
-    <v-icon icon="mdi-format-vertical-align-bottom" @click="() => addCardHeight(card.id)" />
-
-    <v-icon icon="mdi-format-horizontal-align-right" @click="() => addCardWidth(card.id)" />
-    <v-icon icon="mdi-format-horizontal-align-left" @click="() => reduceCardWidth(card.id)" />
+    <v-tooltip v-for="(item, index) in btns" :key="index" :text="item.tipText">
+      <template v-slot:activator="{ props }">
+        <v-icon
+          v-bind="props"
+          :icon="item.icon"
+          @click="() => item.click(card.id)"
+        />
+      </template>
+    </v-tooltip>
   </div>
   <div class="number-card">
     <div class="number-card-H">
@@ -31,7 +67,7 @@ const { addCardHeight, reduceCardHeight, addCardWidth, reduceCardWidth, deleteCa
 </template>
 
 <style lang="scss" scoped>
-@import '../assets/global.scss';
+@import "../assets/global.scss";
 
 .box {
 }
