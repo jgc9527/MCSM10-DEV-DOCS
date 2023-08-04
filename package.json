@@ -13,7 +13,9 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@ant-design/icons-vue": "^6.1.0",
     "@mdi/font": "^7.2.96",
+    "ant-design-vue": "^4.0.0",
     "pinia": "^2.1.4",
     "uuid": "^9.0.0",
     "vue": "^3.3.4",
@@ -41,6 +43,7 @@
     "prettier": "^3.0.0",
     "sass": "^1.64.1",
     "typescript": "~5.1.6",
+    "unplugin-vue-components": "^0.25.1",
     "vite": "^4.4.6",
     "vitest": "^0.33.0",
     "vue-tsc": "^1.8.6"

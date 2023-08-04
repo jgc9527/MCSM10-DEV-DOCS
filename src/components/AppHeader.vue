@@ -5,6 +5,11 @@ import { useLayoutContainerStore } from "@/stores/useLayoutContainerStore";
 import { useRoute } from "vue-router";
 import { computed, reactive } from "vue";
 import { useAppRouters } from "@/hooks/useAppRouters";
+import {
+  BuildOutlined,
+  SaveOutlined,
+  AppstoreAddOutlined,
+} from "@ant-design/icons-vue";
 
 const { containerState, changeDesignMode } = useLayoutContainerStore();
 const { getRouteParamsUrl, toPage } = useAppRouters();
@@ -74,72 +79,75 @@ const breadcrumbs = computed(() => {
 <template>
   <header class="app-header-wrapper">
     <div class="app-header-content">
-      <div class="d-flex flex-row align-center">
-        <a href="/">
-          <div class="d-flex flex-row align-center mr-6 logo">
+      <div class="btns">
+        <a href="/" style="margin-right: 12px">
+          <div class="logo">
             <img :src="logo" style="height: 18px" />
           </div>
         </a>
 
-        <v-btn
+        <div
+          class="nav-button"
           v-for="item in menus"
           :key="item.path"
-          :variant="route.path === item.path ? 'tonal' : 'text'"
           @click="handleToPage(item.path)"
         >
-          <v-icon class="mr-1" :icon="String(item.meta.icon)"></v-icon>
           <span>{{ item.name }}</span>
-        </v-btn>
+        </div>
       </div>
-      <div>
-        <v-btn
+      <div class="btns">
+        <div
+          class="nav-button icon-button"
           v-if="containerState.isDesignMode"
           variant="tonal"
           color="success"
-          class="ml-1"
           @click="openNewCardDialog"
         >
-          <v-icon icon="mdi-card-plus"></v-icon>
-        </v-btn>
-        <v-btn
+          <appstore-add-outlined />
+        </div>
+        <div
+          class="nav-button icon-button"
           v-if="containerState.isDesignMode"
           variant="text"
           color="error"
-          class="ml-1"
           @click="() => changeDesignMode(false)"
         >
-          <v-icon icon="mdi-pencil-remove-outline"></v-icon>
-        </v-btn>
-        <v-btn
+          <save-outlined />
+        </div>
+        <div
+          class="nav-button icon-button"
           v-else
-          class="ml-1"
           variant="text"
           @click="() => changeDesignMode(true)"
         >
-          <v-icon icon="mdi-pencil-ruler-outline"></v-icon>
-        </v-btn>
+          <build-outlined />
+        </div>
       </div>
     </div>
   </header>
   <div style="height: 60px"></div>
   <div class="breadcrumbs">
-    <v-breadcrumbs
-      size="small"
-      :items="breadcrumbs"
-      style="padding-left: 0"
-    ></v-breadcrumbs>
+    <a-breadcrumb>
+      <a-breadcrumb-item v-for="item in breadcrumbs" :key="item.title">
+        <a v-if="!item.disabled" :href="item.href">{{ item.title }}</a>
+        <span v-else>{{ item.title }}</span>
+      </a-breadcrumb-item>
+    </a-breadcrumb>
   </div>
 </template>
 
 <style lang="scss" scoped>
 @import "@/assets/global.scss";
 
+$btn-color: rgb(212, 212, 212);
+
 .breadcrumbs {
   @extend .app-max-width;
-  font-size: 14px;
+  font-size: 18px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px 0px;
 }
 
 .app-header-wrapper {
@@ -152,7 +160,7 @@ const breadcrumbs = computed(() => {
   align-items: center;
   background-color: $app-header-bg;
   // border-bottom: 1px solid rgb(224, 224, 224);
-  color: rgb(212, 212, 212);
+  color: $btn-color;
 
   position: fixed;
   top: 0;
@@ -168,13 +176,30 @@ const breadcrumbs = computed(() => {
     justify-content: space-between;
     width: 100%;
     height: 60px;
+
+    .btns {
+      display: flex;
+      align-items: center;
+    }
   }
 
-  button {
+  .nav-button {
+    margin: 0 4px;
+    font-size: 14px;
     transition: all 0.4s;
+    color: $btn-color !important;
+    text-align: center;
+    padding: 8px 12px;
+    min-width: 40px;
+    cursor: pointer;
+    border-radius: 4px;
   }
-  button:hover {
-    min-width: 75px !important;
+
+  .icon-button {
+    font-size: 16px !important;
+  }
+  .nav-button:hover {
+    background-color: rgba(215, 215, 215, 0.12);
   }
 
   .logo {

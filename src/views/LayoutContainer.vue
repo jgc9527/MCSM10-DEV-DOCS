@@ -1,20 +1,23 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import NewCardList from '@/components/cards/NewCardList.vue'
-import CardOperator from '@/components/CardOperator.vue'
-import LayoutCardComponent from '@/components/cards/LayoutCard.vue'
-import PlaceHolderCard from '@/components/cards/PlaceHolderCard.vue'
-import { useLayoutConfigStore } from '@/stores/useLayoutConfig'
-import { useCardDragMove } from '@/hooks/useCardDragMove'
-import { useCardLayoutComputed, PLACE_HOLDER_CARD } from '@/hooks/useCardLayoutComputed'
-import { useRouterParams } from '../hooks/useRouterParams'
-import { useLayoutContainerStore } from '@/stores/useLayoutContainerStore'
+import { ref, computed } from "vue";
+import NewCardList from "@/components/cards/NewCardList.vue";
+import CardOperator from "@/components/CardOperator.vue";
+import LayoutCardComponent from "@/components/cards/LayoutCard.vue";
+import PlaceHolderCard from "@/components/cards/PlaceHolderCard.vue";
+import { useLayoutConfigStore } from "@/stores/useLayoutConfig";
+import { useCardDragMove } from "@/hooks/useCardDragMove";
+import {
+  useCardLayoutComputed,
+  PLACE_HOLDER_CARD,
+} from "@/hooks/useCardLayoutComputed";
+import { useRouterParams } from "../hooks/useRouterParams";
+import { useLayoutContainerStore } from "@/stores/useLayoutContainerStore";
 
-const { containerState } = useLayoutContainerStore()
-const { currentRoutePath } = useRouterParams()
-const { getPageLayoutConfig } = useLayoutConfigStore()
-const currentLayoutConfig = getPageLayoutConfig(currentRoutePath.value)
-const { computedLayout } = useCardLayoutComputed(currentLayoutConfig)
+const { containerState } = useLayoutContainerStore();
+const { currentRoutePath } = useRouterParams();
+const { getPageLayoutConfig } = useLayoutConfigStore();
+const currentLayoutConfig = getPageLayoutConfig(currentRoutePath.value);
+const { computedLayout } = useCardLayoutComputed(currentLayoutConfig);
 
 const {
   dragover,
@@ -24,8 +27,8 @@ const {
   dropToNewArea,
   dragenter,
   newAreaDragenter,
-  newAreaDragleave
-} = useCardDragMove()
+  newAreaDragleave,
+} = useCardDragMove();
 </script>
 
 <template>
@@ -37,15 +40,16 @@ const {
     <!-- 新增卡片对话框 -->
     <NewCardList ref="newCardList"></NewCardList>
 
-    <v-row
+    <a-row
       :class="{ 'row-order-mode': containerState.isDesignMode }"
       v-if="currentLayoutConfig.length > 1"
+      :gutter="[24, 24]"
     >
-      <v-col
+      <a-col
         v-for="card in computedLayout"
         :key="card.id"
-        cols="12"
-        :md="card.width"
+        :span="24"
+        :md="card.width * 2"
         class="layout-card-col transition-all-6"
         :class="{ 'is-order-mode': containerState.isDesignMode }"
         :data-card-type="card.type"
@@ -85,8 +89,8 @@ const {
           @drop="(e: DragEvent) => dropToNewArea(e, String(card.followId))"
         >
         </PlaceHolderCard>
-      </v-col>
-    </v-row>
+      </a-col>
+    </a-row>
 
     <div
       class="main-flex-center"
@@ -116,18 +120,18 @@ const {
 
 <style lang="scss">
 // Gloabl
-@import '../assets/variables.scss';
+@import "../assets/variables.scss";
 
 // Hide the EmptyCard component when mobile device.
 @media (max-width: 960px) {
-  .layout-card-col[data-card-type='EmptyCard'] {
+  .layout-card-col[data-card-type="EmptyCard"] {
     display: none;
   }
-  .layout-card-col[data-card-type='PLACEHOLDER'] {
+  .layout-card-col[data-card-type="PLACEHOLDER"] {
     display: none;
   }
 }
-.is-order-mode[data-card-type='EmptyCard'] {
+.is-order-mode[data-card-type="EmptyCard"] {
   .layout-card-container {
     border: 1px dashed $gray-border-color;
     background-color: $color-gray-5;
@@ -138,7 +142,7 @@ const {
 </style>
 
 <style lang="scss" scoped>
-@import '../assets/variables.scss';
+@import "../assets/variables.scss";
 
 .layout-card-col {
   position: relative;

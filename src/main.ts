@@ -1,27 +1,8 @@
 import "@/assets/global.scss";
-import "@mdi/font/css/materialdesignicons.css";
+import "ant-design-vue/dist/reset.css";
 
 import { createApp } from "vue";
 import { createPinia } from "pinia";
-
-// Vuetify
-import "vuetify/styles";
-import { createVuetify } from "vuetify";
-import * as components from "vuetify/components";
-import * as directives from "vuetify/directives";
-import { aliases, mdi } from "vuetify/iconsets/mdi";
-
-const vuetify = createVuetify({
-  components,
-  directives,
-  icons: {
-    defaultSet: "mdi",
-    aliases,
-    sets: {
-      mdi,
-    },
-  },
-});
 
 import App from "./App.vue";
 import { router } from "./router";
@@ -58,4 +39,4 @@ window.addEventListener("resize", setMinHeight);
 // 初始化
 setMinHeight();
 
-app.use(vuetify).mount("#app");
+app.mount("#app");

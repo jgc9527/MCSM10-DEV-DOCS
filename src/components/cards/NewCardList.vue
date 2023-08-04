@@ -30,21 +30,20 @@ const insertCardToLayout = (card: LayoutCard) => {
       @click="containerState.showNewCardDialog = false"
     >
       <div class="new-card-list">
-        <v-row
+        <a-row
           v-for="card in cardPool"
           :key="card.id"
           style="margin-bottom: 20px"
-          align="center"
         >
-          <v-col cols="12">
+          <a-col span="24">
             <div class="text-h6">
               {{ card.title }}
             </div>
             <div class="text-body-1">
               {{ card.description }}
             </div>
-          </v-col>
-          <v-col cols="12" :sm="card.width">
+          </a-col>
+          <a-col span="24" :sm="card.width * 2">
             <div class="card-container-wrapper">
               <LayoutCardComponent
                 class="card-list-container"
@@ -56,8 +55,8 @@ const insertCardToLayout = (card: LayoutCard) => {
               >
               </LayoutCardComponent>
             </div>
-          </v-col>
-        </v-row>
+          </a-col>
+        </a-row>
       </div>
     </div>
   </Transition>
