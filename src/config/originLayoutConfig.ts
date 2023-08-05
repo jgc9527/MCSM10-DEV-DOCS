@@ -60,11 +60,20 @@ export const ORIGIN_LAYOUT_CONFIG = [
       },
       {
         id: "e67e26e9-5e76-4d65-a666-fde377b2a977",
-        type: "ExampleCard2",
+        type: "ExampleCard",
         title: "我的卡片2",
-        width: 2,
+        width: 12,
         description:
           "Element 为了避免视觉传达差异，使用一套特定的调色板来规定颜色，为你所搭建的产品提供一致的外观视觉感受。",
+        height: LayoutCardHeight.MEDIUM,
+      },
+      {
+        id: "589a1f60-be02138-476f-aa11-94a8fd0ae3d0",
+        type: "ExampleCard2",
+        title: "我的卡片4",
+        width: 2,
+        description:
+          "中性色用于文本、背景和边框颜色。通过运用不同的中性色，来表现层次结构。",
         height: LayoutCardHeight.MEDIUM,
       },
     ],

@@ -44,7 +44,8 @@ const {
         v-for="card in computedLayout"
         :key="card.id"
         :span="24"
-        :md="card.width * 2"
+        :md="24"
+        :lg="card.width * 2"
         class="layout-card-col transition-all-6"
         :class="{ 'is-order-mode': containerState.isDesignMode }"
         :data-card-type="card.type"
@@ -61,7 +62,7 @@ const {
           :data-id="card.id"
           :design-mode="containerState.isDesignMode"
           :draggable="containerState.isDesignMode"
-          :style="{ height: card.height }"
+          :style="{ minHeight: card.height }"
           @dragstart="(e: DragEvent) => dragstart(e, card.id)"
           @dragover="(e: DragEvent) => dragover(e, card.id)"
           @dragleave="(e: DragEvent) => dragleave(e, card.id)"
@@ -94,7 +95,8 @@ const {
       <a-row :gutter="[0, 0]" align="center" style="width: 100%">
         <a-col
           :span="24"
-          :md="currentLayoutConfig[0].width * 2"
+          :md="24"
+          :lg="currentLayoutConfig[0].width * 2"
           class="layout-card-col transition-all-6"
         >
           <CardOperator

@@ -10,7 +10,7 @@ const props = defineProps<{
 <template>
   <div style="height: 100%">
     <a-row :gutter="[24, 24]" style="height: 100%">
-      <a-col :md="12">
+      <a-col :span="24" :md="12">
         <div
           style="
             display: flex;
@@ -37,7 +37,7 @@ const props = defineProps<{
           </CardPanel>
         </div>
       </a-col>
-      <a-col :md="12">
+      <a-col :span="24" :md="12">
         <CardPanel style="height: 100%">
           <template #title>{{ card.title }}</template>
           <template #body>
