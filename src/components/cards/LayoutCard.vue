@@ -1,19 +1,12 @@
 <script setup lang="ts">
-import EmptyCard from '@/components/card-implement/EmptyCard.vue'
-import ExampleCard from '@/components/card-implement/ExampleCard.vue'
-import ExampleCard2 from '@/components/card-implement/ExampleCard2.vue'
-import type { LayoutCard } from '../../types/index'
+import type { LayoutCard } from "../../types/index";
+import { LAYOUT_CARD_TYPES } from "../../config/index";
 
 const props = defineProps<{
-  card: LayoutCard
-}>()
+  card: LayoutCard;
+}>();
 
-// Component List
-const componentMap: { [key: string]: any } = {
-  ExampleCard,
-  ExampleCard2,
-  EmptyCard
-}
+const componentMap: { [key: string]: any } = LAYOUT_CARD_TYPES;
 </script>
 
 <template>
@@ -21,7 +14,11 @@ const componentMap: { [key: string]: any } = {
     :id="'layout-card-container-' + card.id"
     class="layout-card-container transition-all-6 global-drag-animation"
   >
-    <component style="height: 100%" :card="props.card" :is="componentMap[card.type]"></component>
+    <component
+      style="height: 100%"
+      :card="props.card"
+      :is="componentMap[card.type]"
+    ></component>
   </div>
 </template>
 

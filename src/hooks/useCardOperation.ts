@@ -1,7 +1,5 @@
-import {
-  LayoutCardHeight,
-  useLayoutConfigStore,
-} from "@/stores/useLayoutConfig";
+import { LayoutCardHeight } from "@/config/originLayoutConfig";
+import { useLayoutConfigStore } from "@/stores/useLayoutConfig";
 
 export function useCardOperation() {
   const { deleteLayoutItem, getCardById } = useLayoutConfigStore();
@@ -15,7 +13,6 @@ export function useCardOperation() {
     LayoutCardHeight.BIG,
     LayoutCardHeight.MEDIUM,
     LayoutCardHeight.SMALL,
-    LayoutCardHeight.MINI,
   ];
 
   const addCardHeight = (id: string) => {
@@ -41,7 +38,7 @@ export function useCardOperation() {
 
   const reduceCardWidth = (id: string) => {
     const card = getCardById("", id);
-    if (card && card.width > 1) card.width -= 1;
+    if (card && card.width > 2) card.width -= 1;
   };
 
   const editCardName = (id: string, newName: string) => {

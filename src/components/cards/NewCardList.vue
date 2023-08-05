@@ -110,4 +110,3 @@ const insertCardToLayout = (card: LayoutCard) => {
 //   }
 // }
 </style>
-@/stores/useLayoutConfig

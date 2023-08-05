@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
 import NewCardList from "@/components/cards/NewCardList.vue";
 import CardOperator from "@/components/CardOperator.vue";
 import LayoutCardComponent from "@/components/cards/LayoutCard.vue";
@@ -157,8 +156,9 @@ const {
   position: relative;
   animation: scaleAnimation 0.6s ease-in-out;
   min-height: 100%;
-  max-width: 1440px;
+  max-width: $app-max-width;
   margin: auto;
+  padding-bottom: 20px;
 }
 
 @media (max-width: 1470px) {
