@@ -229,5 +229,18 @@ $btn-color: rgb(212, 212, 212);
   .logo {
     cursor: pointer;
   }
+
+  // Sync margin
+  @media (max-width: 1470px) {
+    .app-header-content {
+      margin: 0px 25px;
+    }
+  }
+
+  @media (max-width: 960px) {
+    .app-header-content {
+      margin: 0px 8px;
+    }
+  }
 }
 </style>
