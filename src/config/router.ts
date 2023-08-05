@@ -3,7 +3,7 @@ import {
   createWebHashHistory,
   type RouteRecordRaw,
 } from "vue-router";
-import LayoutContainer from "./views/LayoutContainer.vue";
+import LayoutContainer from "@/views/LayoutContainer.vue";
 
 export interface RouterMetaInfo {
   icon?: string;
@@ -74,6 +74,15 @@ let originRouterConfig = [
     meta: {
       icon: "mdi-cog",
       mainMenu: true,
+    },
+  },
+  {
+    path: "/user",
+    name: "个人资料",
+    component: LayoutContainer,
+    meta: {
+      icon: "mdi-cog",
+      mainMenu: false,
     },
   },
 ];

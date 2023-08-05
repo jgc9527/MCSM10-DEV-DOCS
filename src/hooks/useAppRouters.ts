@@ -1,4 +1,4 @@
-import { router } from "@/router";
+import { router } from "@/config/router";
 import {
   useRoute,
   type RouteLocationRaw,

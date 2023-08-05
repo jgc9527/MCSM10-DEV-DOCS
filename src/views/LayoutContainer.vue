@@ -32,10 +32,6 @@ const {
 
 <template>
   <main class="main-layout-container">
-    <div>
-      <!-- <small>调试代码-配置： {{ computedLayout }}</small> -->
-    </div>
-
     <!-- 新增卡片对话框 -->
     <NewCardList ref="newCardList"></NewCardList>
 
@@ -156,21 +152,8 @@ const {
   position: relative;
   animation: scaleAnimation 0.6s ease-in-out;
   min-height: 100%;
-  max-width: $app-max-width;
   margin: auto;
   padding-bottom: 20px;
-}
-
-@media (max-width: 1470px) {
-  .main-layout-container {
-    margin: 0px 25px;
-  }
-}
-
-@media (max-width: 960px) {
-  .main-layout-container {
-    margin: 0px 8px;
-  }
 }
 
 @keyframes scaleAnimation {

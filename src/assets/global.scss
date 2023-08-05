@@ -1,4 +1,4 @@
-@import './variables.scss';
+@import "./variables.scss";
 
 body,
 html {
@@ -67,8 +67,24 @@ html {
   transform: scale(0.96);
 }
 
-
-.app-max-width{
+.app-max-width {
   max-width: $app-max-width;
   margin: auto;
+}
+
+.global-app-container {
+  max-width: $app-max-width;
+  margin: auto;
+}
+
+@media (max-width: 1470px) {
+  .global-app-container {
+    margin: 0px 25px;
+  }
+}
+
+@media (max-width: 960px) {
+  .global-app-container {
+    margin: 0px 8px;
+  }
 }

@@ -119,4 +119,23 @@ export const ORIGIN_LAYOUT_CONFIG = [
       },
     ],
   },
+  {
+    page: "/user",
+    items: [
+      {
+        id: "BBBB12pj1223123oi3hoi21B",
+        type: "ExampleCard2",
+        title: "文件管理",
+        width: 6,
+        height: LayoutCardHeight.MEDIUM,
+      },
+      {
+        id: "BBBB12pj1223123oi3hoi21B",
+        type: "ExampleCard2",
+        title: "文件管理",
+        width: 6,
+        height: LayoutCardHeight.MEDIUM,
+      },
+    ],
+  },
 ];

@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import { router, type RouterMetaInfo } from "@/router";
+import { router, type RouterMetaInfo } from "@/config/router";
 import logo from "@/assets/logo.png";
 import { useLayoutContainerStore } from "@/stores/useLayoutContainerStore";
 import { useRoute } from "vue-router";
-import { computed, reactive } from "vue";
+import { computed, h, reactive } from "vue";
 import { useAppRouters } from "@/hooks/useAppRouters";
 import {
   BuildOutlined,
   SaveOutlined,
   AppstoreAddOutlined,
+  LogoutOutlined,
+  UserOutlined,
 } from "@ant-design/icons-vue";
 
 const { containerState, changeDesignMode } = useLayoutContainerStore();
@@ -29,7 +31,7 @@ const route = useRoute();
 
 const menus = router
   .getRoutes()
-  // .filter((v) => v.meta.mainMenu)
+  .filter((v) => v.meta.mainMenu)
   .map((r) => {
     return {
       name: r.name,
@@ -74,6 +76,45 @@ const breadcrumbs = computed(() => {
 
   return arr;
 });
+
+const appMenus = computed(() => {
+  return [
+    {
+      title: "新增卡片",
+      icon: AppstoreAddOutlined,
+      click: openNewCardDialog,
+      conditions: containerState.isDesignMode,
+    },
+    {
+      title: "保存卡片布局",
+      icon: SaveOutlined,
+      click: () => changeDesignMode(false),
+      conditions: containerState.isDesignMode,
+    },
+    {
+      title: "开始设计布局",
+      icon: BuildOutlined,
+      click: () => changeDesignMode(true),
+      conditions: !containerState.isDesignMode,
+    },
+    {
+      title: "个人资料",
+      icon: UserOutlined,
+      click: () => {
+        toPage({ path: "/user" });
+      },
+      conditions: !containerState.isDesignMode,
+    },
+    {
+      title: "退出",
+      icon: LogoutOutlined,
+      click: () => {
+        toPage({ path: "/" });
+      },
+      conditions: !containerState.isDesignMode,
+    },
+  ];
+});
 </script>
 
 <template>
@@ -96,31 +137,15 @@ const breadcrumbs = computed(() => {
         </div>
       </div>
       <div class="btns">
-        <div
-          class="nav-button icon-button"
-          v-if="containerState.isDesignMode"
-          variant="tonal"
-          color="success"
-          @click="openNewCardDialog"
-        >
-          <appstore-add-outlined />
-        </div>
-        <div
-          class="nav-button icon-button"
-          v-if="containerState.isDesignMode"
-          variant="text"
-          color="error"
-          @click="() => changeDesignMode(false)"
-        >
-          <save-outlined />
-        </div>
-        <div
-          class="nav-button icon-button"
-          v-else
-          variant="text"
-          @click="() => changeDesignMode(true)"
-        >
-          <build-outlined />
+        <div v-for="(item, index) in appMenus" :key="index">
+          <a-tooltip placement="bottom" v-if="item.conditions">
+            <template #title>
+              <span>{{ item.title }}</span>
+            </template>
+            <div class="nav-button" type="text" @click="item.click">
+              <component :is="item.icon"></component>
+            </div>
+          </a-tooltip>
         </div>
       </div>
     </div>
@@ -142,7 +167,6 @@ const breadcrumbs = computed(() => {
 $btn-color: rgb(212, 212, 212);
 
 .breadcrumbs {
-  @extend .app-max-width;
   font-size: 18px;
   display: flex;
   justify-content: space-between;
@@ -169,7 +193,7 @@ $btn-color: rgb(212, 212, 212);
 
   z-index: 20;
   .app-header-content {
-    @extend .app-max-width;
+    @extend .global-app-container;
 
     display: flex;
     align-items: center;
