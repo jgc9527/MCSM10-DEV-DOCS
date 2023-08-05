@@ -82,15 +82,22 @@ export const ORIGIN_LAYOUT_CONFIG = [
     page: "/instances",
     items: [
       {
-        id: "123123123124123",
+        id: "12312312312zxczxc4123",
         type: "ExampleCard2",
         title: "我的ABOUT本地卡片1",
         width: 4,
         height: LayoutCardHeight.MEDIUM,
       },
       {
-        id: "wqeqwe213123",
-        type: "ExampleCard",
+        id: "wqeqwe21312xzczczxc3",
+        type: "ExampleCard2",
+        title: "我的ABOUT卡片2",
+        width: 4,
+        height: LayoutCardHeight.MEDIUM,
+      },
+      {
+        id: "wqeqwe21zxccxzcxz123",
+        type: "ExampleCard3",
         title: "我的ABOUT卡片2",
         width: 4,
         height: LayoutCardHeight.MEDIUM,
@@ -101,14 +108,14 @@ export const ORIGIN_LAYOUT_CONFIG = [
     page: "/instances/terminal",
     items: [
       {
-        id: "BBBB12pj12oi3hoi21B",
+        id: "BBBB12pjxzc12oi3hoi21B",
         type: "ExampleCard",
         title: "我的ABOUT卡片2",
         width: 4,
         height: LayoutCardHeight.MEDIUM,
       },
       {
-        id: "21lk3io12h3io21h3",
+        id: "21lk3io12h3io221312312321sazxczx1h3",
         type: "ExampleCard",
         title: "我的ABOUT卡片2",
         width: 4,
@@ -120,7 +127,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
     page: "/instances/terminal/files",
     items: [
       {
-        id: "BBBB12pj12oi3hoi21B",
+        id: "BBBB12pj12o111i3hoi21B",
         type: "ExampleCard",
         title: "文件管理",
         width: 6,
@@ -132,10 +139,48 @@ export const ORIGIN_LAYOUT_CONFIG = [
     page: "/user",
     items: [
       {
-        id: "BBBB12pj1223123oi3hoi221B",
+        id: "BBBB12pj1223123oi3h23123oi221B",
         type: "ExampleCard2",
         title: "个人资料",
         width: 6,
+        height: LayoutCardHeight.MEDIUM,
+      },
+    ],
+  },
+  {
+    page: "/settings",
+    items: [
+      {
+        id: "BBBB12pj1223123oi3hoi221B",
+        type: "ExampleCard2",
+        title: "系统设置",
+        width: 6,
+        height: LayoutCardHeight.MEDIUM,
+      },
+      {
+        id: "BBBB12pj12231sadsad23oi3hoi221B",
+        type: "ExampleCard2",
+        title: "系统设置",
+        width: 6,
+        height: LayoutCardHeight.MEDIUM,
+      },
+    ],
+  },
+  {
+    page: "/node",
+    items: [
+      {
+        id: "BBBB12pj122sadasd3123oi3dasdhoi221B",
+        type: "ExampleCard2",
+        title: "节点操作",
+        width: 12,
+        height: LayoutCardHeight.MINI,
+      },
+      {
+        id: "BBBB12pj1223123oi3safokphoi221B",
+        type: "ExampleCard2",
+        title: "节点列表",
+        width: 12,
         height: LayoutCardHeight.MEDIUM,
       },
     ],

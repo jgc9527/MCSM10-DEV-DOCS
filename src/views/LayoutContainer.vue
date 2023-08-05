@@ -62,7 +62,6 @@ const {
           :data-id="card.id"
           :design-mode="containerState.isDesignMode"
           :draggable="containerState.isDesignMode"
-          :style="{ minHeight: card.height }"
           @dragstart="(e: DragEvent) => dragstart(e, card.id)"
           @dragover="(e: DragEvent) => dragover(e, card.id)"
           @dragleave="(e: DragEvent) => dragleave(e, card.id)"

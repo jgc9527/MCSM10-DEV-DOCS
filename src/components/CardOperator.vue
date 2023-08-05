@@ -83,10 +83,10 @@ const btns = [
   </div>
   <div class="number-card">
     <div class="number-card-H">
-      <span>H: {{ card.height }}</span>
+      <span>最小高度: {{ card.height }}</span>
     </div>
     <div class="number-card-W">
-      <span>W: {{ card.width }}</span>
+      <span>宽度: {{ card.width }}/12 格</span>
     </div>
   </div>
 </template>

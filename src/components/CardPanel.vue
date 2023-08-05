@@ -46,6 +46,14 @@
   }
 }
 
+.card-panel-content {
+  overflow: hidden;
+  zoom: 1;
+  word-break: break-all;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
 .card-panel:hover {
   box-shadow:
     0 4px 8px 0 rgba(0, 0, 0, 0.16),
