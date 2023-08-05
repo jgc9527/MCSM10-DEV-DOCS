@@ -69,9 +69,6 @@ const btns = [
 <style lang="scss" scoped>
 @import "../assets/global.scss";
 
-.box {
-}
-
 .base {
   z-index: 10;
   display: flex;
