@@ -91,7 +91,7 @@ const {
       class="main-flex-center"
       v-if="currentLayoutConfig.length <= 1 && currentLayoutConfig.length != 0"
     >
-      <a-row :gutter="[24, 24]" align="center" style="width: 100%">
+      <a-row :gutter="[0, 0]" align="center" style="width: 100%">
         <a-col
           :span="24"
           :md="currentLayoutConfig[0].width * 2"
@@ -143,7 +143,7 @@ const {
   position: relative;
 }
 .main-flex-center {
-  margin-top: 40px;
+  margin-top: 10vh;
   height: 100%;
   width: 100%;
   text-align: center;

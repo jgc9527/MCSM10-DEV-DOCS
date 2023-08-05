@@ -11,17 +11,20 @@ import {
   AppstoreAddOutlined,
   LogoutOutlined,
   UserOutlined,
+  MenuUnfoldOutlined,
 } from "@ant-design/icons-vue";
+import { useScreen } from "@/hooks/useScreen";
+import CardPanel from "./CardPanel.vue";
 
 const { containerState, changeDesignMode } = useLayoutContainerStore();
 const { getRouteParamsUrl, toPage } = useAppRouters();
 
-// const breadcrumbs = reactive<any[]>([]);
-const openNewCardDialog = (params: any) => {
+const openNewCardDialog = () => {
   containerState.showNewCardDialog = true;
 };
 
 const handleToPage = (url: string) => {
+  containerState.showPhoneMenu = false;
   toPage({
     path: url,
   });
@@ -84,18 +87,21 @@ const appMenus = computed(() => {
       icon: AppstoreAddOutlined,
       click: openNewCardDialog,
       conditions: containerState.isDesignMode,
+      onlyPC: true,
     },
     {
       title: "保存卡片布局",
       icon: SaveOutlined,
       click: () => changeDesignMode(false),
       conditions: containerState.isDesignMode,
+      onlyPC: true,
     },
     {
       title: "开始设计布局",
       icon: BuildOutlined,
       click: () => changeDesignMode(true),
       conditions: !containerState.isDesignMode,
+      onlyPC: true,
     },
     {
       title: "个人资料",
@@ -104,6 +110,7 @@ const appMenus = computed(() => {
         toPage({ path: "/user" });
       },
       conditions: !containerState.isDesignMode,
+      onlyPC: false,
     },
     {
       title: "退出",
@@ -112,14 +119,22 @@ const appMenus = computed(() => {
         toPage({ path: "/" });
       },
       conditions: !containerState.isDesignMode,
+      onlyPC: false,
     },
   ];
 });
+
+const screen = useScreen();
+const isMobile = computed(() => screen.isMobile.value);
+
+const openPhoneMenu = (b = false) => {
+  containerState.showPhoneMenu = b;
+};
 </script>
 
 <template>
   <header class="app-header-wrapper">
-    <div class="app-header-content">
+    <div class="app-header-content" v-if="!isMobile">
       <div class="btns">
         <a href="/" style="margin-right: 12px">
           <div class="logo">
@@ -150,7 +165,75 @@ const appMenus = computed(() => {
       </div>
     </div>
   </header>
-  <div style="height: 60px"></div>
+  <div v-if="!isMobile" style="height: 60px"></div>
+
+  <header class="app-header-content-for-phone" v-if="isMobile">
+    <CardPanel class="card-panel">
+      <template #body>
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+        >
+          <div style="width: 100px">
+            <a-button
+              type="text"
+              :icon="h(MenuUnfoldOutlined)"
+              size="small"
+              @click="openPhoneMenu(true)"
+            ></a-button>
+          </div>
+          <div>
+            <img :src="logo" style="height: 18px" />
+          </div>
+          <div
+            style="
+              width: 100px;
+              display: flex;
+              align-items: center;
+              justify-content: flex-end;
+            "
+          >
+            <div
+              v-for="(item, index) in appMenus"
+              :key="index"
+              style="margin-left: 8px"
+            >
+              <a-button
+                type="text"
+                :icon="h(item.icon)"
+                size="small"
+                @click="item.click"
+                v-if="item.conditions && !item.onlyPC"
+              ></a-button>
+            </div>
+          </div>
+        </div>
+      </template>
+    </CardPanel>
+  </header>
+
+  <a-drawer
+    :width="500"
+    title="MENU"
+    placement="top"
+    :open="containerState.showPhoneMenu"
+    @close="() => (containerState.showPhoneMenu = false)"
+  >
+    <div class="phone-menu">
+      <div
+        class="phone-menu-btn"
+        v-for="item in menus"
+        :key="item.path"
+        @click="handleToPage(item.path)"
+      >
+        {{ item.name }}
+      </div>
+    </div>
+  </a-drawer>
+
   <div class="breadcrumbs">
     <a-breadcrumb>
       <a-breadcrumb-item v-for="item in breadcrumbs" :key="item.title">
@@ -165,6 +248,32 @@ const appMenus = computed(() => {
 @import "@/assets/global.scss";
 
 $btn-color: rgb(212, 212, 212);
+$app-header-bg: rgb(46, 44, 44);
+
+.phone-menu {
+  .phone-menu-btn {
+    padding: 16px 8px;
+    border-bottom: 1px solid $color-gray-4;
+  }
+}
+
+.app-header-content-for-phone {
+  height: 60px;
+  width: 100%;
+
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: center;
+  // margin: 0px;
+  .card-panel {
+    background-color: $app-header-bg;
+    margin-top: 8px;
+
+    button {
+      color: $color-gray-4;
+    }
+  }
+}
 
 .breadcrumbs {
   font-size: 18px;
@@ -177,7 +286,7 @@ $btn-color: rgb(212, 212, 212);
 .app-header-wrapper {
   // backdrop-filter: saturate(100%) blur(12px);
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16);
-  $app-header-bg: rgb(46, 44, 44);
+
   width: 100%;
   display: flex;
   justify-content: center;
@@ -232,7 +341,8 @@ $btn-color: rgb(212, 212, 212);
 
   // Sync margin
   @media (max-width: 1470px) {
-    .app-header-content {
+    .app-header-content,
+    .app-header-content-for-phone {
       margin: 0px 25px;
     }
   }

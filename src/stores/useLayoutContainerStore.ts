@@ -7,10 +7,13 @@ export const useLayoutContainerStore = defineStore(
     const containerState = reactive({
       isDesignMode: false,
       showNewCardDialog: false,
+      showPhoneMenu: false,
     });
+
     const changeDesignMode = (b: boolean) => {
       containerState.isDesignMode = b;
     };
+
     return {
       containerState,
       changeDesignMode,

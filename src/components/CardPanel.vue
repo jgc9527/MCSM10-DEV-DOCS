@@ -2,7 +2,7 @@
 
 <template>
   <div class="card-panel">
-    <div class="card-panel-title">
+    <div class="card-panel-title" v-if="$slots.title">
       <div>
         <slot name="title"></slot>
       </div>
