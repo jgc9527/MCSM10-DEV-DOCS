@@ -93,6 +93,7 @@ const insertCardToLayout = (card: LayoutCard) => {
 
   .card-list-container {
     cursor: pointer;
+    overflow: auto;
   }
   .card-list-container:hover {
     opacity: 0.8;

@@ -2,6 +2,7 @@
 import { useCardOperation } from "@/hooks/useCardOperation";
 import type { LayoutCard } from "@/types";
 import {
+  BorderLeftOutlined,
   CloseOutlined,
   DownOutlined,
   EditOutlined,
@@ -9,6 +10,8 @@ import {
   RightOutlined,
   ToTopOutlined,
   UpOutlined,
+  VerticalAlignBottomOutlined,
+  VerticalAlignTopOutlined,
 } from "@ant-design/icons-vue";
 import { h } from "vue";
 import { notification } from "ant-design-vue";
@@ -35,24 +38,28 @@ const btns = [
     click: deleteCard,
   },
   {
-    tipText: "收缩高度",
-    icon: UpOutlined,
+    tipText: "收缩高度（同列必须一致才可改变最低高度）",
+    icon: VerticalAlignTopOutlined,
     click: reduceCardHeight,
+    style: "transform: rotate(0deg);",
   },
   {
-    tipText: "扩展高度",
-    icon: DownOutlined,
+    tipText: "扩展高度（强制同步同列最高高度）",
+    icon: VerticalAlignTopOutlined,
     click: addCardHeight,
+    style: "transform: rotate(180deg);",
   },
   {
     tipText: "收缩宽度",
-    icon: LeftOutlined,
+    icon: VerticalAlignTopOutlined,
     click: reduceCardWidth,
+    style: "transform: rotate(270deg);",
   },
   {
     tipText: "扩展宽度",
-    icon: RightOutlined,
+    icon: VerticalAlignTopOutlined,
     click: addCardWidth,
+    style: "transform: rotate(90deg);",
   },
   {
     tipText: "修改标题",
@@ -75,6 +82,7 @@ const btns = [
         <span>{{ item.tipText }}</span>
       </template>
       <a-button
+        :style="item.style"
         type="text"
         :icon="h(item.icon)"
         @click="() => item.click(card.id)"
