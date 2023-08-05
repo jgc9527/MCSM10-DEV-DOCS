@@ -14,6 +14,7 @@ declare module 'vue' {
     ACol: typeof import('ant-design-vue/es')['Col']
     AppHeader: typeof import('./src/components/AppHeader.vue')['default']
     ARow: typeof import('ant-design-vue/es')['Row']
+    ATooltip: typeof import('ant-design-vue/es')['Tooltip']
     CardOperator: typeof import('./src/components/CardOperator.vue')['default']
     CardPanel: typeof import('./src/components/CardPanel.vue')['default']
     Dialog: typeof import('./src/components/Dialog.vue')['default']

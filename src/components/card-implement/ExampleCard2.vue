@@ -26,7 +26,7 @@ onUnmounted(() => {
 <template>
   <div style="height: 100%">
     <CardPanel style="height: 100%">
-      <template #title> 我的卡片 </template>
+      <template #title>{{ card.title }}</template>
       <template #body> 测试消息状态值：{{ test }} </template>
     </CardPanel>
   </div>

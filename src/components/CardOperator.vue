@@ -1,6 +1,18 @@
 <script setup lang="ts">
 import { useCardOperation } from "@/hooks/useCardOperation";
 import type { LayoutCard } from "@/types";
+import {
+  CloseOutlined,
+  DownOutlined,
+  EditOutlined,
+  LeftOutlined,
+  RightOutlined,
+  ToTopOutlined,
+  UpOutlined,
+} from "@ant-design/icons-vue";
+import { h } from "vue";
+import { notification } from "ant-design-vue";
+const [notificationApi, contextHolder] = notification.useNotification();
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps<{
@@ -13,48 +25,61 @@ const {
   addCardWidth,
   reduceCardWidth,
   deleteCard,
+  editCardName,
 } = useCardOperation();
 
 const btns = [
   {
     tipText: "删除卡片",
-    icon: "mdi-close",
+    icon: CloseOutlined,
     click: deleteCard,
   },
   {
     tipText: "收缩高度",
-    icon: "mdi-format-vertical-align-top",
+    icon: UpOutlined,
     click: reduceCardHeight,
   },
   {
     tipText: "扩展高度",
-    icon: "mdi-format-vertical-align-bottom",
+    icon: DownOutlined,
     click: addCardHeight,
   },
   {
     tipText: "收缩宽度",
-    icon: "mdi-format-horizontal-align-left",
+    icon: LeftOutlined,
     click: reduceCardWidth,
   },
   {
     tipText: "扩展宽度",
-    icon: "mdi-format-horizontal-align-right",
+    icon: RightOutlined,
     click: addCardWidth,
+  },
+  {
+    tipText: "修改标题",
+    icon: EditOutlined,
+    click: (id: string) => {
+      // notificationApi.open({
+      //   message: "修改标题",
+      // });
+      console.log("修改卡片名字：", id);
+      editCardName(id, "新的名字");
+    },
   },
 ];
 </script>
 
 <template>
   <div class="layout-card-design-btn">
-    <v-tooltip v-for="(item, index) in btns" :key="index" :text="item.tipText">
-      <template v-slot:activator="{ props }">
-        <v-icon
-          v-bind="props"
-          :icon="item.icon"
-          @click="() => item.click(card.id)"
-        />
+    <a-tooltip placement="left" v-for="(item, index) in btns" :key="index">
+      <template #title>
+        <span>{{ item.tipText }}</span>
       </template>
-    </v-tooltip>
+      <a-button
+        type="text"
+        :icon="h(item.icon)"
+        @click="() => item.click(card.id)"
+      />
+    </a-tooltip>
   </div>
   <div class="number-card">
     <div class="number-card-H">

@@ -96,10 +96,10 @@ const {
       class="main-flex-center"
       v-if="currentLayoutConfig.length <= 1 && currentLayoutConfig.length != 0"
     >
-      <v-row justify="center">
-        <v-col
-          cols="12"
-          :md="currentLayoutConfig[0].width"
+      <a-row :gutter="[24, 24]" align="center" style="width: 100%">
+        <a-col
+          :span="24"
+          :md="currentLayoutConfig[0].width * 2"
           class="layout-card-col transition-all-6"
         >
           <CardOperator
@@ -112,8 +112,8 @@ const {
             :style="{ height: currentLayoutConfig[0].height }"
           >
           </LayoutCardComponent>
-        </v-col>
-      </v-row>
+        </a-col>
+      </a-row>
     </div>
   </main>
 </template>
@@ -148,21 +148,14 @@ const {
   position: relative;
 }
 .main-flex-center {
-  position: fixed;
-  left: 0px;
-  right: 0px;
-  top: 0px;
-  bottom: 0px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-top: 40px;
   height: 100%;
   width: 100%;
+  text-align: center;
 }
 .main-layout-container {
   position: relative;
-  animation: scaleAnimation 0.8s ease-in-out;
+  animation: scaleAnimation 0.6s ease-in-out;
   min-height: 100%;
   max-width: 1440px;
   margin: auto;
@@ -192,4 +185,3 @@ const {
   }
 }
 </style>
-@/stores/useLayoutConfig

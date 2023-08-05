@@ -29,20 +29,6 @@ export const useLayoutConfigStore = defineStore("layoutConfigStore", () => {
           height: LayoutCardHeight.MEDIUM,
         },
         {
-          id: "AAAAA",
-          type: "ExampleCard2",
-          title: "我的ABOUT本地卡片1",
-          width: 4,
-          height: LayoutCardHeight.MEDIUM,
-        },
-        {
-          id: "BBBBB",
-          type: "ExampleCard",
-          title: "我的ABOUT卡片2",
-          width: 5,
-          height: LayoutCardHeight.MEDIUM,
-        },
-        {
           id: "e69ac6a6-3814-49ac-9940-9d1212a24b5f",
           type: "ExampleCard2",
           title: "我的卡片2",
@@ -93,14 +79,14 @@ export const useLayoutConfigStore = defineStore("layoutConfigStore", () => {
       page: "/instances",
       items: [
         {
-          id: "AAAAA",
+          id: "123123123124123",
           type: "ExampleCard2",
           title: "我的ABOUT本地卡片1",
           width: 4,
           height: LayoutCardHeight.MEDIUM,
         },
         {
-          id: "BBBBB",
+          id: "wqeqwe213123",
           type: "ExampleCard",
           title: "我的ABOUT卡片2",
           width: 4,
@@ -112,17 +98,29 @@ export const useLayoutConfigStore = defineStore("layoutConfigStore", () => {
       page: "/instances/terminal",
       items: [
         {
-          id: "BBBBB",
+          id: "BBBB12pj12oi3hoi21B",
           type: "ExampleCard",
           title: "我的ABOUT卡片2",
           width: 4,
           height: LayoutCardHeight.MEDIUM,
         },
         {
-          id: "BBBBB",
+          id: "21lk3io12h3io21h3",
           type: "ExampleCard",
           title: "我的ABOUT卡片2",
           width: 4,
+          height: LayoutCardHeight.MEDIUM,
+        },
+      ],
+    },
+    {
+      page: "/instances/terminal/files",
+      items: [
+        {
+          id: "BBBB12pj12oi3hoi21B",
+          type: "ExampleCard",
+          title: "文件管理",
+          width: 6,
           height: LayoutCardHeight.MEDIUM,
         },
       ],
