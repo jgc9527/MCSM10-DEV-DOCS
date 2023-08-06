@@ -1,21 +1,37 @@
 <script setup lang="ts">
 import { useCardPool } from "@/stores/useCardPool";
 import LayoutCardComponent from "@/components/cards/LayoutCard.vue";
-import { ref, computed } from "vue";
+import { ref, computed, type Ref } from "vue";
 import type { LayoutCard } from "@/types";
 import { useLayoutConfigStore } from "@/stores/useLayoutConfig";
 import { useLayoutContainerStore } from "@/stores/useLayoutContainerStore";
+import { useRoute } from "vue-router";
+import Params from "./params.vue";
 
 const { getCardPool } = useCardPool();
 const { insertLayoutItem } = useLayoutConfigStore();
 const { containerState } = useLayoutContainerStore();
+
+// 获取当前 router
+const route = useRoute();
+
 const display = computed(() => {
-  cardPool = getCardPool();
+  cardPool = getCardPool()
+    .filter((v) => (v.onlyPath ? v.onlyPath.includes(route.path) : true))
+    .filter((v) => !v.disableAdd);
   return containerState.showNewCardDialog;
 });
+
+const paramsDialog = ref<InstanceType<typeof Params>>();
+
 let cardPool = getCardPool();
 
-const insertCardToLayout = (card: LayoutCard) => {
+const insertCardToLayout = async (card: LayoutCard) => {
+  if (card.params) {
+    const isParamsOk = await paramsDialog.value?.openDialog(card);
+    if (!isParamsOk) return;
+  }
+
   const newCard = JSON.parse(JSON.stringify(card));
   insertLayoutItem("", newCard);
   containerState.showNewCardDialog = false;
@@ -64,6 +80,8 @@ const insertCardToLayout = (card: LayoutCard) => {
       </div>
     </div>
   </Transition>
+
+  <Params ref="paramsDialog"></Params>
 </template>
 
 <style lang="scss" scoped>

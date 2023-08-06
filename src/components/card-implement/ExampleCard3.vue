@@ -11,6 +11,8 @@ const props = defineProps<{
   <div style="height: 100%">
     <a-row :gutter="[24, 24]" style="height: 100%">
       <a-col :span="24" :md="12">
+        <!-- 卡片要实现上下布局略微复杂，必须使用 Flex 布局 -->
+        <!-- 尽量不要使用这种布局方式 -->
         <div
           style="
             display: flex;

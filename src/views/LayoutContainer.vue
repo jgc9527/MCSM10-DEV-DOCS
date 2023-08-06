@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NewCardList from "@/components/cards/NewCardList.vue";
+import NewCardList from "@/components/cards/NewCardList/index.vue";
 import CardOperator from "@/components/CardOperator.vue";
 import LayoutCardComponent from "@/components/cards/LayoutCard.vue";
 import PlaceHolderCard from "@/components/cards/PlaceHolderCard.vue";
@@ -38,7 +38,8 @@ const {
 <template>
   <main class="main-layout-container">
     <!-- 新增卡片对话框 -->
-    <NewCardList ref="newCardList"></NewCardList>
+    <NewCardList v-if="containerState.isDesignMode" ref="newCardList">
+    </NewCardList>
 
     <a-row
       :class="{ 'row-order-mode': containerState.isDesignMode }"
@@ -142,7 +143,7 @@ const {
 </style>
 
 <style lang="scss" scoped>
-@import "../assets/variables.scss";
+@import "../assets/global.scss";
 
 .layout-card-col {
   position: relative;

@@ -14,8 +14,6 @@ import {
   VerticalAlignTopOutlined,
 } from "@ant-design/icons-vue";
 import { h } from "vue";
-import { notification } from "ant-design-vue";
-const [notificationApi, contextHolder] = notification.useNotification();
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps<{
@@ -38,13 +36,13 @@ const btns = [
     click: deleteCard,
   },
   {
-    tipText: "收缩高度（同列必须一致才可改变最低高度）",
+    tipText: "收缩高度（同行必须一致才可改变最低高度）",
     icon: VerticalAlignTopOutlined,
     click: reduceCardHeight,
     style: "transform: rotate(0deg);",
   },
   {
-    tipText: "扩展高度（强制同步同列最高高度）",
+    tipText: "扩展高度（同行最高的高度为最终高度）",
     icon: VerticalAlignTopOutlined,
     click: addCardHeight,
     style: "transform: rotate(180deg);",
@@ -65,10 +63,6 @@ const btns = [
     tipText: "修改标题",
     icon: EditOutlined,
     click: (id: string) => {
-      // notificationApi.open({
-      //   message: "修改标题",
-      // });
-      console.log("修改卡片名字：", id);
       editCardName(id, "新的名字");
     },
   },
