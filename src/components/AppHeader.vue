@@ -97,7 +97,7 @@ const appMenus = computed(() => {
       onlyPC: true,
     },
     {
-      title: "开始设计布局",
+      title: "自定义布局",
       icon: BuildOutlined,
       click: () => changeDesignMode(true),
       conditions: !containerState.isDesignMode,

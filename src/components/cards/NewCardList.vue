@@ -36,14 +36,18 @@ const insertCardToLayout = (card: LayoutCard) => {
           style="margin-bottom: 20px"
         >
           <a-col span="24">
-            <div class="text-h6">
-              {{ card.title }}
-            </div>
-            <div class="text-body-1">
-              {{ card.description }}
-            </div>
+            <a-typography>
+              <a-typography-title :level="4">
+                <span class="global-text-white-border">
+                  {{ card.title }}
+                </span>
+              </a-typography-title>
+              <a-typography-paragraph>
+                {{ card.description }}
+              </a-typography-paragraph>
+            </a-typography>
           </a-col>
-          <a-col span="24" :sm="card.width * 2">
+          <a-col span="24" :md="24" :lg="card.width * 2">
             <div class="card-container-wrapper">
               <LayoutCardComponent
                 class="card-list-container"
@@ -69,6 +73,7 @@ const insertCardToLayout = (card: LayoutCard) => {
   border: 1px dashed $gray-border-color;
   border-radius: 4px;
   padding: 16px;
+  overflow: auto;
 }
 .new-card-list-container {
   position: fixed;
@@ -93,7 +98,6 @@ const insertCardToLayout = (card: LayoutCard) => {
 
   .card-list-container {
     cursor: pointer;
-    overflow: auto;
   }
   .card-list-container:hover {
     opacity: 0.8;

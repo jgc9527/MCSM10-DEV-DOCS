@@ -11,12 +11,17 @@ import {
 } from "@/hooks/useCardLayoutComputed";
 import { useRouterParams } from "../hooks/useRouterParams";
 import { useLayoutContainerStore } from "@/stores/useLayoutContainerStore";
+import { useScreen } from "@/hooks/useScreen";
+import { computed } from "vue";
 
 const { containerState } = useLayoutContainerStore();
 const { currentRoutePath } = useRouterParams();
 const { getPageLayoutConfig } = useLayoutConfigStore();
 const currentLayoutConfig = getPageLayoutConfig(currentRoutePath.value);
 const { computedLayout } = useCardLayoutComputed(currentLayoutConfig);
+
+const screen = useScreen();
+// const isMobile = computed(() => screen.isMobile.value);
 
 const {
   dragover,
@@ -55,7 +60,6 @@ const {
           v-if="card.type != PLACE_HOLDER_CARD && containerState.isDesignMode"
           :card="card"
         ></CardOperator>
-
         <LayoutCardComponent
           v-if="card.type != PLACE_HOLDER_CARD"
           :card="card"

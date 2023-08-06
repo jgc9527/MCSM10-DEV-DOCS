@@ -109,14 +109,14 @@ export const ORIGIN_LAYOUT_CONFIG = [
     items: [
       {
         id: "BBBB12pjxzc12oi3hoi21B",
-        type: "ExampleCard",
+        type: "ExampleCard2",
         title: "我的ABOUT卡片2",
         width: 4,
         height: LayoutCardHeight.MEDIUM,
       },
       {
         id: "21lk3io12h3io221312312321sazxczx1h3",
-        type: "ExampleCard",
+        type: "ExampleCard2",
         title: "我的ABOUT卡片2",
         width: 4,
         height: LayoutCardHeight.MEDIUM,
@@ -128,7 +128,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
     items: [
       {
         id: "BBBB12pj12o111i3hoi21B",
-        type: "ExampleCard",
+        type: "ExampleCard2",
         title: "文件管理",
         width: 6,
         height: LayoutCardHeight.MEDIUM,

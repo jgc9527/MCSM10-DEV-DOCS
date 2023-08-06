@@ -76,6 +76,14 @@ html {
   margin: auto;
 }
 
+.global-text-white-border {
+  text-shadow:
+    -1px -1px 0 #ffffff75,
+    1px -1px 0 #ffffff75,
+    -1px 1px 0 #ffffff75,
+    1px 1px 0 #ffffff75;
+}
+
 .global-app-container {
   max-width: $app-max-width;
   margin: auto;

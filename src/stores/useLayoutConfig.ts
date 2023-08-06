@@ -7,8 +7,7 @@ import { ORIGIN_LAYOUT_CONFIG } from "@/config/originLayoutConfig";
 export const useLayoutConfigStore = defineStore("layoutConfigStore", () => {
   const { currentRoutePath } = useRouterParams();
 
-  const globalLayoutConfig: LayoutWithRouter[] =
-    reactive<LayoutWithRouter[]>(ORIGIN_LAYOUT_CONFIG);
+  const globalLayoutConfig = reactive<LayoutWithRouter[]>(ORIGIN_LAYOUT_CONFIG);
 
   const getPageLayoutConfig = (pageName: string) => {
     if (!pageName) pageName = currentRoutePath.value;
