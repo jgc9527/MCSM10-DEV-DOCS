@@ -12,7 +12,6 @@ import {
 import { useRouterParams } from "../hooks/useRouterParams";
 import { useLayoutContainerStore } from "@/stores/useLayoutContainerStore";
 import { useScreen } from "@/hooks/useScreen";
-import { computed } from "vue";
 
 const { containerState } = useLayoutContainerStore();
 const { currentRoutePath } = useRouterParams();

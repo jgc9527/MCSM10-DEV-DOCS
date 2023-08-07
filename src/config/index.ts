@@ -49,6 +49,8 @@ export function getLayoutCardPool() {
       width: 6,
       description: "卡片的详细说明以及使用方式。",
       height: LayoutCardHeight.SMALL,
+
+      // 新增卡片时被要求填写的参数
       meta: {},
       params: [
         {

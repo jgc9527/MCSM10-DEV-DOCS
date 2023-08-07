@@ -3,6 +3,7 @@ import type { LayoutCard } from "../../../types/index";
 import { ref, computed, reactive, onMounted } from "vue";
 import type { MapData } from "../../../types/index";
 import type { FormInstance } from "ant-design-vue";
+import { BuildOutlined, BulbOutlined } from "@ant-design/icons-vue";
 
 const open = ref(false);
 const card = ref<LayoutCard>();
@@ -58,11 +59,7 @@ defineExpose({
       >
         <a-row :gutter="[20, 20]">
           <a-col :span="24" :md="12" v-for="item in card.params">
-            <a-form-item
-              :label="item.label"
-              :name="item.field"
-              :rules="[{ required: true, message: '请完善此字段' }]"
-            >
+            <a-form-item :label="item.label" :name="item.field">
               <a-input
                 v-if="item.type === 'string'"
                 v-model:value="formData[item.field]"
@@ -71,6 +68,13 @@ defineExpose({
           </a-col>
         </a-row>
       </a-form>
+      <p>
+        <BulbOutlined />
+        <span>
+          如果不填写任何参数，新增的卡片将自动根据地址去获取数据，但这不适用于所有页面，只有在特定页面中可以正常使用。
+        </span>
+      </p>
+      <p>列如：在不填写参数的情况下， “终端卡片” 只能在 “实例详情” 页使用。</p>
     </div>
   </a-drawer>
 </template>
