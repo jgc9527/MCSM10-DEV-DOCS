@@ -1,1 +1,1 @@
-export const CARD_FIXED_HEIGHT = 200
+export const CARD_FIXED_HEIGHT = 200;

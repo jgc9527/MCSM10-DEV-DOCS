@@ -8,8 +8,9 @@ import "dayjs/locale/zh-cn";
 import "dayjs/locale/en";
 import { ref } from "vue";
 import { useAppConfigStore } from "./stores/useAppConfigStore";
-// import VueI18n from "vue-i18n";
+import { useI18n } from "vue-i18n";
 
+const { t } = useI18n();
 const { appConfig } = useAppConfigStore();
 
 const locale = ref(enUS);
@@ -34,11 +35,9 @@ const open = true;
 
 <template>
   <a-config-provider :locale="locale">
-    <!-- <a-modal v-model:open="open" title="Basic Modal">
-      <p>Some contents...</p>
-      <p>Some contents...</p>
-      <p>Some contents...</p>
-    </a-modal> -->
+    <div>
+      {{ t("Hello") }}
+    </div>
     <div class="global-app-container">
       <AppHeader></AppHeader>
       <RouterView :key="$route.fullPath" />
