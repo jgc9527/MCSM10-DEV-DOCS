@@ -1,7 +1,7 @@
 const fs = require("fs");
 const { crc32 } = require("crc");
 
-const FN_KEY = "$I18N_KEY_";
+const FN_KEY = "I18N_KEY_CODE_";
 
 module.exports = {
   input: [
