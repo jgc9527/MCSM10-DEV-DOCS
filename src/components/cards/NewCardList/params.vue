@@ -3,10 +3,8 @@ import type { LayoutCard } from "../../../types/index";
 import { ref, computed, reactive, onMounted } from "vue";
 import type { MapData } from "../../../types/index";
 import type { FormInstance } from "ant-design-vue";
-import { BuildOutlined, BulbOutlined } from "@ant-design/icons-vue";
-import { useI18n } from "vue-i18n";
-
-const { t } = useI18n();
+import { BulbOutlined } from "@ant-design/icons-vue";
+import { $t as t } from "@/lang/i18n";
 
 const open = ref(false);
 const card = ref<LayoutCard>();

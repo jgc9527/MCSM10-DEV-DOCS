@@ -13,7 +13,8 @@ import {
   VerticalAlignBottomOutlined,
   VerticalAlignTopOutlined,
 } from "@ant-design/icons-vue";
-import { h } from "vue";
+import { h, ref } from "vue";
+import { $t as t } from "@/lang/i18n";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps<{
@@ -29,38 +30,38 @@ const {
   editCardName,
 } = useCardOperation();
 
-const btns = [
+let btns = [
   {
-    tipText: "删除卡片",
+    tipText: t("TXT_CODE_153f705d"),
     icon: CloseOutlined,
     click: deleteCard,
   },
   {
-    tipText: "收缩高度（同行必须一致才可改变最低高度）",
+    tipText: t("TXT_CODE_fd5ca298"),
     icon: VerticalAlignTopOutlined,
     click: reduceCardHeight,
     style: "transform: rotate(0deg);",
   },
   {
-    tipText: "扩展高度（同行最高的高度为最终高度）",
+    tipText: t("TXT_CODE_5db4e96b"),
     icon: VerticalAlignTopOutlined,
     click: addCardHeight,
     style: "transform: rotate(180deg);",
   },
   {
-    tipText: "收缩宽度",
+    tipText: t("TXT_CODE_d356cf9d"),
     icon: VerticalAlignTopOutlined,
     click: reduceCardWidth,
     style: "transform: rotate(270deg);",
   },
   {
-    tipText: "扩展宽度",
+    tipText: t("TXT_CODE_baa16e45"),
     icon: VerticalAlignTopOutlined,
     click: addCardWidth,
     style: "transform: rotate(90deg);",
   },
   {
-    tipText: "修改标题",
+    tipText: t("TXT_CODE_18cdc17f"),
     icon: EditOutlined,
     click: (id: string) => {
       editCardName(id, "新的名字");
@@ -85,10 +86,14 @@ const btns = [
   </div>
   <div class="number-card">
     <div class="number-card-H">
-      <span>最小高度: {{ card.height }}</span>
+      <span>{{ t("TXT_CODE_1f246be3") }} {{ card.height }}</span>
     </div>
     <div class="number-card-W">
-      <span>宽度: {{ card.width }}/12 格</span>
+      <span>
+        {{ t("TXT_CODE_108ce2e4") }}
+        <span>{{ card.width }}/12</span>
+        {{ t("TXT_CODE_3efe364e") }}
+      </span>
     </div>
   </div>
 </template>

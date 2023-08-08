@@ -50,7 +50,6 @@
   overflow: hidden;
   zoom: 1;
   word-break: break-all;
-  overflow-y: auto;
   font-size: 14px;
 }
 

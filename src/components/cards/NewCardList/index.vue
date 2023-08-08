@@ -106,9 +106,6 @@ const insertCardToLayout = async (card: LayoutCard) => {
   z-index: 999;
   overflow-y: auto;
 
-  // animation: moveTop 0.6s ease-in-out;
-  // transition: all 0.6s;
-
   .new-card-list {
     margin: auto;
     max-width: 1440px;
@@ -123,13 +120,4 @@ const insertCardToLayout = async (card: LayoutCard) => {
     transform: scale(1.02);
   }
 }
-
-// @keyframes moveTop {
-//   from {
-//     top: 110%;
-//   }
-//   to {
-//     top: 0;
-//   }
-// }
 </style>

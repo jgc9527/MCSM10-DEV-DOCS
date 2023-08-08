@@ -15,10 +15,7 @@ import {
 } from "@ant-design/icons-vue";
 import { useScreen } from "@/hooks/useScreen";
 import CardPanel from "./CardPanel.vue";
-import { useI18n } from "vue-i18n";
-// import { t } from "@/lang/i18n";
-
-const { t } = useI18n();
+import { $t as t } from "@/lang/i18n";
 
 const { containerState, changeDesignMode } = useLayoutContainerStore();
 const { getRouteParamsUrl, toPage } = useAppRouters();

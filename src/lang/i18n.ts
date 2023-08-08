@@ -22,4 +22,6 @@ const getCurrentLang = () => {
   return i18n.global.locale;
 };
 
-export { i18n, setLanguage, getCurrentLang };
+const $t = i18n.global.t;
+
+export { i18n, setLanguage, getCurrentLang, $t };
