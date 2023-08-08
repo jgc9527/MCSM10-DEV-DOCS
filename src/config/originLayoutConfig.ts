@@ -185,4 +185,16 @@ export const ORIGIN_LAYOUT_CONFIG = [
       },
     ],
   },
+  {
+    page: "/404",
+    items: [
+      {
+        id: "40404040404040404",
+        type: "ExampleCard2",
+        title: "页面未找到",
+        width: 6,
+        height: LayoutCardHeight.MINI,
+      },
+    ],
+  },
 ];

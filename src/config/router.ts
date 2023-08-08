@@ -86,6 +86,15 @@ let originRouterConfig = [
       mainMenu: false,
     },
   },
+  {
+    path: "/404",
+    name: "404",
+    component: LayoutContainer,
+    meta: {
+      icon: "mdi-cog",
+      mainMenu: false,
+    },
+  },
 ];
 
 function routersConfigOptimize(

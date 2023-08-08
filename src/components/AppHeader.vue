@@ -46,6 +46,15 @@ const menus = router
 
 router.beforeEach((to, from) => {
   console.log("Router:", from, "->", to);
+  if (to.name == null) {
+    router.push({
+      path: "/404",
+      query: {
+        redirect: to.fullPath,
+      },
+    });
+    return false;
+  }
   return true;
 });
 
