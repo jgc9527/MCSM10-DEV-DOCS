@@ -1,7 +1,7 @@
 const fs = require("fs");
 const { crc32 } = require("crc");
 
-const FN_KEY = "$$I18N_KEY_";
+const FN_KEY = "$I18N_KEY_";
 
 module.exports = {
   input: [
@@ -23,7 +23,7 @@ module.exports = {
       jsonIndent: 2,
       lineEnding: "\n",
     },
-    removeUnusedKeys: true,
+    removeUnusedKeys: false,
     nsSeparator: false, // namespace separator
     keySeparator: false, // key separator
     interpolation: {
