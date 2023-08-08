@@ -15,8 +15,6 @@ app.use(router);
 
 app.use(i18n);
 
-app.config.globalProperties.$t = $t;
-
 // 获取当前浏览器窗口的高度
 function getWindowHeight(): number {
   return (

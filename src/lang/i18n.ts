@@ -6,7 +6,7 @@ import zhCN from "@/lang/zh_CN.json";
 const i18n = createI18n({
   allowComposition: true,
   globalInjection: true,
-  locale: "zh_CN",
+  locale: "en_US",
   fallbackLocale: "en_US",
   messages: {
     en_US: enUS,

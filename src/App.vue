@@ -6,10 +6,10 @@ import enUS from "ant-design-vue/es/locale/en_US";
 import dayjs from "dayjs";
 import "dayjs/locale/zh-cn";
 import "dayjs/locale/en";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useAppConfigStore } from "./stores/useAppConfigStore";
 import { useI18n } from "vue-i18n";
-
+import { setLanguage } from "@/lang/i18n";
 const { t } = useI18n();
 const { appConfig } = useAppConfigStore();
 
@@ -22,24 +22,18 @@ if (appConfig.language === "zh_CN") {
   dayjs.locale("en-us");
 }
 
-// const i18n = VueI18n.createI18n({
-//   locale: appConfig.language, // set locale
-//   fallbackLocale: "en", // set fallback locale
-//   messages: {}, // set locale messages
-//   // If you need to specify other options, you can set other options
-//   // ...
-// });
+setLanguage(appConfig.language);
 
-const open = true;
+console.warn("MCSMANAGER APP CONFIG:", JSON.stringify(appConfig));
 </script>
 
 <template>
   <a-config-provider :locale="locale">
-    <div>
-      {{ t("Hello") }}
-    </div>
     <div class="global-app-container">
       <AppHeader></AppHeader>
+      <div>
+        {{ t("Hello") }}
+      </div>
       <RouterView :key="$route.fullPath" />
     </div>
   </a-config-provider>
