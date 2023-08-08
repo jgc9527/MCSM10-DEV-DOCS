@@ -1,4 +1,5 @@
 import { router } from "@/config/router";
+import { $t } from "@/lang/i18n";
 import {
   useRoute,
   type RouteLocationRaw,
@@ -11,6 +12,8 @@ export function useAppRouters() {
   const getRouteParamsUrl = () => {
     return route.fullPath.split("?")[1] || "";
   };
+
+  const a = $t("测试345");
 
   const toPage = (params: RouteLocationPathRaw) => {
     router.push({

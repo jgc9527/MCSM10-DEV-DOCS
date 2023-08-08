@@ -15,6 +15,7 @@ import {
 } from "@ant-design/icons-vue";
 import { useScreen } from "@/hooks/useScreen";
 import CardPanel from "./CardPanel.vue";
+import { $t } from "@/lang/i18n";
 
 const { containerState, changeDesignMode } = useLayoutContainerStore();
 const { getRouteParamsUrl, toPage } = useAppRouters();
@@ -104,7 +105,7 @@ const appMenus = computed(() => {
       onlyPC: true,
     },
     {
-      title: "个人资料",
+      title: $t("个人资料"),
       icon: UserOutlined,
       click: () => {
         toPage({ path: "/user" });
@@ -134,6 +135,7 @@ const openPhoneMenu = (b = false) => {
 
 <template>
   <header class="app-header-wrapper">
+    {{ $t("卧槽123") }}
     <div class="app-header-content" v-if="!isMobile">
       <div class="btns">
         <a href="/" style="margin-right: 12px">
