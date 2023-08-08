@@ -15,7 +15,10 @@ import {
 } from "@ant-design/icons-vue";
 import { useScreen } from "@/hooks/useScreen";
 import CardPanel from "./CardPanel.vue";
-import { $t } from "@/lang/i18n";
+import { useI18n } from "vue-i18n";
+// import { t } from "@/lang/i18n";
+
+const { t } = useI18n();
 
 const { containerState, changeDesignMode } = useLayoutContainerStore();
 const { getRouteParamsUrl, toPage } = useAppRouters();
@@ -52,7 +55,7 @@ router.beforeEach((to, from) => {
 const breadcrumbs = computed(() => {
   const arr = [
     {
-      title: "管理面板",
+      title: t("TXT_CODE_f5b9d58f"),
       disabled: false,
       href: "/",
     },
@@ -84,28 +87,28 @@ const breadcrumbs = computed(() => {
 const appMenus = computed(() => {
   return [
     {
-      title: "新增卡片",
+      title: t("TXT_CODE_8b0f8aab"),
       icon: AppstoreAddOutlined,
       click: openNewCardDialog,
       conditions: containerState.isDesignMode,
       onlyPC: true,
     },
     {
-      title: "保存卡片布局",
+      title: t("TXT_CODE_8145d82"),
       icon: SaveOutlined,
       click: () => changeDesignMode(false),
       conditions: containerState.isDesignMode,
       onlyPC: true,
     },
     {
-      title: "自定义布局",
+      title: t("TXT_CODE_ebd2a6a1"),
       icon: BuildOutlined,
       click: () => changeDesignMode(true),
       conditions: !containerState.isDesignMode,
       onlyPC: true,
     },
     {
-      title: $t("个人资料"),
+      title: t("TXT_CODE_8c3164c9"),
       icon: UserOutlined,
       click: () => {
         toPage({ path: "/user" });
@@ -114,7 +117,7 @@ const appMenus = computed(() => {
       onlyPC: false,
     },
     {
-      title: "退出",
+      title: t("TXT_CODE_2c69ab15"),
       icon: LogoutOutlined,
       click: () => {
         toPage({ path: "/" });
@@ -135,7 +138,6 @@ const openPhoneMenu = (b = false) => {
 
 <template>
   <header class="app-header-wrapper">
-    {{ $t("卧槽123") }}
     <div class="app-header-content" v-if="!isMobile">
       <div class="btns">
         <a href="/" style="margin-right: 12px">

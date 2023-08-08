@@ -13,8 +13,6 @@ export function useAppRouters() {
     return route.fullPath.split("?")[1] || "";
   };
 
-  const a = $t("测试345");
-
   const toPage = (params: RouteLocationPathRaw) => {
     router.push({
       ...params,

@@ -4,6 +4,9 @@ import { ref, computed, reactive, onMounted } from "vue";
 import type { MapData } from "../../../types/index";
 import type { FormInstance } from "ant-design-vue";
 import { BuildOutlined, BulbOutlined } from "@ant-design/icons-vue";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 const open = ref(false);
 const card = ref<LayoutCard>();
@@ -41,7 +44,7 @@ defineExpose({
 
 <template>
   <a-drawer
-    title="请完善卡片所需参数"
+    :title="t("请完善卡片所需参数")"
     placement="bottom"
     :open="open"
     @close="onClose"
@@ -71,10 +74,12 @@ defineExpose({
       <p>
         <BulbOutlined />
         <span>
-          如果不填写任何参数，新增的卡片将自动根据地址去获取数据，但这不适用于所有页面，只有在特定页面中可以正常使用。
+          {{ t("TXT_CODE_e29b79df") }}
         </span>
       </p>
-      <p>列如：在不填写参数的情况下， “终端卡片” 只能在 “实例详情” 页使用。</p>
+      <p>
+        {{ t("TXT_CODE_13663120") }}
+      </p>
     </div>
   </a-drawer>
 </template>

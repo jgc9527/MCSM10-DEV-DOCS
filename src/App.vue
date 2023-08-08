@@ -31,9 +31,6 @@ console.warn("MCSMANAGER APP CONFIG:", JSON.stringify(appConfig));
   <a-config-provider :locale="locale">
     <div class="global-app-container">
       <AppHeader></AppHeader>
-      <div>
-        {{ t("Hello") }}
-      </div>
       <RouterView :key="$route.fullPath" />
     </div>
   </a-config-provider>
