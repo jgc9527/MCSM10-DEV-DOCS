@@ -1,6 +1,8 @@
 const fs = require("fs");
 const { crc32 } = require("crc");
 
+const FN_KEY = "$$I18N_KEY_";
+
 module.exports = {
   input: [
     "src/**/*.{js,ts,vue}",
@@ -11,10 +13,7 @@ module.exports = {
   output: "./", //输出目录
   options: {
     debug: true,
-    func: {
-      list: ["t"], // 指定用于翻译的函数名
-      extensions: [".vue", ".js", ".jsx", ".ts", ".tsx"], // 指定需要扫描的文件类型
-    },
+    func: false,
     trans: false,
     lngs: ["zh_CN", "en_US"],
     defaultLng: "zh",
@@ -38,12 +37,15 @@ module.exports = {
     const parser = this.parser;
     const content = fs.readFileSync(file.path, enc);
     let newCode = content;
-    console.log("文件：", file.path);
+    // console.log("文件：", file.path);
     // console.log("zcxzx", parser);
     parser.parseFuncFromString(content, { list: ["t"] }, (key, options) => {
-      console.log("解析值:", key, options);
+      if (String(key).includes(FN_KEY)) {
+        return;
+      }
+      console.log("parser.parseFuncFromString:", key, options);
       options.defaultValue = key;
-      let hashKey = `K${crc32(key).toString(16)}`; // crc32转换格式
+      let hashKey = `${FN_KEY}${crc32(key).toString(16)}`; // crc32转换格式
 
       newCode = String(newCode).replace(key, hashKey);
 
