@@ -14,9 +14,6 @@ const i18n = createI18n({
   },
 });
 
-const $t = i18n.global.t;
-const t = i18n.global.t;
-
 const setLanguage = (lang: string) => {
   i18n.global.locale = lang as any;
 };
@@ -25,4 +22,4 @@ const getCurrentLang = () => {
   return i18n.global.locale;
 };
 
-export { i18n, $t, t, setLanguage, getCurrentLang };
+export { i18n, setLanguage, getCurrentLang };

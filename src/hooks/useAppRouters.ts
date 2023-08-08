@@ -1,5 +1,4 @@
 import { router } from "@/config/router";
-import { $t } from "@/lang/i18n";
 import {
   useRoute,
   type RouteLocationRaw,

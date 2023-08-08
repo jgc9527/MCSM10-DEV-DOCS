@@ -44,7 +44,7 @@ defineExpose({
 
 <template>
   <a-drawer
-    :title="t("请完善卡片所需参数")"
+    :title="t('TXT_CODE_e4c84088')"
     placement="bottom"
     :open="open"
     @close="onClose"
