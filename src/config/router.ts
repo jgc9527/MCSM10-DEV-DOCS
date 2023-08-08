@@ -4,6 +4,7 @@ import {
   type RouteRecordRaw,
 } from "vue-router";
 import LayoutContainer from "@/views/LayoutContainer.vue";
+import { $t as t } from "@/lang/i18n";
 
 export interface RouterMetaInfo {
   icon?: string;
@@ -26,7 +27,7 @@ export interface RouterConfig {
 let originRouterConfig = [
   {
     path: "/",
-    name: "仪表盘",
+    name: t("TXT_CODE_16d71239"),
     component: LayoutContainer,
     meta: {
       icon: "mdi-view-dashboard",
@@ -35,7 +36,7 @@ let originRouterConfig = [
   },
   {
     path: "/instances",
-    name: "应用程序",
+    name: t("TXT_CODE_e21473bc"),
     component: LayoutContainer,
     meta: {
       icon: "mdi-application-brackets",
@@ -44,13 +45,13 @@ let originRouterConfig = [
     children: [
       {
         path: "/instances/terminal",
-        name: "终端",
+        name: t("TXT_CODE_524e3036"),
         component: LayoutContainer,
         meta: {},
         children: [
           {
             path: "/instances/terminal/files",
-            name: "文件管理",
+            name: t("TXT_CODE_ae533703"),
             component: LayoutContainer,
             meta: {},
           },
@@ -60,7 +61,7 @@ let originRouterConfig = [
   },
   {
     path: "/node",
-    name: "节点",
+    name: t("TXT_CODE_e076d90b"),
     component: LayoutContainer,
     meta: {
       icon: "mdi-server-network",
@@ -69,7 +70,7 @@ let originRouterConfig = [
   },
   {
     path: "/settings",
-    name: "设置",
+    name: t("TXT_CODE_b5c7b82d"),
     component: LayoutContainer,
     meta: {
       icon: "mdi-cog",
@@ -78,7 +79,7 @@ let originRouterConfig = [
   },
   {
     path: "/user",
-    name: "个人资料",
+    name: t("TXT_CODE_8c3164c9"),
     component: LayoutContainer,
     meta: {
       icon: "mdi-cog",
