@@ -1,0 +1,19 @@
+// 全局变量表
+
+.app-dark-theme {
+  --background-color: var(--color-gray-12);
+  --background-color-white: var(--color-gray-12);
+  --drag-background-color: var(--color-gray-10);
+  --new-card-list-background-color: rgba(201, 200, 200, 0.2);
+  --float-box-bg-color: rgba(235, 235, 235, 0.2);
+  --gray-border-color: var(--color-gray-10);
+  --app-max-width: 1440px;
+
+  --app-header-bg: var(--color-gray-11);
+  --app-header-text-color: var(--color-gray-5);
+
+  --text-color: var(--color-gray-5);
+
+  --card-border-color: rgba(215, 215, 215, 0.148);
+  --card-shadow-color: rgba(255, 255, 255, 0);
+}

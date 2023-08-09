@@ -88,7 +88,7 @@ const insertCardToLayout = async (card: LayoutCard) => {
 @import "@/assets/global.scss";
 
 .card-container-wrapper {
-  border: 1px dashed $gray-border-color;
+  border: 1px dashed var(--gray-border-color);
   border-radius: 4px;
   padding: 16px;
   overflow: auto;
@@ -101,7 +101,7 @@ const insertCardToLayout = async (card: LayoutCard) => {
   left: 0px;
   padding: 24px;
 
-  background-color: $new-card-list-background-color;
+  background-color: var(--new-card-list-background-color);
   backdrop-filter: saturate(100%) blur(12px);
   z-index: 999;
   overflow-y: auto;

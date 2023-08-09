@@ -133,8 +133,8 @@ const {
 }
 .is-order-mode[data-card-type="EmptyCard"] {
   .layout-card-container {
-    border: 1px dashed $gray-border-color;
-    background-color: $color-gray-5;
+    border: 1px dashed var(--gray-border-color);
+    background-color: var(--color-gray-5);
     border-radius: 4px;
     height: 100%;
   }

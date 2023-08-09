@@ -1,5 +1,11 @@
-import "@/assets/global.scss";
 import "ant-design-vue/dist/reset.css";
+import "@/assets/base.scss";
+import "@/assets/variables.scss";
+import "@/assets/variables-dark.scss";
+import "@/assets/global.scss";
+
+// import "ant-design-vue/dist/antd.dark.css";
+// import "ant-design-vue/dist/antd.css";
 
 import { createApp } from "vue";
 import { createPinia } from "pinia";

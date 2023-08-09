@@ -42,6 +42,7 @@ defineExpose({
 
 <template>
   <a-drawer
+    class="global-text-color"
     :title="t('TXT_CODE_e4c84088')"
     placement="bottom"
     :open="open"

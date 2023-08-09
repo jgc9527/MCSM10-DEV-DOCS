@@ -95,15 +95,16 @@ let btns = [
 @import "../assets/global.scss";
 
 .base {
+  @extend .global-text-color;
   z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: $float-box-bg-color;
+  background-color: var(--float-box-bg-color);
   backdrop-filter: saturate(180%) blur(20px);
   font-size: 12px;
-  border: 1px dashed $gray-border-color;
+  border: 1px dashed var(--gray-border-color);
   font-size: 12px;
   border-radius: 4px;
   transition: all 0.4s;
@@ -141,12 +142,12 @@ let btns = [
   i:hover {
     opacity: 0.9;
     transform: scale(1.2);
-    color: $color-primary;
+    color: var(--color-primary);
   }
 }
 
 .layout-card-design-btn:hover {
-  border: 1px dashed $color-primary;
+  border: 1px dashed var(--color-primary);
   // transform: scale(1.04);
 }
 </style>

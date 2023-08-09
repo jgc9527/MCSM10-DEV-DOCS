@@ -257,13 +257,10 @@ const openPhoneMenu = (b = false) => {
 <style lang="scss" scoped>
 @import "@/assets/global.scss";
 
-$btn-color: rgb(212, 212, 212);
-$app-header-bg: rgb(46, 44, 44);
-
 .phone-menu {
   .phone-menu-btn {
     padding: 16px 8px;
-    border-bottom: 1px solid $color-gray-4;
+    border-bottom: 1px solid var(--color-gray-4);
   }
 }
 
@@ -276,11 +273,11 @@ $app-header-bg: rgb(46, 44, 44);
   // align-items: center;
   // margin: 0px;
   .card-panel {
-    background-color: $app-header-bg;
+    background-color: var(--app-header-bg);
     margin-top: 8px;
 
     button {
-      color: $color-gray-4;
+      color: var(--color-gray-4);
     }
   }
 }
@@ -294,16 +291,14 @@ $app-header-bg: rgb(46, 44, 44);
 }
 
 .app-header-wrapper {
-  // backdrop-filter: saturate(100%) blur(12px);
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16);
+  box-shadow: 0 2px 4px 0 var(--card-shadow-color);
 
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $app-header-bg;
-  // border-bottom: 1px solid rgb(224, 224, 224);
-  color: $btn-color;
+  background-color: var(--app-header-bg);
+  color: var(--app-header-text-color);
 
   position: fixed;
   top: 0;
@@ -330,7 +325,7 @@ $app-header-bg: rgb(46, 44, 44);
     margin: 0 4px;
     font-size: 14px;
     transition: all 0.4s;
-    color: $btn-color !important;
+    color: var(--app-header-text-color) !important;
     text-align: center;
     padding: 8px 12px;
     min-width: 40px;
