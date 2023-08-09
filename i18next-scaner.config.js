@@ -7,7 +7,7 @@ module.exports = {
   input: ["src/**/*.{js,ts,vue}", "!src/i18n/**", "!**/node_modules/**"],
   output: "./",
   options: {
-    debug: true,
+    debug: false,
     func: false,
     trans: false,
     lngs: ["zh_CN", "en_US"],
@@ -35,9 +35,10 @@ module.exports = {
       if (String(key).includes(FN_KEY)) {
         return;
       }
-      console.log("Text to i18n Key:", key, options);
+
       options.defaultValue = key;
       let hashKey = `${FN_KEY}${crc32(key).toString(16)}`;
+      console.log("transform(): TEXT:", key, "TO:", hashKey);
       newCode = String(newCode).replace(key, hashKey);
       parser.set(hashKey, options);
     });

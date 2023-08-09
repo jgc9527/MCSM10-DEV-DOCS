@@ -48,8 +48,12 @@ defineExpose({
     @close="onClose"
   >
     <template #extra>
-      <a-button style="margin-right: 8px" @click="onClose">取消</a-button>
-      <a-button type="primary" @click="onSubmit">确定</a-button>
+      <a-button style="margin-right: 8px" @click="onClose">
+        {{ t("TXT_CODE_a0451c97") }}
+      </a-button>
+      <a-button type="primary" @click="onSubmit">
+        {{ t("TXT_CODE_d507abff") }}
+      </a-button>
     </template>
     <div v-if="card && card.meta" class="app-max-width">
       <a-form
