@@ -13,6 +13,7 @@ export function useCardOperation() {
     LayoutCardHeight.BIG,
     LayoutCardHeight.MEDIUM,
     LayoutCardHeight.SMALL,
+    LayoutCardHeight.MINI,
   ];
 
   const addCardHeight = (id: string) => {

@@ -2,18 +2,11 @@
 import { useCardOperation } from "@/hooks/useCardOperation";
 import type { LayoutCard } from "@/types";
 import {
-  BorderLeftOutlined,
   CloseOutlined,
-  DownOutlined,
   EditOutlined,
-  LeftOutlined,
-  RightOutlined,
-  ToTopOutlined,
-  UpOutlined,
-  VerticalAlignBottomOutlined,
   VerticalAlignTopOutlined,
 } from "@ant-design/icons-vue";
-import { h, ref } from "vue";
+import { h } from "vue";
 import { $t as t } from "@/lang/i18n";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

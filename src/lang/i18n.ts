@@ -3,10 +3,14 @@ import { createI18n } from "vue-i18n";
 import enUS from "@/lang/en_US.json";
 import zhCN from "@/lang/zh_CN.json";
 
+export const LANGUAGE_KEY = "LANGUAGE";
+
+const locale = localStorage.getItem(LANGUAGE_KEY) || "en_US";
+
 const i18n = createI18n({
   allowComposition: true,
   globalInjection: true,
-  locale: "en_US",
+  locale,
   fallbackLocale: "en_US",
   messages: {
     en_US: enUS,
@@ -15,7 +19,8 @@ const i18n = createI18n({
 });
 
 const setLanguage = (lang: string) => {
-  i18n.global.locale = lang as any;
+  localStorage.setItem(LANGUAGE_KEY, lang);
+  window.location.reload();
 };
 
 const getCurrentLang = () => {
@@ -23,5 +28,7 @@ const getCurrentLang = () => {
 };
 
 const $t = i18n.global.t;
+
+(window as any).setLang = setLanguage;
 
 export { i18n, setLanguage, getCurrentLang, $t };

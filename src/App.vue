@@ -11,20 +11,16 @@ import { useAppConfigStore } from "./stores/useAppConfigStore";
 import { useI18n } from "vue-i18n";
 import { setLanguage } from "@/lang/i18n";
 const { t } = useI18n();
-const { appConfig } = useAppConfigStore();
+const { getCurrentLanguage } = useAppConfigStore();
 
 const locale = ref(enUS);
 
-if (appConfig.language === "zh_CN") {
+if (getCurrentLanguage() === "zh_CN") {
   dayjs.locale("zh-cn");
   locale.value = zhCN;
 } else {
   dayjs.locale("en-us");
 }
-
-setLanguage(appConfig.language);
-
-console.warn("MCSMANAGER APP CONFIG:", JSON.stringify(appConfig));
 </script>
 
 <template>
