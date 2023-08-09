@@ -12,14 +12,17 @@ import {
   LogoutOutlined,
   UserOutlined,
   MenuUnfoldOutlined,
+  FormatPainterOutlined,
+  FormatPainterFilled,
 } from "@ant-design/icons-vue";
 import { useScreen } from "@/hooks/useScreen";
 import CardPanel from "./CardPanel.vue";
 import { $t as t } from "@/lang/i18n";
+import { THEME, useAppConfigStore } from "@/stores/useAppConfigStore";
 
 const { containerState, changeDesignMode } = useLayoutContainerStore();
 const { getRouteParamsUrl, toPage } = useAppRouters();
-
+const { setTheme, isDarkTheme } = useAppConfigStore();
 const openNewCardDialog = () => {
   containerState.showNewCardDialog = true;
 };
@@ -105,6 +108,24 @@ const appMenus = computed(() => {
       click: () => changeDesignMode(false),
       conditions: containerState.isDesignMode,
       onlyPC: true,
+    },
+    {
+      title: t("深色模式"),
+      icon: FormatPainterOutlined,
+      click: () => {
+        setTheme(THEME.DARK);
+      },
+      conditions: !isDarkTheme() && !containerState.isDesignMode,
+      onlyPC: false,
+    },
+    {
+      title: t("浅色模式"),
+      icon: FormatPainterFilled,
+      click: () => {
+        setTheme(THEME.LIGHT);
+      },
+      conditions: isDarkTheme() && !containerState.isDesignMode,
+      onlyPC: false,
     },
     {
       title: t("TXT_CODE_ebd2a6a1"),

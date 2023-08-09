@@ -7,14 +7,14 @@ import dayjs from "dayjs";
 import "dayjs/locale/zh-cn";
 import "dayjs/locale/en";
 import { ref, onMounted } from "vue";
-import { useAppConfigStore } from "./stores/useAppConfigStore";
+import { THEME, useAppConfigStore } from "./stores/useAppConfigStore";
 import { useI18n } from "vue-i18n";
 import { setLanguage } from "@/lang/i18n";
 import { theme } from "ant-design-vue";
 import type { JsonData } from "./types";
 
 const { t } = useI18n();
-const { getCurrentLanguage } = useAppConfigStore();
+const { getCurrentLanguage, isDarkTheme } = useAppConfigStore();
 
 const locale = ref(enUS);
 
@@ -25,12 +25,12 @@ if (getCurrentLanguage() === "zh_CN") {
   dayjs.locale("en-us");
 }
 
-const isDarkTheme = true;
+const isDarkUI = isDarkTheme();
 const appTheme = {
   algorithm: theme.defaultAlgorithm,
 };
 
-if (isDarkTheme) {
+if (isDarkUI) {
   document.body.classList.add("app-dark-theme");
   appTheme.algorithm = theme.darkAlgorithm;
 } else {
