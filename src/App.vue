@@ -12,6 +12,7 @@ import { useI18n } from "vue-i18n";
 import { setLanguage } from "@/lang/i18n";
 import { theme } from "ant-design-vue";
 import type { JsonData } from "./types";
+import InputDialogProvider from "./components/InputDialogProvider.vue";
 
 const { t } = useI18n();
 const { getCurrentLanguage, isDarkTheme } = useAppConfigStore();
@@ -44,5 +45,8 @@ if (isDarkUI) {
       <AppHeader></AppHeader>
       <RouterView :key="$route.fullPath" />
     </div>
+
+    <!-- Global Components -->
+    <InputDialogProvider></InputDialogProvider>
   </a-config-provider>
 </template>

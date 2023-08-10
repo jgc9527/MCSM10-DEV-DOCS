@@ -8,11 +8,14 @@ import {
 } from "@ant-design/icons-vue";
 import { h } from "vue";
 import { $t as t } from "@/lang/i18n";
+import { useAppToolsStore } from "@/stores/useAppToolsStore";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps<{
   card: LayoutCard;
 }>();
+
+const { openInputDialog } = useAppToolsStore();
 
 const {
   addCardHeight,
@@ -56,8 +59,9 @@ let btns = [
   {
     tipText: t("TXT_CODE_18cdc17f"),
     icon: EditOutlined,
-    click: (id: string) => {
-      editCardName(id, "新的名字");
+    click: async (id: string) => {
+      const newName = await openInputDialog(t("请输入新的卡片标题"));
+      editCardName(id, String(newName));
     },
   },
 ];
