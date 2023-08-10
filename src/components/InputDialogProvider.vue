@@ -1,6 +1,7 @@
 <template>
   <div>
     <a-modal
+      centered
       v-model:open="state.inputDialog.show"
       :title="state.inputDialog.title"
       @ok="handleOk"

@@ -106,3 +106,8 @@ html {
     margin: 0px 8px;
   }
 }
+
+.ant-modal-mask,
+.ant-drawer-mask {
+  backdrop-filter: saturate(110%) blur(4px);
+}
