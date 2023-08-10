@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import CardPanel from "../CardPanel.vue";
-import type { LayoutCard } from "../../types/index";
+import CardPanel from "@/components/CardPanel.vue";
+import type { LayoutCard } from "@/types/index";
 
 const props = defineProps<{
   card: LayoutCard;

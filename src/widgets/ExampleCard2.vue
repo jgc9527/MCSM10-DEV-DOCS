@@ -3,7 +3,7 @@ import type { LayoutCard } from "@/types";
 import { onUnmounted } from "vue";
 import { onMounted } from "vue";
 import { ref } from "vue";
-import CardPanel from "../CardPanel.vue";
+import CardPanel from "@/components/CardPanel.vue";
 
 const props = defineProps<{
   card: LayoutCard;

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { LayoutCard } from "@/types";
-import CardPanel from "../CardPanel.vue";
+import CardPanel from "@/components/CardPanel.vue";
 import { useRoute } from "vue-router";
 
 const props = defineProps<{

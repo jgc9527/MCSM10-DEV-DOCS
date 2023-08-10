@@ -1,3 +1,5 @@
+import { $t as t } from "@/lang/i18n";
+
 export enum LayoutCardHeight {
   MINI = "100px",
   SMALL = "200px",
@@ -15,11 +17,10 @@ export const ORIGIN_LAYOUT_CONFIG = [
     items: [
       {
         id: "45bad85d-df90-4588-b860-6833155c0031",
-        type: "ExampleCard2",
-        title: "我的卡片3",
+        type: "DataOverview",
+        title: t("数据总览"),
         width: 12,
-        description:
-          "除了主色外的场景色，需要在不同的场景中使用（例如危险色表示危险的操作）。",
+        description: t("用于显示面板的所有基本数据"),
         height: LayoutCardHeight.MEDIUM,
       },
       {

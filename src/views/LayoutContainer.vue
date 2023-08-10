@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import NewCardList from "@/components/cards/NewCardList/index.vue";
+import NewCardList from "@/components//NewCardList/index.vue";
 import CardOperator from "@/components/CardOperator.vue";
-import LayoutCardComponent from "@/components/cards/LayoutCard.vue";
-import PlaceHolderCard from "@/components/cards/PlaceHolderCard.vue";
+import LayoutCardComponent from "@/components//LayoutCard.vue";
+import PlaceHolderCard from "@/components//PlaceHolderCard.vue";
 import { useLayoutConfigStore } from "@/stores/useLayoutConfig";
 import { useCardDragMove } from "@/hooks/useCardDragMove";
 import {

@@ -28,7 +28,8 @@ const getCurrentLang = () => {
 };
 
 const $t = i18n.global.t;
+const t = i18n.global.t;
 
 (window as any).setLang = setLanguage;
 
-export { i18n, setLanguage, getCurrentLang, $t };
+export { i18n, setLanguage, getCurrentLang, $t, t };

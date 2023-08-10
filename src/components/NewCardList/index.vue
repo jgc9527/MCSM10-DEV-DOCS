@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useCardPool } from "@/stores/useCardPool";
-import LayoutCardComponent from "@/components/cards/LayoutCard.vue";
+import LayoutCardComponent from "@/components//LayoutCard.vue";
 import { ref, computed, type Ref } from "vue";
 import type { LayoutCard } from "@/types";
 import { useLayoutConfigStore } from "@/stores/useLayoutConfig";

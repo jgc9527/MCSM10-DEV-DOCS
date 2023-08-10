@@ -4,14 +4,20 @@
   <div class="card-panel">
     <div class="card-panel-title" v-if="$slots.title">
       <div>
-        <slot name="title"></slot>
+        <a-typography-title :level="5">
+          <slot name="title"></slot>
+        </a-typography-title>
       </div>
       <div>
-        <slot name="operator"></slot>
+        <a-typography-text>
+          <slot name="operator"></slot>
+        </a-typography-text>
       </div>
     </div>
     <div class="card-panel-content">
-      <slot name="body"></slot>
+      <a-typography-text>
+        <slot name="body"></slot>
+      </a-typography-text>
     </div>
   </div>
 </template>
@@ -29,15 +35,13 @@
   padding: 16px;
 
   .card-panel-title {
-    font-size: 16px;
     font-weight: 600;
     color: var(--text-color);
 
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    margin-bottom: 16px;
+    margin-top: -4px; // For Ant-Design Font
   }
   .card-panel-content {
     color: var(--text-color);

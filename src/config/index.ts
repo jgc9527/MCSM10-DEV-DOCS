@@ -1,11 +1,12 @@
-import EmptyCard from "@/components/card-implement/EmptyCard.vue";
-import ExampleCard from "@/components/card-implement/ExampleCard.vue";
-import ExampleCard2 from "@/components/card-implement/ExampleCard2.vue";
-import ExampleCard3 from "@/components/card-implement/ExampleCard3.vue";
-import ExampleCard4 from "@/components/card-implement/ExampleCard4.vue";
+import EmptyCard from "@/widgets/EmptyCard.vue";
+import ExampleCard from "@/widgets/ExampleCard.vue";
+import ExampleCard2 from "@/widgets/ExampleCard2.vue";
+import ExampleCard3 from "@/widgets/ExampleCard3.vue";
+import ExampleCard4 from "@/widgets/ExampleCard4.vue";
 import { getRandomId } from "@/tools/randId";
 import type { LayoutCard } from "@/types";
 import { LayoutCardHeight } from "./originLayoutConfig";
+import DataOverview from "@/widgets/PanelOverview.vue";
 
 // Register specified Vue components for each card.
 export const LAYOUT_CARD_TYPES: { [key: string]: any } = {
@@ -14,6 +15,7 @@ export const LAYOUT_CARD_TYPES: { [key: string]: any } = {
   ExampleCard3,
   ExampleCard4,
   EmptyCard,
+  DataOverview,
 };
 
 // For create new card

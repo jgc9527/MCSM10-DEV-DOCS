@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { LayoutCard } from "../../types/index";
-import { LAYOUT_CARD_TYPES } from "../../config/index";
+import type { LayoutCard } from "@/types/index";
+import { LAYOUT_CARD_TYPES } from "@/config/index";
 
 const props = defineProps<{
   card: LayoutCard;

@@ -1,12 +1,4 @@
 :root {
-  // 饿了么颜色，Less 全局样式常量
-  // https://element.eleme.cn/#/zh-CN/component/color
-  --color-primary: #409eff;
-  --color-danger: #f56c6c;
-  --color-warning: #e6a23c;
-  --color-success: #67c23a;
-  --color-info: #909399;
-
   // 各种颜色使用
   // https://ant.design/docs/spec/colors-cn
   --color-red-1: #fff1f0;
@@ -142,4 +134,10 @@
   --color-gray-11: #1f1f1f;
   --color-gray-12: #141414;
   --color-gray-13: #000000;
+
+  --color-primary: var(--color-blue-5);
+  --color-danger: var(--color-red-5);
+  --color-warning: var(--color-yellow-6);
+  --color-success: var(--color-green-5);
+  --color-info: var(--color-gray-7);
 }

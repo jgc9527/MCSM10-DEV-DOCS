@@ -39,11 +39,9 @@ export function useCardDragMove() {
         if (!item) return;
         if (!newArea) {
           insertLayoutItem("", item, newIndex);
-          console.log("位置变换1：", checkIndex, "--->", newIndex);
         } else {
           if (checkIndex > newIndex) newIndex += 1;
           insertLayoutItem("", item, newIndex);
-          console.log("位置变换2：", checkIndex, "--->", newIndex);
         }
       }
     }
