@@ -13,11 +13,13 @@ const props = defineProps<{
       <template #title>{{ card.title }}</template>
       <template #body>
         <a-row>
-          <a-col :span="24" :md="12" :lg="6"> </a-col>
+          <a-col :span="24" :md="12" :lg="6">
+            <div></div>
+          </a-col>
         </a-row>
       </template>
     </CardPanel>
   </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss" scoped></style>
