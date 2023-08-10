@@ -8,6 +8,7 @@ import type { LayoutCard } from "@/types";
 import { LayoutCardHeight } from "./originLayoutConfig";
 import DataOverview from "@/widgets/PanelOverview.vue";
 import StatusBlock from "@/widgets/StatusBlock.vue";
+import { t } from "@/lang/i18n";
 
 // Register specified Vue components for each card.
 export const LAYOUT_CARD_TYPES: { [key: string]: any } = {
@@ -68,6 +69,19 @@ export function getLayoutCardPool() {
           type: "string",
         },
       ],
+    },
+
+    {
+      id: getRandomId(),
+      type: "StatusBlock",
+      title: t("节点在线数444"),
+      meta: {
+        title: "在线节点 / 总节点",
+        type: "node",
+      },
+      width: 3,
+      description: t("用于显示面板的所有基本数据"),
+      height: LayoutCardHeight.SMALL,
     },
 
     // 一个正常的卡片

@@ -33,7 +33,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         },
         width: 3,
         description: t("用于显示面板的所有基本数据"),
-        height: LayoutCardHeight.MINI,
+        height: LayoutCardHeight.SMALL,
       },
       {
         id: "45bad85d-df90-4588-b860-6833155c0031214",
@@ -45,7 +45,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         },
         width: 3,
         description: t("用于显示面板的所有基本数据"),
-        height: LayoutCardHeight.MINI,
+        height: LayoutCardHeight.SMALL,
       },
       {
         id: "45bad85d-df90-4588-b860-6833155c003122",
@@ -57,7 +57,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         },
         width: 3,
         description: t("用于显示面板的所有基本数据"),
-        height: LayoutCardHeight.MINI,
+        height: LayoutCardHeight.SMALL,
       },
       {
         id: "45bad85d-df90-4588-b860-6833155c003123",
@@ -69,7 +69,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         },
         width: 3,
         description: t("用于显示面板的所有基本数据"),
-        height: LayoutCardHeight.MINI,
+        height: LayoutCardHeight.SMALL,
       },
     ],
   },
@@ -180,6 +180,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
       },
     ],
   },
+
   {
     page: "/404",
     items: [
