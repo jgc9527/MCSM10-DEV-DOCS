@@ -17,7 +17,7 @@ import {
 } from "@ant-design/icons-vue";
 import { useScreen } from "@/hooks/useScreen";
 import CardPanel from "./CardPanel.vue";
-import { $t as t } from "@/lang/i18n";
+import { $t, $t as t } from "@/lang/i18n";
 import { THEME, useAppConfigStore } from "@/stores/useAppConfigStore";
 
 const { containerState, changeDesignMode } = useLayoutContainerStore();
@@ -110,22 +110,23 @@ const appMenus = computed(() => {
       onlyPC: true,
     },
     {
-      title: t("深色模式"),
+      title: t("选择主题"),
       icon: FormatPainterOutlined,
-      click: () => {
-        setTheme(THEME.DARK);
+      click: (key: string) => {
+        setTheme(key as THEME);
       },
-      conditions: !isDarkTheme() && !containerState.isDesignMode,
+      conditions: !containerState.isDesignMode,
       onlyPC: false,
-    },
-    {
-      title: t("浅色模式"),
-      icon: FormatPainterFilled,
-      click: () => {
-        setTheme(THEME.LIGHT);
-      },
-      conditions: isDarkTheme() && !containerState.isDesignMode,
-      onlyPC: false,
+      menus: [
+        {
+          title: $t("浅色模式"),
+          value: THEME.LIGHT,
+        },
+        {
+          title: $t("深色模式"),
+          value: THEME.DARK,
+        },
+      ],
     },
     {
       title: t("TXT_CODE_ebd2a6a1"),
@@ -184,7 +185,19 @@ const openPhoneMenu = (b = false) => {
       </div>
       <div class="btns">
         <div v-for="(item, index) in appMenus" :key="index">
-          <a-tooltip placement="bottom" v-if="item.conditions">
+          <a-dropdown placement="bottom" v-if="item.menus && item.conditions">
+            <div class="nav-button" @click.prevent>
+              <component :is="item.icon"></component>
+            </div>
+            <template #overlay>
+              <a-menu @click="(e: any) => item.click(String(e.key))">
+                <a-menu-item v-for="(m, i) in item.menus" :key="m.value">
+                  {{ m.title }}
+                </a-menu-item>
+              </a-menu>
+            </template>
+          </a-dropdown>
+          <a-tooltip placement="bottom" v-else-if="item.conditions">
             <template #title>
               <span>{{ item.title }}</span>
             </template>
