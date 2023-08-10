@@ -7,6 +7,7 @@ import { getRandomId } from "@/tools/randId";
 import type { LayoutCard } from "@/types";
 import { LayoutCardHeight } from "./originLayoutConfig";
 import DataOverview from "@/widgets/PanelOverview.vue";
+import StatusBlock from "@/widgets/StatusBlock.vue";
 
 // Register specified Vue components for each card.
 export const LAYOUT_CARD_TYPES: { [key: string]: any } = {
@@ -16,6 +17,7 @@ export const LAYOUT_CARD_TYPES: { [key: string]: any } = {
   ExampleCard4,
   EmptyCard,
   DataOverview,
+  StatusBlock,
 };
 
 // For create new card
