@@ -386,7 +386,7 @@ const openPhoneMenu = (b = false) => {
     }
   }
 
-  @media (max-width: 960px) {
+  @media (max-width: 992px) {
     .app-header-content {
       margin: 0px 8px;
     }

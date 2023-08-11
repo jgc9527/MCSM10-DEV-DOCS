@@ -104,7 +104,7 @@ html {
   }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 992px) {
   .global-app-container {
     margin: 0px 8px;
   }
@@ -114,3 +114,87 @@ html {
 .ant-drawer-mask {
   backdrop-filter: saturate(110%) blur(4px);
 }
+
+// Tools
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.direction-column {
+  flex-direction: column;
+}
+
+.align-center {
+  display: flex;
+  align-items: center;
+}
+
+.justify-center {
+  display: flex;
+  justify-content: center;
+}
+
+.justify-start {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.justify-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.justify-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin generate-styles($depth) {
+  .m-#{$depth} {
+    margin: #{$depth}px !important;
+  }
+  .ml-#{$depth} {
+    margin-left: #{$depth}px !important;
+  }
+  .mr-#{$depth} {
+    margin-right: #{$depth}px !important;
+  }
+  .mb-#{$depth} {
+    margin-bottom: #{$depth}px !important;
+  }
+  .mt-#{$depth} {
+    margin-top: #{$depth}px !important;
+  }
+  .p-#{$depth} {
+    padding: #{$depth}px !important;
+  }
+  .pl-#{$depth} {
+    padding-left: #{$depth}px !important;
+  }
+  .pr-#{$depth} {
+    padding-right: #{$depth}px !important;
+  }
+  .pb-#{$depth} {
+    padding-bottom: #{$depth}px !important;
+  }
+  .pt-#{$depth} {
+    padding-top: #{$depth}px !important;
+  }
+
+  @if $depth >= 1 {
+    @include generate-styles($depth - 1);
+  }
+}
+
+@include generate-styles(60);

@@ -13,10 +13,8 @@ import NodeOverview from "@/widgets/NodeOverview.vue";
 import QuickStart from "@/widgets/QuickStart.vue";
 import RequestChart from "@/widgets/RequestChart.vue";
 import InstanceChart from "@/widgets/InstanceChart.vue";
-import InstanceOperation from "@/widgets/InstanceOperation.vue";
 import InstanceList from "@/widgets/InstanceList.vue";
 import NodeList from "@/widgets/NodeList.vue";
-import NodeOperation from "@/widgets/NodeOperation.vue";
 import Settings from "@/widgets/Settings.vue";
 
 // Register specified Vue components for each card.
@@ -32,9 +30,7 @@ export const LAYOUT_CARD_TYPES: { [key: string]: any } = {
   NodeOverview,
   RequestChart,
   InstanceChart,
-  InstanceOperation,
   InstanceList,
-  NodeOperation,
   NodeList,
   Settings,
 };

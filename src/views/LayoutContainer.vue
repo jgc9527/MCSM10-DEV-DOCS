@@ -123,7 +123,7 @@ const {
 @import "../assets/variables.scss";
 
 // Hide the EmptyCard component when mobile device.
-@media (max-width: 960px) {
+@media (max-width: 992px) {
   .layout-card-col[data-card-type="EmptyCard"] {
     display: none;
   }
