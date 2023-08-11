@@ -9,6 +9,10 @@ import { LayoutCardHeight } from "./originLayoutConfig";
 import DataOverview from "@/widgets/PanelOverview.vue";
 import StatusBlock from "@/widgets/StatusBlock.vue";
 import { t } from "@/lang/i18n";
+import NodeOverview from "@/widgets/NodeOverview.vue";
+import QuickStart from "@/widgets/QuickStart.vue";
+import RequestChart from "@/widgets/RequestChart.vue";
+import InstanceChart from "@/widgets/InstanceChart.vue";
 
 // Register specified Vue components for each card.
 export const LAYOUT_CARD_TYPES: { [key: string]: any } = {
@@ -19,6 +23,10 @@ export const LAYOUT_CARD_TYPES: { [key: string]: any } = {
   EmptyCard,
   DataOverview,
   StatusBlock,
+  QuickStart,
+  NodeOverview,
+  RequestChart,
+  InstanceChart,
 };
 
 // For create new card
