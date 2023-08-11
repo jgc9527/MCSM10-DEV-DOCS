@@ -116,7 +116,7 @@ const appMenus = computed(() => {
         setTheme(key as THEME);
       },
       conditions: !containerState.isDesignMode,
-      onlyPC: false,
+      onlyPC: true,
       menus: [
         {
           title: $t("浅色模式"),

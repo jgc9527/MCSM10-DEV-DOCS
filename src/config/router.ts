@@ -60,6 +60,15 @@ let originRouterConfig = [
     ],
   },
   {
+    path: "/users",
+    name: t("用户"),
+    component: LayoutContainer,
+    meta: {
+      icon: "mdi-server-network",
+      mainMenu: true,
+    },
+  },
+  {
     path: "/node",
     name: t("TXT_CODE_e076d90b"),
     component: LayoutContainer,

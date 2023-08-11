@@ -30,7 +30,8 @@ const arr = [
             </a-typography-title>
           </template>
           <template #right>
-            <a-button type="primary">{{ t("新增节点") }}</a-button>
+            <a-button class="mr-6" type="primary">{{ t("新增节点") }}</a-button>
+            <a-button>{{ t("使用手册") }}</a-button>
           </template>
           <template #center>
             <div class="search-input">
@@ -63,7 +64,7 @@ const arr = [
         </a-typography-text>
       </a-col>
 
-      <a-col :span="24" :md="6" v-for="item in arr" :key="item">
+      <a-col :span="24" :lg="12" v-for="item in arr" :key="item">
         <CardPanel style="height: 100%">
           <template #title>我的程序</template>
           <template #body>

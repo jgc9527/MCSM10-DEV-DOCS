@@ -129,14 +129,14 @@ export const ORIGIN_LAYOUT_CONFIG = [
     items: [
       {
         id: "terminal213123",
-        type: "InstanceOperation",
+        type: "Settings",
         title: t("操作区"),
         width: 4,
         height: LayoutCardHeight.MEDIUM,
       },
       {
         id: "21lk3io12h3io221312312321sazxczx1h3",
-        type: "InstanceList",
+        type: "Settings",
         title: t("应用程序"),
         width: 4,
         height: LayoutCardHeight.AUTO,
@@ -156,14 +156,21 @@ export const ORIGIN_LAYOUT_CONFIG = [
     ],
   },
   {
-    page: "/user",
+    page: "/users",
     items: [
       {
-        id: "BBBB12pj1223123oi3h23123oi221B",
-        type: "ExampleCard2",
-        title: "个人资料",
-        width: 6,
-        height: LayoutCardHeight.MEDIUM,
+        id: "BBBB12pj12223123oi3h23123oi221B",
+        type: "UserList",
+        title: "用户列表",
+        width: 12,
+        height: LayoutCardHeight.AUTO,
+      },
+      {
+        id: "21lk3io12h3io221312312321sazxczx1h3",
+        type: "EmptyCard",
+        title: "",
+        width: 12,
+        height: LayoutCardHeight.MINI,
       },
     ],
   },

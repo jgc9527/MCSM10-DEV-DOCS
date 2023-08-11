@@ -5,6 +5,7 @@ import { ref } from "vue";
 import { t } from "@/lang/i18n";
 import { SearchOutlined, UserOutlined } from "@ant-design/icons-vue";
 import BetweenMenus from "@/components/BetweenMenus.vue";
+import { router } from "@/config/router";
 
 const props = defineProps<{
   card: LayoutCard;
@@ -17,6 +18,16 @@ const operationForm = ref({
 const arr = [
   1, 2, 3, 4, 5, 6, 7, 8, 1, 1, 1, 1, 1, 1, 11, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 ];
+
+const toAppDetailPage = (daemonId: string, appId: string) => {
+  router.push({
+    path: `/instances/terminal`,
+    query: {
+      daemonId,
+      appId,
+    },
+  });
+};
 </script>
 
 <template>
@@ -47,7 +58,7 @@ const arr = [
         </BetweenMenus>
       </a-col>
       <a-col :span="24" :md="6" v-for="item in arr" :key="item">
-        <CardPanel style="height: 100%">
+        <CardPanel style="height: 100%" @click="toAppDetailPage('1', '2')">
           <template #title>我的程序</template>
           <template #body>
             卡片示例 <br />
