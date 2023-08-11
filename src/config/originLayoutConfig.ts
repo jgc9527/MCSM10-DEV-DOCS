@@ -16,7 +16,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
     page: "/",
     items: [
       {
-        id: "45bad85d-df90-4588-b860-6833155c00312",
+        id: "11",
         type: "StatusBlock",
         title: t("节点在线数1"),
         meta: {
@@ -28,7 +28,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         height: LayoutCardHeight.SMALL,
       },
       {
-        id: "45bad85d-df90-4588-b860-6833155c0031214",
+        id: "12",
         type: "StatusBlock",
         title: t("实例运行状态"),
         meta: {
@@ -40,7 +40,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         height: LayoutCardHeight.SMALL,
       },
       {
-        id: "45bad85d-df90-4588-b860-6833155c003122",
+        id: "13",
         type: "StatusBlock",
         title: t("面板登录次数"),
         meta: {
@@ -52,7 +52,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         height: LayoutCardHeight.SMALL,
       },
       {
-        id: "45bad85d-df90-4588-b860-6833155c003123",
+        id: "14",
         type: "StatusBlock",
         title: t("系统资源信息"),
         meta: {
@@ -64,7 +64,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         height: LayoutCardHeight.SMALL,
       },
       {
-        id: "45bad85d-df90-4588-b860-6833155c0031",
+        id: "15",
         type: "DataOverview",
         title: t("数据总览"),
         width: 9,
@@ -72,7 +72,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         height: LayoutCardHeight.MEDIUM,
       },
       {
-        id: "A000000000000000000000000000000000002",
+        id: "16",
         type: "QuickStart",
         title: t("快速建立应用程序"),
         width: 3,
@@ -80,7 +80,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         height: LayoutCardHeight.MEDIUM,
       },
       {
-        id: "A000000000000000000000000000000000003",
+        id: "17",
         type: "RequestChart",
         title: t("接口请求量趋势"),
         width: 6,
@@ -88,7 +88,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         height: LayoutCardHeight.SMALL,
       },
       {
-        id: "A000000000000000000000000000000000004",
+        id: "18",
         type: "InstanceChart",
         title: t("应用程序运行趋势"),
         width: 6,
@@ -96,7 +96,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         height: LayoutCardHeight.SMALL,
       },
       {
-        id: "A000000000000000000000000000000000001",
+        id: "19",
         type: "NodeOverview",
         title: t("节点状态总览"),
         width: 12,
@@ -109,14 +109,14 @@ export const ORIGIN_LAYOUT_CONFIG = [
     page: "/instances",
     items: [
       {
-        id: "21lk3io12h3io221312312321sazxczx1h3",
+        id: "1",
         type: "InstanceList",
         title: t("应用程序"),
         width: 12,
         height: LayoutCardHeight.AUTO,
       },
       {
-        id: "21lk3io12h3io221312312321sazxczx1h3",
+        id: "2",
         type: "EmptyCard",
         title: "",
         width: 12,
@@ -128,14 +128,14 @@ export const ORIGIN_LAYOUT_CONFIG = [
     page: "/instances/terminal",
     items: [
       {
-        id: "terminal213123",
+        id: "3",
         type: "Settings",
         title: t("操作区"),
         width: 4,
         height: LayoutCardHeight.MEDIUM,
       },
       {
-        id: "21lk3io12h3io221312312321sazxczx1h3",
+        id: "4",
         type: "Settings",
         title: t("应用程序"),
         width: 4,
@@ -147,7 +147,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
     page: "/instances/terminal/files",
     items: [
       {
-        id: "BBBB12pj12o111i3hoi21B",
+        id: "5",
         type: "ExampleCard2",
         title: "文件管理",
         width: 6,
@@ -159,14 +159,14 @@ export const ORIGIN_LAYOUT_CONFIG = [
     page: "/users",
     items: [
       {
-        id: "BBBB12pj12223123oi3h23123oi221B",
+        id: "6",
         type: "UserList",
         title: "用户列表",
         width: 12,
         height: LayoutCardHeight.AUTO,
       },
       {
-        id: "21lk3io12h3io221312312321sazxczx1h3",
+        id: "7",
         type: "EmptyCard",
         title: "",
         width: 12,
@@ -178,7 +178,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
     page: "/settings",
     items: [
       {
-        id: "saldmlasdsad",
+        id: "8",
         type: "Settings",
         title: "系统设置",
         width: 6,
@@ -190,14 +190,14 @@ export const ORIGIN_LAYOUT_CONFIG = [
     page: "/node",
     items: [
       {
-        id: "21lk3io12h3io221312312321sazxczx1h3",
+        id: "9",
         type: "NodeList",
         title: t("远程节点列表"),
         width: 12,
         height: LayoutCardHeight.AUTO,
       },
       {
-        id: "21lk3io12h3io221312312321sazxczx1h3",
+        id: "10",
         type: "EmptyCard",
         title: "",
         width: 12,
