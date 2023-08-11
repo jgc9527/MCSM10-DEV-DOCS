@@ -13,6 +13,11 @@ import NodeOverview from "@/widgets/NodeOverview.vue";
 import QuickStart from "@/widgets/QuickStart.vue";
 import RequestChart from "@/widgets/RequestChart.vue";
 import InstanceChart from "@/widgets/InstanceChart.vue";
+import InstanceOperation from "@/widgets/InstanceOperation.vue";
+import InstanceList from "@/widgets/InstanceList.vue";
+import NodeList from "@/widgets/NodeList.vue";
+import NodeOperation from "@/widgets/NodeOperation.vue";
+import Settings from "@/widgets/Settings.vue";
 
 // Register specified Vue components for each card.
 export const LAYOUT_CARD_TYPES: { [key: string]: any } = {
@@ -27,6 +32,11 @@ export const LAYOUT_CARD_TYPES: { [key: string]: any } = {
   NodeOverview,
   RequestChart,
   InstanceChart,
+  InstanceOperation,
+  InstanceList,
+  NodeOperation,
+  NodeList,
+  Settings,
 };
 
 // For create new card
@@ -95,8 +105,8 @@ export function getLayoutCardPool() {
     // 一个正常的卡片
     {
       id: getRandomId(),
-      type: "ExampleCard2",
-      title: "我的卡片2",
+      type: "Settings",
+      title: "设置",
       width: 4,
       description: "卡片的详细说明以及使用方式。",
       height: LayoutCardHeight.SMALL,

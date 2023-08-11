@@ -22,26 +22,15 @@ const overviewList = [
   },
   {
     title: t("计算机型号"),
-    value:
-      "6666oasihdiah23oi1u28921938y1298312983h2189h 219h3 9812h9 18232 h8192 13h9812 39812",
+    value: "6666oasihdiah23oi1u28921938y1298312983h2189h",
   },
   {
     title: t("计算机型号"),
-    value:
-      "6666oasihdiah23oi1u28921938y1298312983h2189h 219h3 9812h9 18232 h8192 13h9812 39812",
+    value: "6666oasihdiah23oi1u28921938y1298312983h2189h",
   },
   {
     title: t("计算机型号"),
-    value:
-      "6666oasihdiah23oi1u28921938y1298312983h2189h 219h3 9812h9 18232 h8192 13h9812 39812",
-  },
-  {
-    title: t("计算机型号"),
-    value: "6666",
-  },
-  {
-    title: t("计算机型号"),
-    value: "6666",
+    value: "6666oasihdiah23oi1u28921938y1298312983h2189h",
   },
   {
     title: t("计算机型号"),
