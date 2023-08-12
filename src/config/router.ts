@@ -55,6 +55,12 @@ let originRouterConfig = [
             component: LayoutContainer,
             meta: {},
           },
+          {
+            path: "/instances/terminal/serverConfig",
+            name: t("服务端配置文件"),
+            component: LayoutContainer,
+            meta: {},
+          },
         ],
       },
     ],

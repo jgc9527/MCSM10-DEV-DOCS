@@ -141,6 +141,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         title: t("基本信息"),
         width: 4,
         height: LayoutCardHeight.SMALL,
+        disableDelete: true,
       },
       {
         id: "A1",
@@ -148,6 +149,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         title: t("功能组"),
         width: 8,
         height: LayoutCardHeight.SMALL,
+        disableDelete: true,
       },
     ],
   },
@@ -156,10 +158,38 @@ export const ORIGIN_LAYOUT_CONFIG = [
     items: [
       {
         id: "5",
-        type: "ExampleCard2",
+        type: "InstanceFileManager",
         title: "文件管理",
-        width: 6,
-        height: LayoutCardHeight.MEDIUM,
+        width: 12,
+        height: LayoutCardHeight.AUTO,
+        disableDelete: true,
+      },
+      {
+        id: "B2",
+        type: "EmptyCard",
+        title: "",
+        width: 12,
+        height: LayoutCardHeight.MINI,
+      },
+    ],
+  },
+  {
+    page: "/instances/terminal/serverConfig",
+    items: [
+      {
+        id: "B1",
+        type: "InstanceServerConfigOverview",
+        title: "服务端配置文件",
+        width: 12,
+        height: LayoutCardHeight.AUTO,
+        disableDelete: true,
+      },
+      {
+        id: "7",
+        type: "EmptyCard",
+        title: "",
+        width: 12,
+        height: LayoutCardHeight.MINI,
       },
     ],
   },

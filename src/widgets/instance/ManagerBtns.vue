@@ -19,7 +19,19 @@ const btns = arrayFilter([
     title: t("服务端配置文件"),
     icon: CloudServerOutlined,
     click: () => {
-      console.log(1);
+      toPage({
+        path: "/instances/terminal/serverConfig",
+        query: {
+          type: "Minecraft",
+        },
+      });
+    },
+  },
+  {
+    title: t("文件管理"),
+    icon: CloudServerOutlined,
+    click: () => {
+      toPage({ path: "/instances/terminal/files" });
     },
   },
   {
@@ -50,13 +62,7 @@ const btns = arrayFilter([
       console.log(1);
     },
   },
-  {
-    title: t("文件管理"),
-    icon: CloudServerOutlined,
-    click: () => {
-      toPage({ path: "/instances/terminal/files" });
-    },
-  },
+
   {
     title: t("应用高级参数设置"),
     icon: CloudServerOutlined,

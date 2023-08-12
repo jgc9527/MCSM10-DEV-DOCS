@@ -1,4 +1,5 @@
 import { router } from "@/config/router";
+import type { JsonData } from "@/types";
 import {
   useRoute,
   type RouteLocationRaw,
@@ -13,13 +14,14 @@ export function useAppRouters() {
   };
 
   const toPage = (params: RouteLocationPathRaw) => {
-    router.push({
+    const tmp = {
       ...params,
-      query: {
-        ...route.query,
-        ...params.query,
-      },
-    });
+    };
+    tmp.query = {
+      ...(route.query || {}),
+      ...(params.query || {}),
+    };
+    router.push(tmp);
   };
 
   return {
