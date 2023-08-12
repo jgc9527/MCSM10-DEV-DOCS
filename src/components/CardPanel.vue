@@ -15,9 +15,7 @@
       </div>
     </div>
     <div class="card-panel-content">
-      <a-typography-text>
-        <slot name="body"></slot>
-      </a-typography-text>
+      <slot name="body"></slot>
     </div>
   </div>
 </template>

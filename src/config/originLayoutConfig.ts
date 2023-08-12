@@ -136,14 +136,14 @@ export const ORIGIN_LAYOUT_CONFIG = [
         disableDelete: true,
       },
       {
-        id: "4",
+        id: "A2",
         type: "InstanceBaseInfo",
         title: t("基本信息"),
         width: 4,
         height: LayoutCardHeight.SMALL,
       },
       {
-        id: "4",
+        id: "A1",
         type: "InstanceManagerBtns",
         title: t("功能组"),
         width: 8,

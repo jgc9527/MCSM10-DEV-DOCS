@@ -41,6 +41,7 @@ declare module 'vue' {
     ExampleCard2: typeof import("./src/components/card-implement/ExampleCard2.vue")["default"]
     ExampleCard3: typeof import("./src/components/card-implement/ExampleCard3.vue")["default"]
     ExampleCard4: typeof import("./src/components/card-implement/ExampleCard4.vue")["default"]
+    InnerCard: typeof import('./src/components/InnerCard.vue')['default']
     InputDialogProvider: typeof import('./src/components/InputDialogProvider.vue')['default']
     LayoutCard: typeof import('./src/components/LayoutCard.vue')['default']
     NewCardList: typeof import('./src/components/NewCardList/index.vue')['default']
