@@ -17,6 +17,9 @@ import InstanceList from "@/widgets/InstanceList.vue";
 import NodeList from "@/widgets/NodeList.vue";
 import Settings from "@/widgets/Settings.vue";
 import UserList from "@/widgets/UserList.vue";
+import Terminal from "@/widgets/instance/Terminal.vue";
+import InstanceManagerBtns from "@/widgets/instance/ManagerBtns.vue";
+import InstanceBaseInfo from "@/widgets/instance/BaseInfo.vue";
 
 // Register specified Vue components for each card.
 export const LAYOUT_CARD_TYPES: { [key: string]: any } = {
@@ -35,6 +38,9 @@ export const LAYOUT_CARD_TYPES: { [key: string]: any } = {
   NodeList,
   Settings,
   UserList,
+  Terminal,
+  InstanceManagerBtns,
+  InstanceBaseInfo,
 };
 
 // For create new card

@@ -28,6 +28,7 @@ export interface LayoutCard {
   meta?: JsonData;
   allowedPages?: Array<string> | null;
   line?: number;
+  disableDelete?: boolean;
 }
 
 export interface LayoutWithRouter {

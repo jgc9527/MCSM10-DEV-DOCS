@@ -87,7 +87,7 @@ const columns = computed(() => {
     },
     {
       align: "center",
-      title: "Action",
+      title: "操作",
       key: "action",
       minWidth: "200px",
     },

@@ -9,8 +9,8 @@ import {
 import { h } from "vue";
 import { $t as t } from "@/lang/i18n";
 import { useAppToolsStore } from "@/stores/useAppToolsStore";
+import { arrayFilter } from "@/tools/array";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps<{
   card: LayoutCard;
 }>();
@@ -26,11 +26,14 @@ const {
   editCardName,
 } = useCardOperation();
 
-let btns = [
+let btns = arrayFilter([
   {
     tipText: t("TXT_CODE_153f705d"),
     icon: CloseOutlined,
     click: deleteCard,
+    condition: () => {
+      return props.card.disableDelete !== true;
+    },
   },
   {
     tipText: t("TXT_CODE_fd5ca298"),
@@ -64,7 +67,7 @@ let btns = [
       editCardName(id, String(newName));
     },
   },
-];
+]);
 </script>
 
 <template>
