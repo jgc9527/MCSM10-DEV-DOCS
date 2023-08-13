@@ -1,4 +1,5 @@
 import { $t as t } from "@/lang/i18n";
+import { getRandomId } from "@/tools/randId";
 
 export enum LayoutCardHeight {
   MINI = "100px",
@@ -16,7 +17,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
     page: "/",
     items: [
       {
-        id: "11",
+        id: getRandomId(),
         type: "StatusBlock",
         title: t("节点在线数1"),
         meta: {
@@ -28,7 +29,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         height: LayoutCardHeight.SMALL,
       },
       {
-        id: "12",
+        id: getRandomId(),
         type: "StatusBlock",
         title: t("实例运行状态"),
         meta: {
@@ -40,7 +41,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         height: LayoutCardHeight.SMALL,
       },
       {
-        id: "13",
+        id: getRandomId(),
         type: "StatusBlock",
         title: t("面板登录次数"),
         meta: {
@@ -52,7 +53,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         height: LayoutCardHeight.SMALL,
       },
       {
-        id: "14",
+        id: getRandomId(),
         type: "StatusBlock",
         title: t("系统资源信息"),
         meta: {
@@ -64,7 +65,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         height: LayoutCardHeight.SMALL,
       },
       {
-        id: "15",
+        id: getRandomId(),
         type: "DataOverview",
         title: t("数据总览"),
         width: 9,
@@ -72,7 +73,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         height: LayoutCardHeight.MEDIUM,
       },
       {
-        id: "16",
+        id: getRandomId(),
         type: "QuickStart",
         title: t("快速建立应用程序"),
         width: 3,
@@ -80,7 +81,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         height: LayoutCardHeight.MEDIUM,
       },
       {
-        id: "17",
+        id: getRandomId(),
         type: "RequestChart",
         title: t("接口请求量趋势"),
         width: 6,
@@ -88,7 +89,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         height: LayoutCardHeight.SMALL,
       },
       {
-        id: "18",
+        id: getRandomId(),
         type: "InstanceChart",
         title: t("应用程序运行趋势"),
         width: 6,
@@ -96,7 +97,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         height: LayoutCardHeight.SMALL,
       },
       {
-        id: "19",
+        id: getRandomId(),
         type: "NodeOverview",
         title: t("节点状态总览"),
         width: 12,
@@ -109,14 +110,14 @@ export const ORIGIN_LAYOUT_CONFIG = [
     page: "/instances",
     items: [
       {
-        id: "1",
+        id: getRandomId(),
         type: "InstanceList",
         title: t("应用程序"),
         width: 12,
         height: LayoutCardHeight.AUTO,
       },
       {
-        id: "2",
+        id: getRandomId(),
         type: "EmptyCard",
         title: "",
         width: 12,
@@ -128,7 +129,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
     page: "/instances/terminal",
     items: [
       {
-        id: "3",
+        id: getRandomId(),
         type: "Terminal",
         title: t("控制台"),
         width: 12,
@@ -136,7 +137,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         disableDelete: true,
       },
       {
-        id: "A2",
+        id: getRandomId(),
         type: "InstanceBaseInfo",
         title: t("基本信息"),
         width: 4,
@@ -144,7 +145,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         disableDelete: true,
       },
       {
-        id: "A1",
+        id: getRandomId(),
         type: "InstanceManagerBtns",
         title: t("功能组"),
         width: 8,
@@ -157,7 +158,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
     page: "/instances/terminal/files",
     items: [
       {
-        id: "5",
+        id: getRandomId(),
         type: "InstanceFileManager",
         title: "文件管理",
         width: 12,
@@ -165,7 +166,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         disableDelete: true,
       },
       {
-        id: "B2",
+        id: getRandomId(),
         type: "EmptyCard",
         title: "",
         width: 12,
@@ -177,7 +178,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
     page: "/instances/terminal/serverConfig",
     items: [
       {
-        id: "B1",
+        id: getRandomId(),
         type: "InstanceServerConfigOverview",
         title: "服务端配置文件",
         width: 12,
@@ -185,7 +186,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         disableDelete: true,
       },
       {
-        id: "7",
+        id: getRandomId(),
         type: "EmptyCard",
         title: "",
         width: 12,
@@ -197,14 +198,14 @@ export const ORIGIN_LAYOUT_CONFIG = [
     page: "/users",
     items: [
       {
-        id: "6",
+        id: getRandomId(),
         type: "UserList",
         title: "用户列表",
         width: 12,
         height: LayoutCardHeight.AUTO,
       },
       {
-        id: "7",
+        id: getRandomId(),
         type: "EmptyCard",
         title: "",
         width: 12,
@@ -216,14 +217,14 @@ export const ORIGIN_LAYOUT_CONFIG = [
     page: "/users/config",
     items: [
       {
-        id: "6",
+        id: getRandomId(),
         type: "UserAccessSettings",
         title: "用户权限设定",
         width: 12,
         height: LayoutCardHeight.AUTO,
       },
       {
-        id: "7",
+        id: getRandomId(),
         type: "EmptyCard",
         title: "",
         width: 12,
@@ -235,7 +236,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
     page: "/settings",
     items: [
       {
-        id: "8",
+        id: getRandomId(),
         type: "Settings",
         title: "系统设置",
         width: 6,
@@ -247,14 +248,14 @@ export const ORIGIN_LAYOUT_CONFIG = [
     page: "/node",
     items: [
       {
-        id: "9",
+        id: getRandomId(),
         type: "NodeList",
         title: t("远程节点列表"),
         width: 12,
         height: LayoutCardHeight.AUTO,
       },
       {
-        id: "10",
+        id: getRandomId(),
         type: "EmptyCard",
         title: "",
         width: 12,
@@ -267,7 +268,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
     page: "/404",
     items: [
       {
-        id: "40404040404040404",
+        id: getRandomId(),
         type: "ExampleCard2",
         title: "页面未找到",
         width: 6,
