@@ -19,12 +19,12 @@ const arr = [
   1, 2, 3, 4, 5, 6, 7, 8, 1, 1, 1, 1, 1, 1, 11, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 ];
 
-const toAppDetailPage = (daemonId: string, appId: string) => {
+const toAppDetailPage = (daemonId: string, instanceId: string) => {
   router.push({
     path: `/instances/terminal`,
     query: {
       daemonId,
-      appId,
+      instanceId,
     },
   });
 };
@@ -58,7 +58,10 @@ const toAppDetailPage = (daemonId: string, appId: string) => {
         </BetweenMenus>
       </a-col>
       <a-col :span="24" :md="6" v-for="item in arr" :key="item">
-        <CardPanel style="height: 100%" @click="toAppDetailPage('1', '2')">
+        <CardPanel
+          style="height: 100%"
+          @click="toAppDetailPage('11111', '2222')"
+        >
           <template #title>我的程序</template>
           <template #body>
             卡片示例 <br />

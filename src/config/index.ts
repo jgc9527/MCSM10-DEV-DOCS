@@ -74,14 +74,14 @@ export function getLayoutCardPool() {
       height: LayoutCardHeight.MEDIUM,
     },
 
-    // 一个带参数的卡片，只限于 ExampleCard4 类型
+    // 一个新增时要求设置参数的卡片
     {
       id: getRandomId(),
-      type: "ExampleCard4",
-      title: "带参数的卡片",
+      type: "Terminal",
+      title: "实例控制台",
       width: 6,
-      description: "卡片的详细说明以及使用方式。",
-      height: LayoutCardHeight.SMALL,
+      description: "用于显示和交互某个实例的控制台。",
+      height: LayoutCardHeight.BIG,
 
       // 新增卡片时被要求填写的参数
       meta: {},
