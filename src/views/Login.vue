@@ -1,24 +1,42 @@
 <script setup lang="ts">
 import CardPanel from "@/components/CardPanel.vue";
 import { t } from "@/lang/i18n";
-import { LockOutlined, UserOutlined } from "@ant-design/icons-vue";
+import {
+  CheckCircleOutlined,
+  LoadingOutlined,
+  LockOutlined,
+  UserOutlined,
+} from "@ant-design/icons-vue";
 import { reactive, ref } from "vue";
+import { router } from "@/config/router";
 
 const formData = reactive({
   username: "",
   password: "",
 });
 
-const logging = ref(false);
+const loginStep = ref(0);
 
 const handleLogin = () => {
-  logging.value = true;
+  loginStep.value++;
+  setTimeout(() => {
+    loginStep.value = 0;
+    // loginStep.value++;
+    // setTimeout(() => loginSuccess(), 1200);
+  }, 3000);
+};
+
+const loginSuccess = () => {
+  loginStep.value++;
+  router.push({
+    path: "/",
+  });
 };
 </script>
 
 <template>
   <!-- Background Image -->
-  <div class="login-page-bg">
+  <div :class="{ 'login-page-bg': true }">
     <a-row :gutter="[24, 24]">
       <a-col :span="6">
         <CardPanel>
@@ -87,94 +105,139 @@ const handleLogin = () => {
   </div>
 
   <!-- Main Window -->
-  <div class="login-page-container">
-    <div style="position: relative">
-      <!-- Right Login square -->
-
-      <div style="z-index: 300; position: relative">
-        <CardPanel :class="{ 'login-panel': true }">
-          <template #body>
-            <div class="login-panel-body">
-              <a-typography-title :level="3" class="mb-20">
-                {{ t("用户验证") }}
-              </a-typography-title>
-              <a-typography-paragraph class="mb-20">
-                {{ t("使用服务器的 MCSManager 账号进入面板") }}
-              </a-typography-paragraph>
-              <div>
-                <a-input
-                  v-model:value="formData.username"
-                  :placeholder="t('账号')"
-                  size="large"
-                >
-                  <template #suffix>
-                    <UserOutlined style="color: rgba(0, 0, 0, 0.45)" />
-                  </template>
-                </a-input>
-
-                <a-input
-                  class="mt-20"
-                  v-model:value="formData.username"
-                  :placeholder="t('密码')"
-                  size="large"
-                >
-                  <template #suffix>
-                    <LockOutlined style="color: rgba(0, 0, 0, 0.45)" />
-                  </template>
-                </a-input>
-
-                <div class="mt-24 flex-between align-center">
-                  <div class="mcsmanager-link">
-                    Powered by
-                    <a
-                      href="https://mcsmanager.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      MCSManager
-                    </a>
-                  </div>
-                  <a-button
+  <div
+    :class="{
+      logging: loginStep === 1,
+      loginDone: loginStep === 3,
+    }"
+  >
+    <div class="login-page-container">
+      <div style="position: relative">
+        <div style="z-index: 300; position: relative">
+          <CardPanel class="login-panel">
+            <template #body>
+              <div class="login-panel-body" v-show="loginStep === 0">
+                <a-typography-title :level="3" class="mb-20">
+                  {{ t("用户验证") }}
+                </a-typography-title>
+                <a-typography-paragraph class="mb-20">
+                  {{ t("使用服务器的 MCSManager 账号进入面板") }}
+                </a-typography-paragraph>
+                <div>
+                  <a-input
+                    v-model:value="formData.username"
+                    :placeholder="t('账号')"
                     size="large"
-                    type="primary"
-                    style="min-width: 100px"
-                    @click="handleLogin"
                   >
-                    {{ t("验证") }}
-                  </a-button>
+                    <template #suffix>
+                      <UserOutlined style="color: rgba(0, 0, 0, 0.45)" />
+                    </template>
+                  </a-input>
+
+                  <a-input
+                    class="mt-20"
+                    v-model:value="formData.username"
+                    :placeholder="t('密码')"
+                    size="large"
+                  >
+                    <template #suffix>
+                      <LockOutlined style="color: rgba(0, 0, 0, 0.45)" />
+                    </template>
+                  </a-input>
+
+                  <div class="mt-24 flex-between align-center">
+                    <div class="mcsmanager-link">
+                      Powered by
+                      <a
+                        href="https://mcsmanager.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        MCSManager
+                      </a>
+                    </div>
+                    <a-button
+                      size="large"
+                      type="primary"
+                      style="min-width: 100px"
+                      @click="handleLogin"
+                    >
+                      {{ t("验证") }}
+                    </a-button>
+                  </div>
                 </div>
               </div>
-            </div>
-          </template>
-        </CardPanel>
-      </div>
-      <div :class="{ 'right-square': true, 'right-square-logging': logging }">
-        <div class="square1"></div>
-        <div class="square2"></div>
-        <div class="square3"></div>
+              <div
+                class="login-panel-body flex-center"
+                v-show="loginStep === 1"
+              >
+                <div style="text-align: center">
+                  <LoadingOutlined :style="{ fontSize: '50px' }" />
+                </div>
+              </div>
+              <div class="login-panel-body flex-center" v-show="loginStep >= 2">
+                <div style="text-align: center">
+                  <CheckCircleOutlined
+                    :style="{
+                      fontSize: '40px',
+                      color: 'var(--color-green-6)',
+                    }"
+                  />
+                </div>
+              </div>
+            </template>
+          </CardPanel>
+        </div>
+
+        <!-- Login bg square -->
+        <div
+          :class="{
+            'right-square': true,
+            'right-square-logging': loginStep === 1,
+          }"
+        >
+          <div class="square1"></div>
+          <div class="square2"></div>
+          <div class="square3"></div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.loginDone {
+  .login-page-container {
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(0);
+    transform: scale(0.8) !important;
+  }
+}
+.logging {
+  .login-panel {
+    transform: scale(0.8);
+  }
+}
 .right-square-logging {
   .square1 {
-    right: -80px !important;
-    top: -70px !important;
-    animation: moveAnimation2 0.8s infinite !important;
+    right: -60px !important;
+    top: -50px !important;
+    animation: moveAnimation2 0.6s infinite !important;
     animation-delay: 0s !important;
   }
   .square2 {
-    right: 354px !important;
-    animation: moveAnimation2 1s infinite !important;
-    animation-delay: 0.5s !important;
+    right: 330px !important;
+    top: 50px !important;
+    animation: moveAnimation2 0.6s infinite !important;
+    animation-delay: 0.4s !important;
   }
 
   .square3 {
-    top: 290px !important;
-    animation: moveAnimation2 1s infinite !important;
-    animation-delay: 1s !important;
+    top: 270px !important;
+    right: 40px !important;
+    animation: moveAnimation2 0.6s infinite !important;
+    animation-delay: 0.6s !important;
   }
 }
 .square-base {
@@ -198,7 +261,7 @@ const handleLogin = () => {
     width: 110px;
     right: 0px;
     top: 0px;
-    background-color: #da04048f;
+    background-color: #e80e0e8f;
   }
 
   .square2 {
@@ -208,7 +271,7 @@ const handleLogin = () => {
     width: 64px;
     right: 100px;
     top: 20px;
-    background-color: #2d8cebbf;
+    background-color: #268ef6bf;
   }
   .square3 {
     animation-delay: 2s;
@@ -217,7 +280,7 @@ const handleLogin = () => {
     width: 80px;
     right: 20px;
     top: 74px;
-    background-color: #f3b72ad9;
+    background-color: #efb01dd9;
   }
 }
 
@@ -235,10 +298,6 @@ const handleLogin = () => {
   }
 }
 
-.Logging {
-  animation: scaleAnimation 1s;
-}
-
 .login-page-container {
   position: fixed;
   left: 0px;
@@ -251,8 +310,10 @@ const handleLogin = () => {
   align-items: center;
   backdrop-filter: saturate(120%) blur(10px);
   z-index: 200;
+  transition: all 0.8s;
 
   .login-panel {
+    transition: all 0.6s;
     max-width: 420px;
     width: 100%;
     background-color: rgb(255, 255, 255, 0.8);
@@ -260,6 +321,8 @@ const handleLogin = () => {
 
     .login-panel-body {
       padding: 32px 24px;
+      min-height: 322px;
+      min-width: 386px;
     }
   }
 
