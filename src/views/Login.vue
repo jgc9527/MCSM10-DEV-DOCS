@@ -230,14 +230,14 @@ const loginSuccess = () => {
     right: 330px !important;
     top: 50px !important;
     animation: moveAnimation2 0.6s infinite !important;
-    animation-delay: 0.4s !important;
+    animation-delay: 0.25s !important;
   }
 
   .square3 {
     top: 270px !important;
     right: 40px !important;
     animation: moveAnimation2 0.6s infinite !important;
-    animation-delay: 0.6s !important;
+    animation-delay: 0.45s !important;
   }
 }
 .square-base {
@@ -316,7 +316,7 @@ const loginSuccess = () => {
     transition: all 0.6s;
     max-width: 420px;
     width: 100%;
-    background-color: rgb(255, 255, 255, 0.8);
+    background-color: var(--login-panel-bg);
     backdrop-filter: saturate(120%) blur(12px);
 
     .login-panel-body {
