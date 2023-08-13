@@ -5,6 +5,7 @@ import {
 } from "vue-router";
 import LayoutContainer from "@/views/LayoutContainer.vue";
 import { $t as t } from "@/lang/i18n";
+import LoginVue from "@/views/Login.vue";
 
 export interface RouterMetaInfo {
   icon?: string;
@@ -30,7 +31,6 @@ let originRouterConfig = [
     name: t("TXT_CODE_16d71239"),
     component: LayoutContainer,
     meta: {
-      icon: "mdi-view-dashboard",
       mainMenu: true,
     },
   },
@@ -39,7 +39,6 @@ let originRouterConfig = [
     name: t("TXT_CODE_e21473bc"),
     component: LayoutContainer,
     meta: {
-      icon: "mdi-application-brackets",
       mainMenu: true,
     },
     children: [
@@ -70,7 +69,6 @@ let originRouterConfig = [
     name: t("用户"),
     component: LayoutContainer,
     meta: {
-      icon: "mdi-server-network",
       mainMenu: true,
     },
     children: [
@@ -87,7 +85,6 @@ let originRouterConfig = [
     name: t("TXT_CODE_e076d90b"),
     component: LayoutContainer,
     meta: {
-      icon: "mdi-server-network",
       mainMenu: true,
     },
   },
@@ -96,7 +93,6 @@ let originRouterConfig = [
     name: t("TXT_CODE_b5c7b82d"),
     component: LayoutContainer,
     meta: {
-      icon: "mdi-cog",
       mainMenu: true,
     },
   },
@@ -105,7 +101,6 @@ let originRouterConfig = [
     name: t("TXT_CODE_8c3164c9"),
     component: LayoutContainer,
     meta: {
-      icon: "mdi-cog",
       mainMenu: false,
     },
   },
@@ -114,7 +109,14 @@ let originRouterConfig = [
     name: "404",
     component: LayoutContainer,
     meta: {
-      icon: "mdi-cog",
+      mainMenu: false,
+    },
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: LoginVue,
+    meta: {
       mainMenu: false,
     },
   },
