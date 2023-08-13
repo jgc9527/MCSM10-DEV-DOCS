@@ -20,9 +20,9 @@ const loginStep = ref(0);
 const handleLogin = () => {
   loginStep.value++;
   setTimeout(() => {
-    loginStep.value = 0;
-    // loginStep.value++;
-    // setTimeout(() => loginSuccess(), 1200);
+    // loginStep.value = 0;
+    loginStep.value++;
+    setTimeout(() => loginSuccess(), 1200);
   }, 3000);
 };
 
