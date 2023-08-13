@@ -5,6 +5,7 @@ import { useLayoutContainerStore } from "@/stores/useLayoutContainerStore";
 import { useRoute } from "vue-router";
 import { computed, h, reactive } from "vue";
 import { useAppRouters } from "@/hooks/useAppRouters";
+import { notification } from "ant-design-vue";
 import {
   BuildOutlined,
   SaveOutlined,
@@ -21,6 +22,8 @@ import CardPanel from "./CardPanel.vue";
 import { $t, setLanguage, $t as t } from "@/lang/i18n";
 import { THEME, useAppConfigStore } from "@/stores/useAppConfigStore";
 
+import { message } from "ant-design-vue";
+const [messageApi] = message.useMessage();
 const { containerState, changeDesignMode } = useLayoutContainerStore();
 const { getRouteParamsUrl, toPage } = useAppRouters();
 const { setTheme, isDarkTheme } = useAppConfigStore();
@@ -106,7 +109,13 @@ const appMenus = computed(() => {
     {
       title: t("TXT_CODE_8145d82"),
       icon: SaveOutlined,
-      click: () => changeDesignMode(false),
+      click: () => {
+        changeDesignMode(false);
+        notification.success({
+          message: t("布局已保存"),
+          description: t("所有用户都将在刷新网页显示您的新更改。"),
+        });
+      },
       conditions: containerState.isDesignMode,
       onlyPC: true,
     },
@@ -152,7 +161,16 @@ const appMenus = computed(() => {
     {
       title: t("TXT_CODE_ebd2a6a1"),
       icon: BuildOutlined,
-      click: () => changeDesignMode(true),
+      click: () => {
+        changeDesignMode(true);
+
+        notification.info({
+          message: t("界面设计模式"),
+          description: t(
+            "您可以自由设计出所想要的一切。过多的元素在同一个页面可能会导致性能下降，请合理分配。"
+          ),
+        });
+      },
       conditions: !containerState.isDesignMode,
       onlyPC: true,
     },
@@ -170,6 +188,7 @@ const appMenus = computed(() => {
       icon: LogoutOutlined,
       click: () => {
         toPage({ path: "/" });
+        messageApi.success(t("成功退出"));
       },
       conditions: !containerState.isDesignMode,
       onlyPC: false,
