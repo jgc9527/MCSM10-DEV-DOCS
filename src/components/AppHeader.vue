@@ -14,10 +14,11 @@ import {
   MenuUnfoldOutlined,
   FormatPainterOutlined,
   FormatPainterFilled,
+  TranslationOutlined,
 } from "@ant-design/icons-vue";
 import { useScreen } from "@/hooks/useScreen";
 import CardPanel from "./CardPanel.vue";
-import { $t, $t as t } from "@/lang/i18n";
+import { $t, setLanguage, $t as t } from "@/lang/i18n";
 import { THEME, useAppConfigStore } from "@/stores/useAppConfigStore";
 
 const { containerState, changeDesignMode } = useLayoutContainerStore();
@@ -109,6 +110,7 @@ const appMenus = computed(() => {
       conditions: containerState.isDesignMode,
       onlyPC: true,
     },
+
     {
       title: t("选择主题"),
       icon: FormatPainterOutlined,
@@ -125,6 +127,25 @@ const appMenus = computed(() => {
         {
           title: $t("深色模式"),
           value: THEME.DARK,
+        },
+      ],
+    },
+    {
+      title: t("语言（Language）"),
+      icon: TranslationOutlined,
+      click: (key: string) => {
+        setLanguage(key);
+      },
+      conditions: !containerState.isDesignMode,
+      onlyPC: false,
+      menus: [
+        {
+          title: "English",
+          value: "en_US",
+        },
+        {
+          title: "简体中文",
+          value: "zh_CN",
         },
       ],
     },
@@ -157,7 +178,7 @@ const appMenus = computed(() => {
 });
 
 const screen = useScreen();
-const isMobile = computed(() => screen.isMobile.value);
+const isPhone = computed(() => screen.isPhone.value);
 
 const openPhoneMenu = (b = false) => {
   containerState.showPhoneMenu = b;
@@ -166,7 +187,7 @@ const openPhoneMenu = (b = false) => {
 
 <template>
   <header class="app-header-wrapper">
-    <div class="app-header-content" v-if="!isMobile">
+    <div class="app-header-content" v-if="!isPhone">
       <div class="btns">
         <a href="/" style="margin-right: 12px">
           <div class="logo">
@@ -209,9 +230,10 @@ const openPhoneMenu = (b = false) => {
       </div>
     </div>
   </header>
-  <div v-if="!isMobile" style="height: 60px"></div>
+  <div v-if="!isPhone" style="height: 60px"></div>
 
-  <header class="app-header-content-for-phone" v-if="isMobile">
+  <!-- Menus for phone -->
+  <header class="app-header-content-for-phone" v-if="isPhone">
     <CardPanel class="card-panel">
       <template #body>
         <div
@@ -221,36 +243,45 @@ const openPhoneMenu = (b = false) => {
             align-items: center;
           "
         >
-          <div style="width: 100px">
+          <div style="width: 100px" class="flex">
             <a-button
               type="text"
               :icon="h(MenuUnfoldOutlined)"
               size="small"
               @click="openPhoneMenu(true)"
             ></a-button>
+            <div v-for="(item, index) in appMenus" :key="index">
+              <a-dropdown
+                placement="bottom"
+                v-if="item.menus && item.conditions && !item.onlyPC"
+              >
+                <a-button
+                  type="text"
+                  :icon="h(item.icon)"
+                  size="small"
+                  @click.prevent
+                ></a-button>
+                <template #overlay>
+                  <a-menu @click="(e: any) => item.click(String(e.key))">
+                    <a-menu-item v-for="(m, i) in item.menus" :key="m.value">
+                      {{ m.title }}
+                    </a-menu-item>
+                  </a-menu>
+                </template>
+              </a-dropdown>
+            </div>
           </div>
           <div>
             <img :src="logo" style="height: 18px" />
           </div>
-          <div
-            style="
-              width: 100px;
-              display: flex;
-              align-items: center;
-              justify-content: flex-end;
-            "
-          >
-            <div
-              v-for="(item, index) in appMenus"
-              :key="index"
-              style="margin-left: 8px"
-            >
+          <div style="width: 100px" class="justify-end">
+            <div v-for="(item, index) in appMenus" :key="index">
               <a-button
                 type="text"
                 :icon="h(item.icon)"
                 size="small"
                 @click="item.click"
-                v-if="item.conditions && !item.onlyPC"
+                v-if="item.conditions && !item.onlyPC && !item.menus"
               ></a-button>
             </div>
           </div>

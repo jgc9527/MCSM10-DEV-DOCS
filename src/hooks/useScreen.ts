@@ -1,10 +1,10 @@
 import { onMounted, onUnmounted, ref } from "vue";
 
 export function useScreen() {
-  const isMobile = ref(window.innerWidth < 992);
+  const isPhone = ref(window.innerWidth < 992);
 
   const fn = () => {
-    isMobile.value = window.innerWidth < 992;
+    isPhone.value = window.innerWidth < 992;
   };
 
   onMounted(() => {
@@ -16,6 +16,6 @@ export function useScreen() {
   });
 
   return {
-    isMobile,
+    isPhone,
   };
 }

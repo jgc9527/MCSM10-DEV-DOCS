@@ -10,7 +10,7 @@ const screen = useScreen();
       <a-col :span="12" :lg="8" class="align-center">
         <slot name="left"></slot>
       </a-col>
-      <a-col v-if="!screen.isMobile.value" :lg="8">
+      <a-col v-if="!screen.isPhone.value" :lg="8">
         <div class="flex-center">
           <slot name="center"></slot>
         </div>
@@ -24,7 +24,7 @@ const screen = useScreen();
         <slot name="right"></slot>
       </a-col>
 
-      <a-col v-if="screen.isMobile.value" :span="24">
+      <a-col v-if="screen.isPhone.value" :span="24">
         <div class="flex-center">
           <slot name="center"></slot>
         </div>

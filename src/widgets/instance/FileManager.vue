@@ -72,7 +72,7 @@ const columns = computed(() => {
       dataIndex: "size",
       key: "size",
       minWidth: "200px",
-      condition: () => !screen.isMobile.value,
+      condition: () => !screen.isPhone.value,
     },
     {
       align: "center",
@@ -80,7 +80,7 @@ const columns = computed(() => {
       dataIndex: "modifyTime",
       key: "modifyTime",
       minWidth: "200px",
-      condition: () => !screen.isMobile.value,
+      condition: () => !screen.isPhone.value,
     },
     {
       align: "center",
@@ -88,7 +88,7 @@ const columns = computed(() => {
       dataIndex: "createTime",
       key: "createTime",
       minWidth: "200px",
-      condition: () => !screen.isMobile.value,
+      condition: () => !screen.isPhone.value,
     },
     {
       align: "center",
@@ -96,7 +96,7 @@ const columns = computed(() => {
       dataIndex: "permission",
       key: "permission",
       minWidth: "200px",
-      condition: () => !screen.isMobile.value,
+      condition: () => !screen.isPhone.value,
     },
     {
       align: "center",

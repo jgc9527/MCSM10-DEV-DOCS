@@ -75,7 +75,7 @@ const columns = computed(() => {
       dataIndex: "time",
       key: "time",
       minWidth: "200px",
-      condition: () => !screen.isMobile.value,
+      condition: () => !screen.isPhone.value,
     },
     {
       align: "center",
@@ -83,7 +83,7 @@ const columns = computed(() => {
       dataIndex: "registerTime",
       key: "registerTime",
       minWidth: "200px",
-      condition: () => !screen.isMobile.value,
+      condition: () => !screen.isPhone.value,
     },
     {
       align: "center",

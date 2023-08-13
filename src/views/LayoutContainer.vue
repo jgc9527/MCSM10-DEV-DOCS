@@ -19,8 +19,8 @@ const { getPageLayoutConfig } = useLayoutConfigStore();
 const currentLayoutConfig = getPageLayoutConfig(currentRoutePath.value);
 const { computedLayout } = useCardLayoutComputed(currentLayoutConfig);
 
-const screen = useScreen();
-// const isMobile = computed(() => screen.isMobile.value);
+// const screen = useScreen();
+// const isPhone = computed(() => screen.isPhone.value);
 
 const {
   dragover,
