@@ -1,52 +1,34 @@
-# mcsm10-ui-layout
+# MCSManager 10.0 网页前端开发文档
 
-This template should help get you started developing with Vue 3 in Vite.
+## 卡片配置
 
-## Recommended IDE Setup
+全局注册一个卡片小组件，网页排版小组件，需要到这里来配置：
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+https://github.com/unitwk/DIY-Web-UI-Template/tree/main/src/config
 
-## Type Support for `.vue` Imports in TS
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+### 具体流程
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+1. 先在 `widgets` 目录新增卡片 Vue 组件
 
-## Customize configuration
+<img width="304" alt="image" src="https://github.com/unitwk/DIY-Web-UI-Template/assets/18360009/db627d37-9a0b-4903-ae0f-e5bb68aedd0e">
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+2. 去 config/index.ts 中全局注册卡片组件
 
-## Project Setup
+<img width="748" alt="image" src="https://github.com/unitwk/DIY-Web-UI-Template/assets/18360009/627411a5-415a-4133-a041-0a1e9513fb29">
 
-```sh
-npm install
-```
+3. 将卡片放到某个页面路由，这里放到 `控制台` 页面，并且设置相关参数，比如是否可以被删除，最小高度是多少，宽度是多少。
 
-### Compile and Hot-Reload for Development
+**！！！注意：卡片的ID一定要是唯一，否则自定义布局会出BUG**
 
-```sh
-npm run dev
-```
+<img width="538" alt="image" src="https://github.com/unitwk/DIY-Web-UI-Template/assets/18360009/4b30c7ee-ba15-4bd1-9c4f-3e18f79941a2">
 
-### Type-Check, Compile and Minify for Production
+4. 将卡片添加到「新增卡片」板块中（可选）
 
-```sh
-npm run build
-```
+如果你想让你这个卡片小组件，支持被放在任何页面中，那么这一步就是必须的。依然在 src/config/index.ts 中。
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+<img width="650" alt="image" src="https://github.com/unitwk/DIY-Web-UI-Template/assets/18360009/088a39e6-e041-4055-8744-8d96b49b9ec8">
 
-```sh
-npm run test:unit
-```
 
-### Lint with [ESLint](https://eslint.org/)
 
-```sh
-npm run lint
-```
