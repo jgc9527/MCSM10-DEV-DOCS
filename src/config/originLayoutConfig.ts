@@ -213,6 +213,25 @@ export const ORIGIN_LAYOUT_CONFIG = [
     ],
   },
   {
+    page: "/users/config",
+    items: [
+      {
+        id: "6",
+        type: "UserAccessSettings",
+        title: "用户权限设定",
+        width: 12,
+        height: LayoutCardHeight.AUTO,
+      },
+      {
+        id: "7",
+        type: "EmptyCard",
+        title: "",
+        width: 12,
+        height: LayoutCardHeight.MINI,
+      },
+    ],
+  },
+  {
     page: "/settings",
     items: [
       {

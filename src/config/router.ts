@@ -73,6 +73,14 @@ let originRouterConfig = [
       icon: "mdi-server-network",
       mainMenu: true,
     },
+    children: [
+      {
+        path: "/users/config",
+        name: t("用户配置"),
+        component: LayoutContainer,
+        meta: {},
+      },
+    ],
   },
   {
     path: "/node",

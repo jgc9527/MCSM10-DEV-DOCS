@@ -24,7 +24,7 @@ const screen = useScreen();
         <slot name="right"></slot>
       </a-col>
 
-      <a-col v-if="screen.isPhone.value" :span="24">
+      <a-col v-if="screen.isPhone.value && $slots.center" :span="24">
         <div class="flex-center">
           <slot name="center"></slot>
         </div>

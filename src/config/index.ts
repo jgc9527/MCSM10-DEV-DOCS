@@ -22,6 +22,7 @@ import InstanceManagerBtns from "@/widgets/instance/ManagerBtns.vue";
 import InstanceBaseInfo from "@/widgets/instance/BaseInfo.vue";
 import InstanceServerConfigOverview from "@/widgets/instance/ServerConfigOverview.vue";
 import InstanceFileManager from "@/widgets/instance/FileManager.vue";
+import UserAccessSettings from "@/widgets/user/AccessSettings.vue";
 
 // Register specified Vue components for each card.
 export const LAYOUT_CARD_TYPES: { [key: string]: any } = {
@@ -45,6 +46,7 @@ export const LAYOUT_CARD_TYPES: { [key: string]: any } = {
   InstanceBaseInfo,
   InstanceServerConfigOverview,
   InstanceFileManager,
+  UserAccessSettings,
 };
 
 // For create new card

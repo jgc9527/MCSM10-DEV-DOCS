@@ -11,18 +11,40 @@ import {
 import BetweenMenus from "@/components/BetweenMenus.vue";
 import { useScreen } from "../hooks/useScreen";
 import { arrayFilter } from "../tools/array";
+import { useAppRouters } from "@/hooks/useAppRouters";
+
+export interface UserInfo {
+  key?: string | number;
+  name: string;
+  level: number;
+  time: number;
+  registerTime: number;
+}
 
 const props = defineProps<{
   card: LayoutCard;
 }>();
 
+const { getRouteParamsUrl, toPage } = useAppRouters();
 const screen = useScreen();
 
 const operationForm = ref({
   name: "",
 });
 
-const dataSource = [
+const handleToUserConfig = (user: UserInfo) => {
+  console.log(user);
+  toPage({
+    path: "/users/config",
+    query: {
+      uuid: "XXXZZZ123",
+    },
+  });
+};
+
+const handleDeleteUser = (user: UserInfo) => {};
+
+const dataSource: UserInfo[] = [
   {
     key: "1",
     name: "Admin",
@@ -64,7 +86,7 @@ const columns = computed(() => {
     },
     {
       align: "center",
-      title: "权限等级",
+      title: "角色",
       dataIndex: "level",
       key: "level",
       minWidth: "200px",
@@ -151,8 +173,15 @@ const rowSelection = () => {};
                   <a-dropdown>
                     <template #overlay>
                       <a-menu>
-                        <a-menu-item key="1">{{ t("分配资源") }}</a-menu-item>
-                        <a-menu-item key="2">{{ t("删除用户") }}</a-menu-item>
+                        <a-menu-item
+                          key="1"
+                          @click="handleToUserConfig(record)"
+                        >
+                          {{ t("用户配置") }}
+                        </a-menu-item>
+                        <a-menu-item key="2" @click="handleDeleteUser(record)">
+                          {{ t("删除用户") }}
+                        </a-menu-item>
                       </a-menu>
                     </template>
                     <a-button>
