@@ -43,7 +43,7 @@
   }
   .card-panel-content {
     color: var(--text-color);
-    overflow-y: auto;
+    // overflow-y: auto;
     font-size: 14px;
   }
 }
