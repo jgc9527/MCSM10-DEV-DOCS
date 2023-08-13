@@ -11,16 +11,12 @@ import {
 } from "@/hooks/useCardLayoutComputed";
 import { useRouterParams } from "../hooks/useRouterParams";
 import { useLayoutContainerStore } from "@/stores/useLayoutContainerStore";
-import { useScreen } from "@/hooks/useScreen";
 
 const { containerState } = useLayoutContainerStore();
 const { currentRoutePath } = useRouterParams();
 const { getPageLayoutConfig } = useLayoutConfigStore();
 const currentLayoutConfig = getPageLayoutConfig(currentRoutePath.value);
 const { computedLayout } = useCardLayoutComputed(currentLayoutConfig);
-
-// const screen = useScreen();
-// const isPhone = computed(() => screen.isPhone.value);
 
 const {
   dragover,

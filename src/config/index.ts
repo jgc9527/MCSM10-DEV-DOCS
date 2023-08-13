@@ -23,6 +23,7 @@ import InstanceBaseInfo from "@/widgets/instance/BaseInfo.vue";
 import InstanceServerConfigOverview from "@/widgets/instance/ServerConfigOverview.vue";
 import InstanceFileManager from "@/widgets/instance/FileManager.vue";
 import UserAccessSettings from "@/widgets/user/AccessSettings.vue";
+import { NEW_CARD_TYPE } from "../types/index";
 
 // Register specified Vue components for each card.
 export const LAYOUT_CARD_TYPES: { [key: string]: any } = {
@@ -49,9 +50,13 @@ export const LAYOUT_CARD_TYPES: { [key: string]: any } = {
   UserAccessSettings,
 };
 
+export interface NewCardItem extends LayoutCard {
+  category: NEW_CARD_TYPE;
+}
+
 // For create new card
 export function getLayoutCardPool() {
-  const LAYOUT_CARD_POOL: LayoutCard[] = [
+  const LAYOUT_CARD_POOL: NewCardItem[] = [
     // 占位卡片
     {
       id: getRandomId(),
@@ -60,6 +65,7 @@ export function getLayoutCardPool() {
       width: 2,
       description: "此卡片没有任何内容，可以用来占位，实现居中等排版需求。",
       height: LayoutCardHeight.MINI,
+      category: NEW_CARD_TYPE.COMMON,
     },
 
     // 只展示到个人资料的卡片（但是不推荐这样用）
@@ -72,6 +78,7 @@ export function getLayoutCardPool() {
       description:
         "这个卡片只能在「个人资料」这种界面出现，不能在其他场景使用。",
       height: LayoutCardHeight.MEDIUM,
+      category: NEW_CARD_TYPE.USER,
     },
 
     // 一个新增时要求设置参数的卡片
@@ -82,6 +89,7 @@ export function getLayoutCardPool() {
       width: 6,
       description: "用于显示和交互某个实例的控制台。",
       height: LayoutCardHeight.BIG,
+      category: NEW_CARD_TYPE.INSTANCE,
 
       // 新增卡片时被要求填写的参数
       meta: {},
@@ -110,6 +118,7 @@ export function getLayoutCardPool() {
       width: 3,
       description: t("用于显示面板的所有基本数据"),
       height: LayoutCardHeight.SMALL,
+      category: NEW_CARD_TYPE.COMMON,
     },
 
     // 一个正常的卡片
@@ -120,6 +129,7 @@ export function getLayoutCardPool() {
       width: 4,
       description: "卡片的详细说明以及使用方式。",
       height: LayoutCardHeight.SMALL,
+      category: NEW_CARD_TYPE.OTHER,
     },
 
     // 一个多个项目组合一起的卡片
@@ -130,6 +140,7 @@ export function getLayoutCardPool() {
       width: 12,
       description: "卡片的详细说明以及使用方式。",
       height: LayoutCardHeight.SMALL,
+      category: NEW_CARD_TYPE.INSTANCE,
     },
 
     // 包含上下布局的卡片
@@ -140,6 +151,7 @@ export function getLayoutCardPool() {
       width: 6,
       description: "卡片的详细说明以及使用方式。",
       height: LayoutCardHeight.MEDIUM,
+      category: NEW_CARD_TYPE.COMMON,
     },
   ];
   return LAYOUT_CARD_POOL;

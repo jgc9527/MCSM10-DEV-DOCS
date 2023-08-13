@@ -35,3 +35,11 @@ export interface LayoutWithRouter {
   page: string;
   items: LayoutCard[];
 }
+
+export enum NEW_CARD_TYPE {
+  COMMON = "COMMON",
+  INSTANCE = "INSTANCE",
+  USER = "USER",
+  NODE = "NODE",
+  OTHER = "OTHER",
+}
