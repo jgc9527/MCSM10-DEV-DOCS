@@ -23,6 +23,7 @@ import InstanceBaseInfo from "@/widgets/instance/BaseInfo.vue";
 import InstanceServerConfigOverview from "@/widgets/instance/ServerConfigOverview.vue";
 import InstanceFileManager from "@/widgets/instance/FileManager.vue";
 import UserAccessSettings from "@/widgets/user/AccessSettings.vue";
+import UserInfo from "@/widgets/user/BaseInfo.vue";
 import { NEW_CARD_TYPE } from "../types/index";
 
 // Register specified Vue components for each card.
@@ -48,6 +49,7 @@ export const LAYOUT_CARD_TYPES: { [key: string]: any } = {
   InstanceServerConfigOverview,
   InstanceFileManager,
   UserAccessSettings,
+  UserInfo,
 };
 
 export interface NewCardItem extends LayoutCard {
