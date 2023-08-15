@@ -40,6 +40,14 @@ const overviewList = [
     title: t("计算机型号"),
     value: "6666",
   },
+  {
+    title: t("计算机型号"),
+    value: "6666",
+  },
+  {
+    title: t("计算机型号"),
+    value: "6666",
+  },
 ];
 </script>
 
