@@ -120,6 +120,14 @@ let originRouterConfig = [
       mainMenu: false,
     },
   },
+  {
+    path: "/quickstart",
+    name: t("快速建立应用程序"),
+    component: LayoutContainer,
+    meta: {
+      mainMenu: false,
+    },
+  },
 ];
 
 function routersConfigOptimize(
