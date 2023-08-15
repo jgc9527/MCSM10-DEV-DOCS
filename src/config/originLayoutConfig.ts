@@ -287,6 +287,19 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
   },
 
   {
+    page: "/quickstart",
+    items: [
+      {
+        id: getRandomId(),
+        type: "QuickStartFlow",
+        title: t("快速部署应用程序"),
+        width: 6,
+        height: LayoutCardHeight.AUTO,
+      },
+    ],
+  },
+
+  {
     page: "/404",
     items: [
       {

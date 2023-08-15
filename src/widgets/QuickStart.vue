@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { t } from "@/lang/i18n";
 import type { LayoutCard } from "@/types";
+import { router } from "@/config/router";
 import {
   BuildFilled,
   DropboxOutlined,
@@ -18,18 +19,38 @@ const actions = [
   {
     icon: BuildFilled,
     title: t("建立 Minecraft 游戏服务器"),
+    click: () => {
+      router.push({
+        path: "/quickstart",
+        query: {
+          type: "minecraft",
+        },
+      });
+    },
   },
-  // {
-  //   icon: GoldFilled,
-  //   title: t("建立 Terraria 游戏服务器"),
-  // },
   {
     icon: SwitcherFilled,
     title: t("建立 Steam 游戏服务器"),
+    click: () => {
+      router.push({
+        path: "/quickstart",
+        query: {
+          type: "steam",
+        },
+      });
+    },
   },
   {
     icon: DropboxSquareFilled,
     title: t("部署任意控制台应用程序"),
+    click: () => {
+      router.push({
+        path: "/quickstart",
+        query: {
+          type: "console",
+        },
+      });
+    },
   },
 ];
 </script>
@@ -40,7 +61,7 @@ const actions = [
     <template #body>
       <a-row :gutter="[24, 24]">
         <a-col :span="24" v-for="action in actions" :key="action.title">
-          <div class="quick-btn">
+          <div class="quick-btn" @click="action.click">
             <div>
               <component :is="action.icon"></component>
             </div>

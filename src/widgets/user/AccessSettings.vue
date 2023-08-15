@@ -82,8 +82,6 @@ const columns = computed(() => {
     },
   ]);
 });
-
-const rowSelection = () => {};
 </script>
 
 <template>
@@ -97,7 +95,7 @@ const rowSelection = () => {};
             </a-typography-title>
           </template>
           <template #right>
-            <a-button type="primary">分配应用</a-button>
+            <a-button type="primary">{{ t("分配应用") }}</a-button>
           </template>
         </BetweenMenus>
       </a-col>

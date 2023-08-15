@@ -25,6 +25,8 @@ import InstanceFileManager from "@/widgets/instance/FileManager.vue";
 import UserAccessSettings from "@/widgets/user/AccessSettings.vue";
 import UserInfo from "@/widgets/user/BaseInfo.vue";
 import ImageBox from "@/widgets/others/ImageBox.vue";
+import QuickStartFlow from "@/widgets/setupApp/QuickStartFlow.vue";
+
 import { NEW_CARD_TYPE } from "../types/index";
 
 // Register specified Vue components for each card.
@@ -51,7 +53,8 @@ export const LAYOUT_CARD_TYPES: { [key: string]: any } = {
   InstanceFileManager,
   UserAccessSettings,
   UserInfo,
-  ImageBox
+  ImageBox,
+  QuickStartFlow,
 };
 
 export interface NewCardItem extends LayoutCard {
