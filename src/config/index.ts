@@ -162,9 +162,9 @@ export function getLayoutCardPool() {
     {
       id: getRandomId(),
       type: "ImageBox",
-      title: "图片框",
+      title: t("图片框"),
       width: 4,
-      description: "可以用来显示图片",
+      description: t("可以用来显示图片"),
       height: LayoutCardHeight.SMALL,
       category: NEW_CARD_TYPE.OTHER,
     },

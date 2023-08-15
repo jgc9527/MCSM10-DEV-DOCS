@@ -33,9 +33,11 @@ const editImgSrc = async () => {
       <template #body>
         <a-empty :image="Empty.PRESENTED_IMAGE_SIMPLE">
           <template #description>
-            <span> 暂无图片 </span>
+            <span>{{ t("暂无图片") }}</span>
           </template>
-          <a-button type="primary" @click="editImgSrc()">添加一张</a-button>
+          <a-button type="primary" @click="editImgSrc()">{{
+            t("添加一张")
+          }}</a-button>
         </a-empty>
       </template>
     </CardPanel>
