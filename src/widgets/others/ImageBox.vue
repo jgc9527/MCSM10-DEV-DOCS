@@ -28,7 +28,11 @@ const editImgSrc = async () => {
         t("编辑图片")
       }}</a-button>
     </div>
-    <img v-if="imgSrc !== ''" :src="imgSrc" />
+    <img
+      class="global-card-container-shadow"
+      v-if="imgSrc !== ''"
+      :src="imgSrc"
+    />
     <CardPanel v-else style="height: 100%">
       <template #body>
         <a-empty :image="Empty.PRESENTED_IMAGE_SIMPLE">
@@ -46,6 +50,7 @@ const editImgSrc = async () => {
 
 <style scoped lang="scss">
 img {
+  border: 0;
   border-radius: 4px;
   width: 100%;
   box-shadow: 0 1px 2px 1px var(--card-shadow-color);
