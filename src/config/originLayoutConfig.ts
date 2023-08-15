@@ -1,5 +1,6 @@
 import { $t as t } from "@/lang/i18n";
 import { getRandomId } from "@/tools/randId";
+import type { JsonData, LayoutCard } from "@/types";
 
 export enum LayoutCardHeight {
   MINI = "100px",
@@ -10,9 +11,14 @@ export enum LayoutCardHeight {
   AUTO = "unset",
 }
 
+export interface PageLayoutConfig {
+  page: string;
+  items: LayoutCard[];
+}
+
 // 在 Web 端没有返回用户自定义布局时，使用默认的布局。
 // 这里是所有不同页面的默认的布局配置
-export const ORIGIN_LAYOUT_CONFIG = [
+export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
   {
     page: "/",
     items: [
@@ -115,6 +121,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         title: t("应用程序"),
         width: 12,
         height: LayoutCardHeight.AUTO,
+        disableDelete: true,
       },
       {
         id: getRandomId(),
@@ -142,7 +149,6 @@ export const ORIGIN_LAYOUT_CONFIG = [
         title: t("基本信息"),
         width: 4,
         height: LayoutCardHeight.SMALL,
-        disableDelete: true,
       },
       {
         id: getRandomId(),
@@ -203,6 +209,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         title: "用户列表",
         width: 12,
         height: LayoutCardHeight.AUTO,
+        disableDelete: true,
       },
       {
         id: getRandomId(),
@@ -222,6 +229,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         title: "用户权限设定",
         width: 12,
         height: LayoutCardHeight.AUTO,
+        disableDelete: true,
       },
       {
         id: getRandomId(),
@@ -241,6 +249,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         title: "系统设置",
         width: 6,
         height: LayoutCardHeight.MEDIUM,
+        disableDelete: true,
       },
     ],
   },
@@ -253,6 +262,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         title: t("远程节点列表"),
         width: 12,
         height: LayoutCardHeight.AUTO,
+        disableDelete: true,
       },
       {
         id: getRandomId(),
@@ -285,6 +295,7 @@ export const ORIGIN_LAYOUT_CONFIG = [
         title: "页面未找到",
         width: 6,
         height: LayoutCardHeight.MINI,
+        disableDelete: true,
       },
     ],
   },
