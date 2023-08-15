@@ -273,6 +273,18 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
       },
     ],
   },
+  {
+    page: "/user",
+    items: [
+      {
+        id: getRandomId(),
+        type: "UserInfo",
+        title: t("个人信息"),
+        width: 8,
+        height: LayoutCardHeight.AUTO,
+      },
+    ],
+  },
 
   {
     page: "/404",

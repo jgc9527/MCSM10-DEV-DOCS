@@ -23,6 +23,8 @@ import InstanceBaseInfo from "@/widgets/instance/BaseInfo.vue";
 import InstanceServerConfigOverview from "@/widgets/instance/ServerConfigOverview.vue";
 import InstanceFileManager from "@/widgets/instance/FileManager.vue";
 import UserAccessSettings from "@/widgets/user/AccessSettings.vue";
+import UserInfo from "@/widgets/user/BaseInfo.vue";
+import ImageBox from "@/widgets/others/ImageBox.vue";
 import { NEW_CARD_TYPE } from "../types/index";
 
 // Register specified Vue components for each card.
@@ -48,6 +50,8 @@ export const LAYOUT_CARD_TYPES: { [key: string]: any } = {
   InstanceServerConfigOverview,
   InstanceFileManager,
   UserAccessSettings,
+  UserInfo,
+  ImageBox
 };
 
 export interface NewCardItem extends LayoutCard {
@@ -152,6 +156,17 @@ export function getLayoutCardPool() {
       description: "卡片的详细说明以及使用方式。",
       height: LayoutCardHeight.MEDIUM,
       category: NEW_CARD_TYPE.COMMON,
+    },
+
+    // 图片卡片
+    {
+      id: getRandomId(),
+      type: "ImageBox",
+      title: t("图片框"),
+      width: 4,
+      description: t("可以用来显示图片"),
+      height: LayoutCardHeight.SMALL,
+      category: NEW_CARD_TYPE.OTHER,
     },
   ];
   return LAYOUT_CARD_POOL;
