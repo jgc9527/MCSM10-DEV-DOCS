@@ -283,6 +283,20 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
         width: 8,
         height: LayoutCardHeight.AUTO,
       },
+      {
+        id: getRandomId(),
+        type: "ImageBox",
+        title: t("图片框"),
+        width: 4,
+        height: LayoutCardHeight.MINI,
+      },
+      {
+        id: getRandomId(),
+        type: "IframeCard",
+        title: t("个人信息"),
+        width: 5,
+        height: LayoutCardHeight.SMALL,
+      },
     ],
   },
 
