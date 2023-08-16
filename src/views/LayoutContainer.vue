@@ -36,8 +36,6 @@ const {
     <NewCardList v-if="containerState.isDesignMode" ref="newCardList">
     </NewCardList>
 
-    <small>{{ computedLayout }}</small>
-
     <a-row
       :class="{ 'row-order-mode': containerState.isDesignMode }"
       v-if="currentLayoutConfig.length > 1"
