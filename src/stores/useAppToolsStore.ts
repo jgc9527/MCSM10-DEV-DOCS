@@ -1,4 +1,5 @@
 import { LANGUAGE_KEY, setLanguage } from "@/lang/i18n";
+import { createGlobalState } from "@vueuse/core";
 import { defineStore } from "pinia";
 import { reactive, ref } from "vue";
 
@@ -11,7 +12,7 @@ export const THEME_KEY = "THEME_KEY";
 
 const defaultTheme = localStorage.getItem(THEME_KEY) || THEME.LIGHT;
 
-export const useAppToolsStore = defineStore("useAppToolsStore", () => {
+export const useAppToolsStore = createGlobalState(() => {
   const state = reactive({
     inputDialog: {
       title: "",

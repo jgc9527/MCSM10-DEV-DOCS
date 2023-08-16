@@ -3,8 +3,9 @@ import { reactive } from "vue";
 import type { LayoutWithRouter, LayoutCard } from "@/types";
 import { useRouterParams } from "@/hooks/useRouterParams";
 import { ORIGIN_LAYOUT_CONFIG } from "@/config/originLayoutConfig";
+import { createGlobalState } from "@vueuse/core";
 
-export const useLayoutConfigStore = defineStore("layoutConfigStore", () => {
+export const useLayoutConfigStore = createGlobalState(() => {
   const { currentRoutePath } = useRouterParams();
 
   const globalLayoutConfig = reactive<LayoutWithRouter[]>(ORIGIN_LAYOUT_CONFIG);

@@ -67,6 +67,7 @@ export function getLayoutCardPool() {
     // 占位卡片
     {
       id: getRandomId(),
+      meta: {},
       type: "EmptyCard",
       title: "占位卡片",
       width: 2,
@@ -78,6 +79,7 @@ export function getLayoutCardPool() {
     // 只展示到个人资料的卡片（但是不推荐这样用）
     {
       id: getRandomId(),
+      meta: {},
       type: "ExampleCard2",
       title: "个人资料的卡片",
       width: 6,
@@ -131,6 +133,7 @@ export function getLayoutCardPool() {
     // 一个正常的卡片
     {
       id: getRandomId(),
+      meta: {},
       type: "Settings",
       title: "设置",
       width: 4,
@@ -142,6 +145,7 @@ export function getLayoutCardPool() {
     // 一个多个项目组合一起的卡片
     {
       id: getRandomId(),
+      meta: {},
       type: "ExampleCard",
       title: "多项目卡片",
       width: 12,
@@ -153,6 +157,7 @@ export function getLayoutCardPool() {
     // 包含上下布局的卡片
     {
       id: getRandomId(),
+      meta: {},
       type: "ExampleCard3",
       title: "上下布局的卡片",
       width: 6,
@@ -164,6 +169,7 @@ export function getLayoutCardPool() {
     // 图片卡片
     {
       id: getRandomId(),
+      meta: {},
       type: "ImageBox",
       title: t("图片框"),
       width: 4,
