@@ -1,6 +1,7 @@
 import { LANGUAGE_KEY, setLanguage } from "@/lang/i18n";
 import { defineStore } from "pinia";
 import { reactive, ref } from "vue";
+import { createGlobalState } from "@vueuse/core";
 
 export enum THEME {
   LIGHT = "light",
@@ -11,7 +12,7 @@ export const THEME_KEY = "THEME_KEY";
 
 const defaultTheme = localStorage.getItem(THEME_KEY) || THEME.LIGHT;
 
-export const useAppConfigStore = defineStore("useAppConfigStore", () => {
+export const useAppConfigStore = createGlobalState(() => {
   const appConfig = reactive({
     theme: defaultTheme as THEME,
   });
