@@ -72,6 +72,7 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
       },
       {
         id: getRandomId(),
+        meta: {},
         type: "DataOverview",
         title: t("数据总览"),
         width: 9,
@@ -80,6 +81,7 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
       },
       {
         id: getRandomId(),
+        meta: {},
         type: "QuickStart",
         title: t("快速建立应用程序"),
         width: 3,
@@ -88,6 +90,7 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
       },
       {
         id: getRandomId(),
+        meta: {},
         type: "RequestChart",
         title: t("接口请求量趋势"),
         width: 6,
@@ -96,6 +99,7 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
       },
       {
         id: getRandomId(),
+        meta: {},
         type: "InstanceChart",
         title: t("应用程序运行趋势"),
         width: 6,
@@ -104,6 +108,7 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
       },
       {
         id: getRandomId(),
+        meta: {},
         type: "NodeOverview",
         title: t("节点状态总览"),
         width: 12,
@@ -117,6 +122,7 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
     items: [
       {
         id: getRandomId(),
+        meta: {},
         type: "InstanceList",
         title: t("应用程序"),
         width: 12,
@@ -125,6 +131,7 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
       },
       {
         id: getRandomId(),
+        meta: {},
         type: "EmptyCard",
         title: "",
         width: 12,
@@ -137,6 +144,7 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
     items: [
       {
         id: getRandomId(),
+        meta: {},
         type: "Terminal",
         title: t("控制台"),
         width: 12,
@@ -145,6 +153,7 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
       },
       {
         id: getRandomId(),
+        meta: {},
         type: "InstanceBaseInfo",
         title: t("基本信息"),
         width: 4,
@@ -152,6 +161,7 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
       },
       {
         id: getRandomId(),
+        meta: {},
         type: "InstanceManagerBtns",
         title: t("功能组"),
         width: 8,
@@ -165,6 +175,7 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
     items: [
       {
         id: getRandomId(),
+        meta: {},
         type: "InstanceFileManager",
         title: "文件管理",
         width: 12,
@@ -173,6 +184,7 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
       },
       {
         id: getRandomId(),
+        meta: {},
         type: "EmptyCard",
         title: "",
         width: 12,
@@ -185,6 +197,7 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
     items: [
       {
         id: getRandomId(),
+        meta: {},
         type: "InstanceServerConfigOverview",
         title: "服务端配置文件",
         width: 12,
@@ -193,6 +206,7 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
       },
       {
         id: getRandomId(),
+        meta: {},
         type: "EmptyCard",
         title: "",
         width: 12,
@@ -205,6 +219,7 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
     items: [
       {
         id: getRandomId(),
+        meta: {},
         type: "UserList",
         title: "用户列表",
         width: 12,
@@ -213,6 +228,7 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
       },
       {
         id: getRandomId(),
+        meta: {},
         type: "EmptyCard",
         title: "",
         width: 12,
@@ -225,6 +241,7 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
     items: [
       {
         id: getRandomId(),
+        meta: {},
         type: "UserAccessSettings",
         title: "用户权限设定",
         width: 12,
@@ -233,6 +250,7 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
       },
       {
         id: getRandomId(),
+        meta: {},
         type: "EmptyCard",
         title: "",
         width: 12,
@@ -245,6 +263,7 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
     items: [
       {
         id: getRandomId(),
+        meta: {},
         type: "Settings",
         title: "系统设置",
         width: 6,
@@ -258,6 +277,7 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
     items: [
       {
         id: getRandomId(),
+        meta: {},
         type: "NodeList",
         title: t("远程节点列表"),
         width: 12,
@@ -266,6 +286,7 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
       },
       {
         id: getRandomId(),
+        meta: {},
         type: "EmptyCard",
         title: "",
         width: 12,
@@ -278,6 +299,7 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
     items: [
       {
         id: getRandomId(),
+        meta: {},
         type: "UserInfo",
         title: t("个人信息"),
         width: 8,
@@ -305,6 +327,7 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
     items: [
       {
         id: getRandomId(),
+        meta: {},
         type: "QuickStartFlow",
         title: t("快速部署应用程序"),
         width: 6,
@@ -318,6 +341,7 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
     items: [
       {
         id: getRandomId(),
+        meta: {},
         type: "ExampleCard2",
         title: "页面未找到",
         width: 6,
