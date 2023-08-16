@@ -6,18 +6,21 @@ import { useLayoutContainerStore } from "@/stores/useLayoutContainerStore";
 import CardPanel from "@/components/CardPanel.vue";
 import type { LayoutCard } from "@/types/index";
 import { Empty } from "ant-design-vue";
+import { useLayoutCardTools } from "@/hooks/useCardTools";
 
 const props = defineProps<{
   card: LayoutCard;
 }>();
 
-const { containerState } = useLayoutContainerStore();
-const imgSrc = ref("");
+const { getMetaValue, setMetaValue } = useLayoutCardTools(props.card);
 
+const { containerState } = useLayoutContainerStore();
+const imgSrc = ref(getMetaValue("image", ""));
 const { openInputDialog } = useAppToolsStore();
 
 const editImgSrc = async () => {
   imgSrc.value = (await openInputDialog(t("请输入图片地址"))) as string;
+  setMetaValue("image", imgSrc.value);
 };
 </script>
 

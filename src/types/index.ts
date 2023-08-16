@@ -20,12 +20,12 @@ export interface LayoutCard {
   title: string;
   width: number;
   height: LayoutCardHeight;
+  meta: JsonData;
   disableAdd?: boolean;
   onlyPath?: string[];
   params?: LayoutCardParams[];
   followId?: string;
   description?: string;
-  meta?: JsonData;
   allowedPages?: Array<string> | null;
   line?: number;
   disableDelete?: boolean;
