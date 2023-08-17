@@ -183,8 +183,9 @@ export function getLayoutCardPool() {
     // iframe卡片
     {
       id: getRandomId(),
+      meta: {},
       type: "IframeCard",
-      title: t("Google Chrome"),
+      title: t("Iframe 框"),
       width: 4,
       description: t("可以用来显示外部网站"),
       height: LayoutCardHeight.SMALL,

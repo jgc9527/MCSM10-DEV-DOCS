@@ -307,6 +307,7 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
       },
       {
         id: getRandomId(),
+        meta: {},
         type: "ImageBox",
         title: t("图片框"),
         width: 4,
@@ -314,8 +315,9 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
       },
       {
         id: getRandomId(),
+        meta: {},
         type: "IframeCard",
-        title: t("个人信息"),
+        title: t("Iframe 框"),
         width: 5,
         height: LayoutCardHeight.SMALL,
       },

@@ -6,61 +6,65 @@ import { useLayoutContainerStore } from "@/stores/useLayoutContainerStore";
 import CardPanel from "@/components/CardPanel.vue";
 import type { LayoutCard } from "@/types/index";
 import { Empty } from "ant-design-vue";
-import { EditOutlined } from "@ant-design/icons-vue";
+import { useLayoutCardTools } from "@/hooks/useCardTools";
 
 const props = defineProps<{
   card: LayoutCard;
 }>();
 
-const { containerState } = useLayoutContainerStore();
-const urlSrc = ref(
-  "http://[fe80::a05d:f06c:f676:dfdf]:24444"
-  // "//music.163.com/outchain/player?type=2&id=19606011&auto=1&height=66"
-);
+const { getMetaValue, setMetaValue } = useLayoutCardTools(props.card);
 
+const { containerState } = useLayoutContainerStore();
+const urlSrc = ref(getMetaValue("url", ""));
 const { openInputDialog } = useAppToolsStore();
 
 const editImgSrc = async () => {
   urlSrc.value = (await openInputDialog(t("请输入Url链接"))) as string;
+  setMetaValue("url", urlSrc.value);
 };
 
 const myIframe = ref<HTMLIFrameElement | null>(null);
-const myIframeLoading = ref(true);
+const myIframeLoading = ref(false);
+
 onMounted(() => {
-  if (myIframe.value) {
-    myIframe.value.onload = () => {
-      myIframeLoading.value = false;
-      console.log("iframe加载完拉");
-    };
-  }
-  watch(urlSrc, () => {
-    console.log("urlSrc变化拉");
+  watch([urlSrc, myIframe], () => {
     myIframeLoading.value = true;
+    if (myIframe.value) {
+      myIframe.value.onload = () => {
+        myIframeLoading.value = false;
+      };
+    }
   });
 });
 </script>
 
 <template>
   <div style="width: 100%; height: 100%; position: relative">
-    <CardPanel style="height: 100%" v-if="urlSrc !== ''">
+    <CardPanel v-if="urlSrc !== ''">
       <template #title>
-        <span v-if="urlSrc !== '' && containerState.isDesignMode">
-          <EditOutlined @click="editImgSrc()" />&nbsp;
-        </span>
-        Iframe 框
+        {{ card.title }}
+        <a-button
+          class="ml-10"
+          type="primary"
+          size="small"
+          v-if="urlSrc !== '' && containerState.isDesignMode"
+          @click="editImgSrc()"
+        >
+          {{ t("编辑URL") }}</a-button
+        >
       </template>
 
       <template #body>
         <a-skeleton
           active
-          v-show="!myIframeLoading"
+          v-show="myIframeLoading"
           :paragraph="{ rows: Number(card.height[0]) * 2 }"
         />
         <iframe
-          v-show="myIframeLoading"
+          v-show="!myIframeLoading"
           ref="myIframe"
           :src="urlSrc"
-          :style="{ height: parseInt(card.height) + 'px' }"
+          :style="{ height: parseInt(card.height) + 'px', width: '100%' }"
           frameborder="0"
           marginwidth="0"
           marginheight="0"
@@ -83,8 +87,7 @@ onMounted(() => {
 </template>
 
 <style scoped lang="scss">
-iframe {
-  width: 100%;
-  height: 100%;
-}
+// iframe {
+//   width: 100%;
+// }
 </style>
