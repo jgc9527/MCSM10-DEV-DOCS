@@ -1,7 +1,20 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const props = defineProps({
+  fullHeight: {
+    type: Boolean,
+    default: true,
+  },
+});
+</script>
 
 <template>
-  <div class="card-panel global-card-container-shadow">
+  <div
+    :class="{
+      'card-panel': true,
+      'global-card-container-shadow': true,
+      'h-100': props.fullHeight,
+    }"
+  >
     <div class="card-panel-title" v-if="$slots.title">
       <div>
         <a-typography-title :level="5">
@@ -26,6 +39,8 @@
 .card-panel {
   background-color: var(--background-color-white);
   padding: 16px;
+  display: flex;
+  flex-direction: column;
 
   .card-panel-title {
     font-weight: 600;
@@ -37,8 +52,8 @@
     margin-top: -4px; // For Ant-Design Font
   }
   .card-panel-content {
+    flex-grow: 1;
     color: var(--text-color);
-    // overflow-y: auto;
     font-size: 14px;
   }
 }

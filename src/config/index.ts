@@ -25,6 +25,7 @@ import InstanceFileManager from "@/widgets/instance/FileManager.vue";
 import UserAccessSettings from "@/widgets/user/AccessSettings.vue";
 import UserInfo from "@/widgets/user/BaseInfo.vue";
 import ImageBox from "@/widgets/others/ImageBox.vue";
+import TextCard from "@/widgets/others/TextCard.vue";
 import QuickStartFlow from "@/widgets/setupApp/QuickStartFlow.vue";
 import IframeCard from "@/widgets/others/IframeCard.vue";
 
@@ -56,14 +57,15 @@ export const LAYOUT_CARD_TYPES: { [key: string]: any } = {
   UserInfo,
   ImageBox,
   QuickStartFlow,
-  IframeCard
+  IframeCard,
+  TextCard,
 };
 
 export interface NewCardItem extends LayoutCard {
   category: NEW_CARD_TYPE;
 }
 
-// For create new card
+// For create new card∂
 export function getLayoutCardPool() {
   const LAYOUT_CARD_POOL: NewCardItem[] = [
     // 占位卡片
@@ -75,7 +77,7 @@ export function getLayoutCardPool() {
       width: 2,
       description: "此卡片没有任何内容，可以用来占位，实现居中等排版需求。",
       height: LayoutCardHeight.MINI,
-      category: NEW_CARD_TYPE.COMMON,
+      category: NEW_CARD_TYPE.OTHER,
     },
 
     // 只展示到个人资料的卡片（但是不推荐这样用）
@@ -141,7 +143,7 @@ export function getLayoutCardPool() {
       width: 4,
       description: "卡片的详细说明以及使用方式。",
       height: LayoutCardHeight.SMALL,
-      category: NEW_CARD_TYPE.OTHER,
+      category: NEW_CARD_TYPE.COMMON,
     },
 
     // 一个多个项目组合一起的卡片
@@ -188,6 +190,18 @@ export function getLayoutCardPool() {
       title: t("Iframe 框"),
       width: 4,
       description: t("可以用来显示外部网站"),
+      height: LayoutCardHeight.SMALL,
+      category: NEW_CARD_TYPE.OTHER,
+    },
+
+    // 自定义文本卡片
+    {
+      id: getRandomId(),
+      meta: {},
+      type: "TextCard",
+      title: t("自定义文本框"),
+      width: 4,
+      description: t("显示指定文本，支持 Markdown 语法"),
       height: LayoutCardHeight.SMALL,
       category: NEW_CARD_TYPE.OTHER,
     },

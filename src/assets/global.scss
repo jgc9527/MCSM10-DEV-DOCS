@@ -44,12 +44,12 @@ html {
   border-radius: 4px;
   box-shadow: 0 1px 2px 1px var(--card-shadow-color);
   transition: box-shadow 0.4s ease-in-out;
-  
-    &:hover {
-      box-shadow:
-        0 4px 8px 0 var(--card-shadow-color),
-        0 1px 2px 1px var(--card-shadow-color);
-    }
+
+  &:hover {
+    box-shadow:
+      0 4px 8px 0 var(--card-shadow-color),
+      0 1px 2px 1px var(--card-shadow-color);
+  }
 }
 
 .color-danger {
@@ -173,6 +173,19 @@ html {
   justify-content: space-between;
 }
 
+.h-100 {
+  height: 100% !important;
+}
+.h-50 {
+  height: 50% !important;
+}
+.w-100 {
+  width: 100% !important;
+}
+.w-50 {
+  width: 50% !important;
+}
+
 @mixin generate-styles($depth) {
   .m-#{$depth} {
     margin: #{$depth}px !important;
@@ -211,3 +224,55 @@ html {
 }
 
 @include generate-styles(60);
+
+.global-markdown-html {
+  img {
+    border: 0;
+    border-radius: 4px;
+    width: 100%;
+    box-shadow: 0 1px 2px 1px var(--card-shadow-color);
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+  }
+
+  ul,
+  ol {
+    margin-left: 0px;
+    padding-left: 16px;
+  }
+
+  .app-dark-theme {
+    img {
+      filter: brightness(0.7);
+    }
+  }
+
+  blockquote,
+  pre {
+    background-color: var(--color-gray-3);
+    padding: 8px;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  table {
+    width: 100%;
+    margin-bottom: 10px;
+    tbody {
+      width: 100%;
+    }
+    td,
+    th {
+      text-align: center;
+      padding: 8px;
+      border: 1px solid var(--color-gray-4);
+    }
+
+    th {
+      background-color: var(--color-gray-2);
+    }
+  }
+}

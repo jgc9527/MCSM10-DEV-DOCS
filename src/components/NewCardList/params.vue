@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { LayoutCard } from "../../../types/index";
+import type { LayoutCard } from "@/types/index";
 import { ref, computed, reactive, onMounted } from "vue";
-import type { MapData } from "../../../types/index";
+import type { MapData } from "@/types/index";
 import type { FormInstance } from "ant-design-vue";
 import { BulbOutlined } from "@ant-design/icons-vue";
 import { $t as t } from "@/lang/i18n";
@@ -29,7 +29,7 @@ const openDialog = (cardInfo: LayoutCard) => {
 
 const onSubmit = async () => {
   const result = await formRef.value?.validate();
-  if (card.value) card.value.meta = result;
+  if (card.value && result) card.value.meta = result;
 
   open.value = false;
   resolveFn(true);
