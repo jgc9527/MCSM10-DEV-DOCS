@@ -35,47 +35,54 @@ const editTextContent = () => {
 </script>
 
 <template>
-  <CardPanel style="height: 100%">
-    <!-- title -->
-    <template #title
-      >{{ t("自定义文本框") }}
-      <!-- btns -->
-      <div
-        class="btns-group"
-        v-if="containerState.isDesignMode"
-        style="display: inline-block"
-      >
-        <a-button
-          type="primary"
-          v-if="status !== EDIT_MODE.PREVIEW"
-          @click="previewsTextContent()"
-          >{{ t("保存") }}</a-button
-        >
-        <a-button type="primary" v-else @click="editTextContent()">{{
-          t("编辑")
-        }}</a-button>
+  <CardPanel>
+    <template #title>
+      <div class="flex">
+        {{ card.title }}
+        <div v-if="containerState.isDesignMode" class="ml-10">
+          <a-button
+            type="primary"
+            size="small"
+            v-if="status !== EDIT_MODE.PREVIEW"
+            @click="previewsTextContent()"
+          >
+            {{ t("预览") }}
+          </a-button>
+          <a-button
+            type="primary"
+            size="small"
+            v-else
+            @click="editTextContent()"
+          >
+            {{ t("编辑") }}
+          </a-button>
+        </div>
       </div>
     </template>
-    <!-- body -->
-    <!-- design -->
+
     <template
       #body
       v-if="containerState.isDesignMode && status == EDIT_MODE.EDIT"
     >
-      <!-- edit -->
-      <div class="edit">
+      <div class="edit h-100">
         <a-textarea
+          class="h-100"
+          style="resize: none"
           v-model:value="textContent"
-          :placeholder="t(`文本内容 支持 Markdown 语法 可换行`)"
-          :rows="4"
+          :placeholder="
+            t(
+              `输入文本内容，支持 Markdown 语法，可换行。\n不要轻易使用其他人的文案，否则将有可能注入恶意代码对你进行攻击。`
+            )
+          "
         />
       </div>
     </template>
-    <!-- previews -->
+
     <template #body v-else>
-      <div class="previews" v-html="parse(textContent)" />
+      <div
+        class="previews global-markdown-html h-100"
+        v-html="parse(textContent)"
+      ></div>
     </template>
   </CardPanel>
 </template>
-
-<style scoped lang="scss"></style>

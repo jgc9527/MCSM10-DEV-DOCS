@@ -101,12 +101,11 @@ const handleTabClick = (value: string) => {
   <Transition name="global-action-float">
     <div v-if="display" class="new-card-list-container">
       <div class="new-card-list">
-        <a-row
-          v-for="card in cardPool"
-          :key="card.id"
-          style="margin-bottom: 20px"
-        >
-          <template v-if="card.category === currentCardCategory">
+        <div v-for="card in cardPool" :key="card.id + currentCardCategory">
+          <a-row
+            style="margin-bottom: 20px"
+            v-if="card.category === currentCardCategory"
+          >
             <a-col span="24">
               <a-typography>
                 <a-typography-title :level="4">
@@ -132,8 +131,8 @@ const handleTabClick = (value: string) => {
                 </LayoutCardComponent>
               </div>
             </a-col>
-          </template>
-        </a-row>
+          </a-row>
+        </div>
       </div>
     </div>
   </Transition>
