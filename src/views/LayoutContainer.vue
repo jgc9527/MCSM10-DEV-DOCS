@@ -36,11 +36,12 @@ const {
     <NewCardList v-if="containerState.isDesignMode" ref="newCardList">
     </NewCardList>
 
-    <div>
+    <!-- 调试代码 -->
+    <!-- <div>
       <small>
         {{ computedLayout }}
       </small>
-    </div>
+    </div> -->
 
     <a-row
       :class="{ 'row-order-mode': containerState.isDesignMode }"
