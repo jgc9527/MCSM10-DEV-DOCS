@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import * as marked from "marked";
+import { parse } from "marked";
 import { ref } from "vue";
 import { $t as t } from "@/lang/i18n";
 import CardPanel from "@/components/CardPanel.vue";
@@ -7,6 +7,11 @@ import { useLayoutContainerStore } from "@/stores/useLayoutContainerStore";
 import { useLayoutCardTools } from "@/hooks/useCardTools";
 
 import type { LayoutCard } from "@/types/index";
+
+enum EDIT_MODE {
+  PREVIEW = "PREVIEW",
+  EDIT = "EDIT",
+}
 
 const props = defineProps<{
   card: LayoutCard;
@@ -16,16 +21,16 @@ const { getMetaValue, setMetaValue } = useLayoutCardTools(props.card);
 const { containerState } = useLayoutContainerStore();
 
 const textContent = ref<string>(getMetaValue("textContent", ""));
-const status = ref("previews");
+const status = ref(EDIT_MODE.PREVIEW);
 
 // function
 const previewsTextContent = () => {
   setMetaValue("textContent", textContent.value);
-  status.value = "previews";
+  status.value = EDIT_MODE.PREVIEW;
 };
 
 const editTextContent = () => {
-  status.value = "edit";
+  status.value = EDIT_MODE.EDIT;
 };
 </script>
 
@@ -42,7 +47,7 @@ const editTextContent = () => {
       >
         <a-button
           type="primary"
-          v-if="status !== 'previews'"
+          v-if="status !== EDIT_MODE.PREVIEW"
           @click="previewsTextContent()"
           >{{ t("保存") }}</a-button
         >
@@ -53,7 +58,10 @@ const editTextContent = () => {
     </template>
     <!-- body -->
     <!-- design -->
-    <template #body v-if="containerState.isDesignMode && status === 'edit'">
+    <template
+      #body
+      v-if="containerState.isDesignMode && status == EDIT_MODE.EDIT"
+    >
       <!-- edit -->
       <div class="edit">
         <a-textarea
@@ -65,7 +73,7 @@ const editTextContent = () => {
     </template>
     <!-- previews -->
     <template #body v-else>
-      <div class="previews" v-html="marked.parse(textContent)" />
+      <div class="previews" v-html="parse(textContent)" />
     </template>
   </CardPanel>
 </template>
