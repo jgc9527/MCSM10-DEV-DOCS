@@ -25,6 +25,7 @@ import InstanceFileManager from "@/widgets/instance/FileManager.vue";
 import UserAccessSettings from "@/widgets/user/AccessSettings.vue";
 import UserInfo from "@/widgets/user/BaseInfo.vue";
 import ImageBox from "@/widgets/others/ImageBox.vue";
+import TextCard from "@/widgets/others/TextCard.vue";
 import QuickStartFlow from "@/widgets/setupApp/QuickStartFlow.vue";
 
 import { NEW_CARD_TYPE } from "../types/index";
@@ -55,6 +56,7 @@ export const LAYOUT_CARD_TYPES: { [key: string]: any } = {
   UserInfo,
   ImageBox,
   QuickStartFlow,
+  TextCard,
 };
 
 export interface NewCardItem extends LayoutCard {
@@ -174,6 +176,18 @@ export function getLayoutCardPool() {
       title: t("图片框"),
       width: 4,
       description: t("可以用来显示图片"),
+      height: LayoutCardHeight.SMALL,
+      category: NEW_CARD_TYPE.OTHER,
+    },
+
+    // 自定义文本卡片
+    {
+      id: getRandomId(),
+      meta: {},
+      type: "TextCard",
+      title: t("文本框"),
+      width: 4,
+      description: t("显示指定文本，支持 Markdown 语法"),
       height: LayoutCardHeight.SMALL,
       category: NEW_CARD_TYPE.OTHER,
     },
