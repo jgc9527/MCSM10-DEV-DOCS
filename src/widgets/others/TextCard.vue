@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { parse } from "marked";
 import { ref } from "vue";
 import { $t as t } from "@/lang/i18n";
 import CardPanel from "@/components/CardPanel.vue";
@@ -7,6 +6,7 @@ import { useLayoutContainerStore } from "@/stores/useLayoutContainerStore";
 import { useLayoutCardTools } from "@/hooks/useCardTools";
 
 import type { LayoutCard } from "@/types/index";
+import { markdownToHTML } from "../../tools/safe";
 
 enum EDIT_MODE {
   PREVIEW = "PREVIEW",
@@ -81,7 +81,7 @@ const editTextContent = () => {
     <template #body v-else>
       <div
         class="previews global-markdown-html h-100"
-        v-html="parse(textContent)"
+        v-html="markdownToHTML(textContent)"
       ></div>
     </template>
   </CardPanel>
