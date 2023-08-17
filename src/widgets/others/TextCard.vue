@@ -53,19 +53,17 @@ const editTextContent = () => {
     </template>
     <!-- body -->
     <!-- design -->
-    <template #body v-if="containerState.isDesignMode">
+    <template #body v-if="containerState.isDesignMode && status === 'edit'">
       <!-- edit -->
-      <div class="edit" v-if="status === 'edit'">
+      <div class="edit">
         <a-textarea
           v-model:value="textContent"
           :placeholder="t(`文本内容 支持 Markdown 语法 可换行`)"
           :rows="4"
         />
       </div>
-      <!-- previews -->
-      <div class="previews" v-html="marked.parse(textContent)" v-else />
     </template>
-    <!-- nodesign -->
+    <!-- previews -->
     <template #body v-else>
       <div class="previews" v-html="marked.parse(textContent)" />
     </template>
