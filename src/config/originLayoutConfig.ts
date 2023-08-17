@@ -305,6 +305,22 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
         width: 8,
         height: LayoutCardHeight.AUTO,
       },
+      {
+        id: getRandomId(),
+        meta: {},
+        type: "ImageBox",
+        title: t("图片框"),
+        width: 4,
+        height: LayoutCardHeight.MINI,
+      },
+      {
+        id: getRandomId(),
+        meta: {},
+        type: "IframeCard",
+        title: t("Iframe 框"),
+        width: 5,
+        height: LayoutCardHeight.SMALL,
+      },
     ],
   },
 

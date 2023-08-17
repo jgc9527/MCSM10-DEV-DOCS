@@ -27,6 +27,7 @@ import UserInfo from "@/widgets/user/BaseInfo.vue";
 import ImageBox from "@/widgets/others/ImageBox.vue";
 import TextCard from "@/widgets/others/TextCard.vue";
 import QuickStartFlow from "@/widgets/setupApp/QuickStartFlow.vue";
+import IframeCard from "@/widgets/others/IframeCard.vue";
 
 import { NEW_CARD_TYPE } from "../types/index";
 
@@ -56,6 +57,7 @@ export const LAYOUT_CARD_TYPES: { [key: string]: any } = {
   UserInfo,
   ImageBox,
   QuickStartFlow,
+  IframeCard,
   TextCard,
 };
 
@@ -176,6 +178,18 @@ export function getLayoutCardPool() {
       title: t("图片框"),
       width: 4,
       description: t("可以用来显示图片"),
+      height: LayoutCardHeight.SMALL,
+      category: NEW_CARD_TYPE.OTHER,
+    },
+
+    // iframe卡片
+    {
+      id: getRandomId(),
+      meta: {},
+      type: "IframeCard",
+      title: t("Iframe 框"),
+      width: 4,
+      description: t("可以用来显示外部网站"),
       height: LayoutCardHeight.SMALL,
       category: NEW_CARD_TYPE.OTHER,
     },
