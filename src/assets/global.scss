@@ -52,34 +52,6 @@ html {
   }
 }
 
-.color-danger {
-  color: var(--color-danger);
-}
-
-.color-primary {
-  color: var(--color-primary);
-}
-
-.color-warning {
-  color: var(--color-warning);
-}
-
-.color-success {
-  color: var(--color-success);
-}
-
-.color-info {
-  color: var(--color-info);
-}
-
-.transition-all-6 {
-  transition: all 0.6s;
-}
-
-.transition-all-4 {
-  transition: all 0.4s;
-}
-
 .global-action-float-enter-active,
 .global-action-float-leave-active {
   transition: all 0.6s ease;
@@ -91,11 +63,6 @@ html {
 .global-action-float-leave-to {
   opacity: 0 !important;
   transform: scale(0.96);
-}
-
-.app-max-width {
-  max-width: var(--app-max-width);
-  margin: auto;
 }
 
 .global-text-white-border {
@@ -123,11 +90,7 @@ html {
   }
 }
 
-.ant-modal-mask,
-.ant-drawer-mask {
-  backdrop-filter: saturate(110%) blur(4px);
-}
-
+// For markdown
 .global-markdown-html {
   img {
     border: 0;
@@ -178,4 +141,10 @@ html {
       background-color: var(--color-gray-2);
     }
   }
+}
+
+// Override the AntDesign original style
+.ant-modal-mask,
+.ant-drawer-mask {
+  backdrop-filter: saturate(110%) blur(4px);
 }
