@@ -28,6 +28,7 @@ export function useCardLayoutComputed(currentLayoutConfig: LayoutCard[]) {
           id: getRandomId(),
           width: 12 - currentLineWidth,
           followId: currentLayoutConfig[currentLayoutConfig.length - 1].id,
+          meta: {},
         });
       }
     }
@@ -48,6 +49,7 @@ export function useCardLayoutComputed(currentLayoutConfig: LayoutCard[]) {
           id: getRandomId(),
           width: 12 - currentColNumber,
           followId: lastID,
+          meta: {},
         });
         newLayoutConfig.push(config);
         currentColNumber = config.width;
