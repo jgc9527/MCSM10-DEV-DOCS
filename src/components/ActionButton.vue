@@ -16,9 +16,9 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="actions-button">
+  <div class="actions-button w-100">
     <a-col :span="24">
-      <div class="btn" @click="click ? click() : action?.click() || ''">
+      <div class="btn w-100 flex" @click="click ? click() : action?.click() || ''">
         <div>
           <component :is="icon || action?.icon || LinkOutlined"></component>
         </div>
@@ -30,7 +30,6 @@ const props = defineProps({
 
 <style scoped lang="scss">
 .btn {
-  width: 100%;
   padding: 20px 12px;
   border: 1px solid var(--color-gray-2);
   background-color: var(--color-gray-2);
@@ -39,8 +38,6 @@ const props = defineProps({
   user-select: none;
   transition: all 0.4s;
   border-radius: 4px;
-
-  display: flex;
 
   &:hover {
     border: 1px solid var(--color-gray-8);
