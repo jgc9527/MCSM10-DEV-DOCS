@@ -76,7 +76,7 @@ const actions = [
 <style lang="scss" scoped>
 .quick-btn {
   width: 100%;
-  padding: 24px 12px;
+  padding: 20px 12px;
   border: 1px solid var(--color-gray-2);
   background-color: var(--color-gray-2);
 

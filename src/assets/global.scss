@@ -8,9 +8,9 @@ html {
   background-color: var(--background-color);
   overflow-x: hidden;
   overflow-y: overlay;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
 }
 
 .global-text-color {
@@ -44,40 +44,12 @@ html {
   border-radius: 4px;
   box-shadow: 0 1px 2px 1px var(--card-shadow-color);
   transition: box-shadow 0.4s ease-in-out;
-  
-    &:hover {
-      box-shadow:
-        0 4px 8px 0 var(--card-shadow-color),
-        0 1px 2px 1px var(--card-shadow-color);
-    }
-}
 
-.color-danger {
-  color: var(--color-danger);
-}
-
-.color-primary {
-  color: var(--color-primary);
-}
-
-.color-warning {
-  color: var(--color-warning);
-}
-
-.color-success {
-  color: var(--color-success);
-}
-
-.color-info {
-  color: var(--color-info);
-}
-
-.transition-all-6 {
-  transition: all 0.6s;
-}
-
-.transition-all-4 {
-  transition: all 0.4s;
+  &:hover {
+    box-shadow:
+      0 4px 8px 0 var(--card-shadow-color),
+      0 1px 2px 1px var(--card-shadow-color);
+  }
 }
 
 .global-action-float-enter-active,
@@ -91,11 +63,6 @@ html {
 .global-action-float-leave-to {
   opacity: 0 !important;
   transform: scale(0.96);
-}
-
-.app-max-width {
-  max-width: var(--app-max-width);
-  margin: auto;
 }
 
 .global-text-white-border {
@@ -123,91 +90,61 @@ html {
   }
 }
 
+// For markdown
+.global-markdown-html {
+  img {
+    border: 0;
+    border-radius: 4px;
+    width: 100%;
+    box-shadow: 0 1px 2px 1px var(--card-shadow-color);
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+  }
+
+  ul,
+  ol {
+    margin-left: 0px;
+    padding-left: 16px;
+  }
+
+  .app-dark-theme {
+    img {
+      filter: brightness(0.7);
+    }
+  }
+
+  blockquote,
+  pre {
+    background-color: var(--color-gray-3);
+    padding: 8px;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  table {
+    width: 100%;
+    margin-bottom: 10px;
+    tbody {
+      width: 100%;
+    }
+    td,
+    th {
+      text-align: center;
+      padding: 8px;
+      border: 1px solid var(--color-gray-4);
+    }
+
+    th {
+      background-color: var(--color-gray-2);
+    }
+  }
+}
+
+// Override the AntDesign original style
 .ant-modal-mask,
 .ant-drawer-mask {
   backdrop-filter: saturate(110%) blur(4px);
 }
-
-// Tools
-.flex-between {
-  display: flex;
-  justify-content: space-between;
-}
-
-.flex {
-  display: flex;
-}
-
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.direction-column {
-  flex-direction: column;
-}
-
-.align-center {
-  display: flex;
-  align-items: center;
-}
-
-.justify-center {
-  display: flex;
-  justify-content: center;
-}
-
-.justify-start {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.justify-end {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.justify-space-between {
-  display: flex;
-  justify-content: space-between;
-}
-
-@mixin generate-styles($depth) {
-  .m-#{$depth} {
-    margin: #{$depth}px !important;
-  }
-  .ml-#{$depth} {
-    margin-left: #{$depth}px !important;
-  }
-  .mr-#{$depth} {
-    margin-right: #{$depth}px !important;
-  }
-  .mb-#{$depth} {
-    margin-bottom: #{$depth}px !important;
-  }
-  .mt-#{$depth} {
-    margin-top: #{$depth}px !important;
-  }
-  .p-#{$depth} {
-    padding: #{$depth}px !important;
-  }
-  .pl-#{$depth} {
-    padding-left: #{$depth}px !important;
-  }
-  .pr-#{$depth} {
-    padding-right: #{$depth}px !important;
-  }
-  .pb-#{$depth} {
-    padding-bottom: #{$depth}px !important;
-  }
-  .pt-#{$depth} {
-    padding-top: #{$depth}px !important;
-  }
-
-  @if $depth >= 1 {
-    @include generate-styles($depth - 1);
-  }
-}
-
-@include generate-styles(60);

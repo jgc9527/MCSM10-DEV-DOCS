@@ -112,6 +112,7 @@ const appMenus = computed(() => {
       click: () => {
         changeDesignMode(false);
         notification.success({
+          placement: "top",
           message: t("布局已保存"),
           description: t("所有用户都将在刷新网页显示您的新更改。"),
         });
@@ -165,6 +166,7 @@ const appMenus = computed(() => {
         changeDesignMode(true);
 
         notification.info({
+          placement: "top",
           message: t("界面设计模式"),
           description: t(
             "您可以自由设计出所想要的一切。过多的元素在同一个页面可能会导致性能下降，请合理分配。"
