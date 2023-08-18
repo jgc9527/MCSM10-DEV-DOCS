@@ -93,6 +93,10 @@
   margin: auto;
 }
 
+.select-none {
+  user-select: none;
+}
+
 @mixin generate-styles($depth) {
   .m-#{$depth} {
     margin: #{$depth}px !important;
