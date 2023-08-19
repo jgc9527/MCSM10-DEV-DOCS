@@ -17,6 +17,7 @@
     "@ant-design/icons-vue": "^6.1.0",
     "@vueuse/core": "^10.3.0",
     "ant-design-vue": "^4.0.0",
+    "axios": "^1.4.0",
     "crc": "^4.3.2",
     "dayjs": "^1.11.9",
     "i18next-scanner": "^4.3.0",
