@@ -26,6 +26,7 @@ import UserAccessSettings from "@/widgets/user/AccessSettings.vue";
 import UserInfo from "@/widgets/user/BaseInfo.vue";
 import ImageBox from "@/widgets/others/ImageBox.vue";
 import TextCard from "@/widgets/others/TextCard.vue";
+import LinkCard from "@/widgets/others/LinkCard.vue";
 import QuickStartFlow from "@/widgets/setupApp/QuickStartFlow.vue";
 import IframeCard from "@/widgets/others/IframeCard.vue";
 
@@ -59,6 +60,7 @@ export const LAYOUT_CARD_TYPES: { [key: string]: any } = {
   QuickStartFlow,
   IframeCard,
   TextCard,
+  LinkCard,
 };
 
 export interface NewCardItem extends LayoutCard {
@@ -88,8 +90,7 @@ export function getLayoutCardPool() {
       title: "个人资料的卡片",
       width: 6,
       onlyPath: ["/user"],
-      description:
-        "这个卡片只能在「个人资料」这种界面出现，不能在其他场景使用。",
+      description: "这个卡片只能在「个人资料」这种界面出现，不能在其他场景使用。",
       height: LayoutCardHeight.MEDIUM,
       category: NEW_CARD_TYPE.USER,
     },
@@ -202,6 +203,18 @@ export function getLayoutCardPool() {
       title: t("自定义文本框"),
       width: 4,
       description: t("显示指定文本，支持 Markdown 语法"),
+      height: LayoutCardHeight.SMALL,
+      category: NEW_CARD_TYPE.OTHER,
+    },
+
+    // 超链接块卡片
+    {
+      id: getRandomId(),
+      meta: {},
+      type: "LinkCard",
+      title: t("超链接块"),
+      width: 4,
+      description: t("显示一组自定义超链接按钮"),
       height: LayoutCardHeight.SMALL,
       category: NEW_CARD_TYPE.OTHER,
     },
