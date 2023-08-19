@@ -188,7 +188,7 @@ export function getLayoutCardPool() {
       id: getRandomId(),
       meta: {},
       type: "IframeCard",
-      title: t("Iframe 框"),
+      title: t("内嵌网页框"),
       width: 4,
       description: t("可以用来显示外部网站"),
       height: LayoutCardHeight.SMALL,

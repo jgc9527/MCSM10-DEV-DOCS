@@ -317,7 +317,7 @@ export const ORIGIN_LAYOUT_CONFIG: PageLayoutConfig[] = [
         id: getRandomId(),
         meta: {},
         type: "IframeCard",
-        title: t("Iframe 框"),
+        title: t("内嵌网页框"),
         width: 5,
         height: LayoutCardHeight.SMALL,
       },
