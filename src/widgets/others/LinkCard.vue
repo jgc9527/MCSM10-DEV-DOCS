@@ -11,7 +11,7 @@ import { useLayoutContainerStore } from "@/stores/useLayoutContainerStore";
 
 import type { LayoutCard } from "@/types/index";
 
-interface linkCardType {
+interface LinkCardType {
   title: string;
   link: string;
 }
@@ -54,7 +54,7 @@ const deleteLink = (index: number) => {
   cardData.value.splice(index, 1);
 };
 
-const cardData: Ref<linkCardType[]> = ref(
+const cardData: Ref<LinkCardType[]> = ref(
   getMetaValue("linkCardData", [
     {
       title: t("Mcsmanager 官方网站"),
