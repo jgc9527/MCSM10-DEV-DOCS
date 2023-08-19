@@ -23,6 +23,15 @@ const props = defineProps<{
 const { getMetaValue, setMetaValue } = useLayoutCardTools(props.card);
 const { containerState } = useLayoutContainerStore();
 
+const cardData: Ref<LinkCardType[]> = ref(
+  getMetaValue("linkCardData", [
+    {
+      title: t("示例链接"),
+      link: "https://example.com/",
+    },
+  ]),
+);
+
 const addLink = ref({
   show: false,
   title: "",
@@ -53,15 +62,6 @@ const openLink = (url: string) => {
 const deleteLink = (index: number) => {
   cardData.value.splice(index, 1);
 };
-
-const cardData: Ref<LinkCardType[]> = ref(
-  getMetaValue("linkCardData", [
-    {
-      title: t("Mcsmanager 官方网站"),
-      link: "https://www.mcsmanager.com",
-    },
-  ]),
-);
 </script>
 
 <template>
@@ -78,7 +78,7 @@ const cardData: Ref<LinkCardType[]> = ref(
     </template>
 
     <template #body>
-      <a-row :gutter="[6, 6]">
+      <a-row :gutter="[0, 16]">
         <div class="h-100 w-100 button" v-for="(item, index) in cardData" :key="item.title">
           <a-popconfirm
             :title="t('你确定要删除这个超链接吗?')"

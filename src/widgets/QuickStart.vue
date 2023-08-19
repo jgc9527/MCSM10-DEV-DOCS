@@ -60,7 +60,7 @@ const actions = [
   <card-panel style="height: 100%">
     <template #title>{{ card.title }}</template>
     <template #body>
-      <a-row :gutter="[24, 24]">
+      <a-row :gutter="[0, 16]">
         <action-button
           v-for="(action, key) in actions"
           :key="action.title"
