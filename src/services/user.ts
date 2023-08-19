@@ -1,15 +1,8 @@
-import { useApiCache } from "@/stores/useApiCache";
-
 import { createGlobalState } from "@vueuse/core";
 import axios from "axios";
+import { userInfoApi } from "./apis";
 
 export const userService = createGlobalState(() => {
-  const { defineApi } = useApiCache();
-
-  const userInfoApi = defineApi<{
-    id: number;
-  }>();
-
   const login = async (username: string, password: string) => {
     const result = await axios({
       url: "https://jsonplaceholder.typicode.com/todos/1",
@@ -22,13 +15,16 @@ export const userService = createGlobalState(() => {
   };
 
   const getUserInfo = (uid: string) => {
-    userInfoApi.execute({
-      url: "https://jsonplaceholder.typicode.com/todos/1",
+    const state = userInfoApi();
+    state.execute({
       params: {
         uid,
       },
+      data: {
+        newName: "dsad",
+      },
     });
-    return userInfoApi;
+    return state;
   };
 
   return {
