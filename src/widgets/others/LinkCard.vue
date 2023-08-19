@@ -81,9 +81,9 @@ const cardData: Ref<linkCardType[]> = ref(
       <a-row :gutter="[6, 6]">
         <div class="h-100 w-100 button" v-for="(item, index) in cardData" :key="item.title">
           <a-popconfirm
-            :title="t(`你确定要删除这个超链接吗?`)"
-            :ok-text="t(`确定`)"
-            :cancel-text="t(`取消`)"
+            :title="t('你确定要删除这个超链接吗?')"
+            :ok-text="t('确定')"
+            :cancel-text="t('取消')"
             @confirm="deleteLink(index)"
           >
             <div class="delete-button" v-if="containerState.isDesignMode"><DeleteOutlined /></div>
@@ -96,17 +96,17 @@ const cardData: Ref<linkCardType[]> = ref(
 
   <a-modal
     v-model:open="addLink.show"
-    :title="t(`添加超链接`)"
+    :title="t('添加超链接')"
     @ok="addLink.finish()"
     @cancel="addLink.close()"
   >
     <a-textarea
       v-model:value="addLink.title"
-      :placeholder="t(`标题`)"
+      :placeholder="t('标题')"
       auto-size
       class="mt-10 mb-10"
     />
-    <a-textarea v-model:value="addLink.link" :placeholder="t(`链接地址`)" auto-size />
+    <a-textarea v-model:value="addLink.link" :placeholder="t('链接地址')" auto-size />
   </a-modal>
 </template>
 
