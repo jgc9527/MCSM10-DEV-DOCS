@@ -15,9 +15,9 @@ class ApiService {
       [
         String(config.method),
         String(config.url),
-        JSON.stringify(config.data),
-        JSON.stringify(config.params),
-      ].join("\n"),
+        JSON.stringify(config.data ?? {}),
+        JSON.stringify(config.params ?? {}),
+      ].join(""),
     );
 
     return new Promise((resolve, reject) => {

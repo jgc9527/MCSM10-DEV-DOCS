@@ -1,6 +1,5 @@
 import { LANGUAGE_KEY, setLanguage } from "@/lang/i18n";
-import { defineStore } from "pinia";
-import { reactive, ref } from "vue";
+import { reactive } from "vue";
 import { createGlobalState } from "@vueuse/core";
 
 export enum THEME {
